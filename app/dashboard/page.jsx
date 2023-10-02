@@ -1,4 +1,5 @@
 "use client"
+import JobCard from '@/components/JobCard'
 
 
 export default function Dashboard() {
@@ -11,11 +12,10 @@ export default function Dashboard() {
       <div className="grid grid-cols-12 gap-4">
 
         <div className="grid-cols-2 grid grid-flow-row auto-rows-min gap-4 col-span-10">
-          <div className="bg-white h-[164px] rounded-md col-span-1 drop-shadow-brand"></div>  
-          <div className="bg-white h-[164px] rounded-md col-span-1 drop-shadow-brand"></div>  
-          <div className="bg-white h-[164px] rounded-md col-span-1 drop-shadow-brand"></div>  
-          <div className="bg-white h-[164px] rounded-md col-span-1 drop-shadow-brand"></div>  
-          <div className="bg-white h-[164px] rounded-md col-span-1 drop-shadow-brand"></div>  
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
  
         </div>
 

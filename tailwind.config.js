@@ -14,6 +14,7 @@ module.exports = {
 
       fontWeight: {
         normal: 300,
+        regular: 400,
         medium: 500
       },
 

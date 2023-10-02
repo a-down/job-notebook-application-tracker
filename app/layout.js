@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import { Lexend, Lexend_Deca, Kadwa  } from 'next/font/google'
 
 const lexend = Lexend({ 
-  weight: ['300', '400', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--lexend'
 })
