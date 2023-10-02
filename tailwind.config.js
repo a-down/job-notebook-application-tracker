@@ -33,7 +33,7 @@ module.exports = {
       },
 
       dropShadow: {
-        'brand' : '0 4px 4px rgba(0, 0, 0, 0.25)'
+        'brand' : '0 4px 2px rgb(0, 0, 0, .25)'
       },
     }
   },
