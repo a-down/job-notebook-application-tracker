@@ -6,13 +6,17 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-
     extend: {
       fontFamily: {
         'display': 'var(--kadwa)',
         'body': 'var(--lexend)'
       },
-      
+
+      fontWeight: {
+        normal: 300,
+        medium: 500
+      },
+
       colors: {
         'brand-primary': '#9DD4C7',
         'gray-1': '#F9F9F9',
