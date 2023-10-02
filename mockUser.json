@@ -1,0 +1,7 @@
+{
+  "email": "johndoe@gmail.com",
+  "password": "123456789",
+  "projects": [
+    1, 2, 3
+  ]
+}
