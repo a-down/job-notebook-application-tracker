@@ -1,11 +1,16 @@
 import './globals.css'
 import Header from '../components/Header'
-import { Lexend, Kadwa  } from 'next/font/google'
+import { Lexend, Lexend_Deca, Kadwa  } from 'next/font/google'
 
 const lexend = Lexend({ 
   weight: ['300', '400', '600', '700'],
   subsets: ['latin'],
   variable: '--lexend'
+})
+const lexendDeca = Lexend_Deca({ 
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--lexend-deca'
 })
 
 const kadwa = Kadwa({ 
@@ -22,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${lexend.variable} ${kadwa.variable} font-normal` }>
+      <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
         <Header />
         {children}
       </body>

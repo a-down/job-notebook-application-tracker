@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'display': 'var(--kadwa)',
+        'display': 'var(--lexend-deca)',
         'body': 'var(--lexend)'
       },
 
