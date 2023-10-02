@@ -5,8 +5,8 @@ export default function Header() {
 
 
   return (
-    <header className="bg-red-200 h-20 w-full">
-      <h1>Our Company</h1>
+    <header className="bg-white h-24 w-full drop-shadow-brand">
+      <h1 className=" font-display text-5xl">MyJobs</h1>
     </header>
   )
 }
