@@ -21,7 +21,7 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-12 gap-4">
 
-        <div className="grid-cols-2 grid grid-flow-row auto-rows-min gap-4 col-span-10">
+        <div className="grid-cols-2 grid grid-flow-row auto-rows-auto gap-4 col-span-10">
 
           {projects && (
             projects.map((project) => (

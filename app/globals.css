@@ -18,11 +18,14 @@
 }
 
 @keyframes slideInFromTop {
-  from {
+  0% {
     transform: translateY(16px);
     opacity: 0;
   }
-  to {
+  99% {
+    opacity: 0.99;
+  }
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
