@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import JobCardDropdown from './JobCardDropdown'
 import { useEffect, useState } from 'react'
+import { PiCaretDoubleDown } from 'react-icons/pi'
 
 
 export default function JobCard({ project }) {
@@ -10,18 +11,20 @@ export default function JobCard({ project }) {
   const [ wrapperShadow, setWrapperShadow ] = useState('')
   const [ wrapperHeight, setWrapperHeight ] = useState('')
   const [ rowSpan, setRowSpan ] = useState('row-span-1')
+  const [ arrowRotation, setArrowRotation ] = useState('0')
 
   function toggleDropdownState() {
-    dropdownState ? setDropdownState(false) : setDropdownState(true)
+    setDropdownState(prev => !prev)
     cardBottomMargin ? setCardBottomMargin('') : setCardBottomMargin('mb-[6px]')
     wrapperShadow ? setWrapperShadow('') : setWrapperShadow('drop-shadow-brand')
     wrapperHeight === '172px' ? setWrapperHeight('fit-content') : setWrapperHeight('172px')
     rowSpan === 'row-span-1' ? setRowSpan('row-span-4') : setRowSpan('row-span-1')
+    arrowRotation === '0' ? setArrowRotation('180') : setArrowRotation('0')
   }
 
   return (
     <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content'}}>
-      <div className={`bg-white p-4 rounded-md flex justify-between col-span-1 cursor-pointer drop-shadow-brand job-card-upper ${cardBottomMargin}`} onClick={toggleDropdownState}>
+      <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 cursor-pointer drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
         <div className="justify-between">
 
           <div className="flex flex-col gap-1 mb-4">
@@ -51,6 +54,8 @@ export default function JobCard({ project }) {
         <div className="h-[136px] aspect-square bg-brand-primary rounded-full flex justify-center items-center">
           <div className="w-16 aspect-square bg-white rounded-full"></div>
         </div>
+
+        <PiCaretDoubleDown className='absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${arrowRotation}deg)`}} onClick={toggleDropdownState}/>
       </div>  
       
 
