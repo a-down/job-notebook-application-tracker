@@ -26,9 +26,9 @@ module.exports = {
         medium: 500
       },
 
-      // fontSize: {
-      //   'xxs': 
-      // },
+      fontSize: {
+        'xxs': ['10px', '10px']
+      },
 
       colors: {
         'brand-primary': '#9DD4C7',
