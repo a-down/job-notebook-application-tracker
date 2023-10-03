@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { BsCircle, BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs'
+import { PiCircle, PiCheckCircle, PiCheckCircleFill, PiCheckCircleDuotone } from 'react-icons/pi'
 
 export default function ToDoItem({ item }) {
   const [ iconHoverState, setIconHoverState ] = useState(false)
@@ -23,18 +23,22 @@ export default function ToDoItem({ item }) {
     <div className=" w-full flex justify-start items-start gap-2">
       
       {completedState && !iconHoverState && (
-        <BsCheckCircleFill className='text-brand-primary flex-shrink-0' onMouseEnter={() => setIconHoverState(true)}/>
+        <PiCheckCircleFill className='text-brand-primary flex-shrink-0 text-lg' onMouseEnter={() => setIconHoverState(true)}/>
       )}  
       
       {!completedState && !iconHoverState && (
-        <BsCircle className='text-brand-primary flex-shrink-0' onMouseEnter={() => setIconHoverState(true)}/>
+        <PiCircle className='text-brand-primary flex-shrink-0 text-lg' onMouseEnter={() => setIconHoverState(true)}/>
       )}
 
-      {iconHoverState && (
-        <BsCheckCircle className='text-brand-primary flex-shrink-0 hover:cursor-pointer' onClick={toggleCompleted} onMouseLeave={() => setIconHoverState(false)}/>
+      {iconHoverState && !completedState && (
+        <PiCheckCircle className='text-brand-primary flex-shrink-0 text-lg hover:cursor-pointer' onClick={toggleCompleted} onMouseLeave={() => setIconHoverState(false)}/>
       )}
 
-      <p className='text-xs' style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}>
+      {iconHoverState && completedState && (
+        <PiCheckCircleDuotone className='text-brand-primary flex-shrink-0 text-lg hover:cursor-pointer' onClick={toggleCompleted} onMouseLeave={() => setIconHoverState(false)}/>
+      )}
+
+      <p className='text-xs duration-300' style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}>
         {item && (
           item.description
         )}
