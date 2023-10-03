@@ -1,5 +1,5 @@
 import { SiLinkedin } from 'react-icons/si'
-import { PiLinkedinLogo, PiLinkedinLogoFill } from 'react-icons/pi'
+import { PiLinkedinLogo, PiLinkedinLogoFill, PiPhone, PiEnvelope } from 'react-icons/pi'
 
 
 export default function Contacts({ sharedStyle, contacts }) {
@@ -13,18 +13,27 @@ export default function Contacts({ sharedStyle, contacts }) {
 
           <div className="col-span-1 w-full h-16" >
             <h6 className="font-regular mb-1">{contact.contact_name}</h6>
-            <div className='flex gap-1 items-center pl-0.5 mb-1'>
-              <SiLinkedin className='text-brand-primary text-xs col-span-1'/>
-              <p className='text-xxs text-gray-7'>{contact.contact_linkedin.split('.com')[1]}</p>
-            </div>
-            <div className='flex gap-1 items-center pl-0.5 mb-1'>
-              <SiLinkedin className='text-brand-primary text-xs col-span-1'/>
-              <p className='text-xxs text-gray-7'>{contact.contact_email}</p>
-            </div>
-            <div className='flex gap-1 items-center pl-0.5 mb-1'>
-              <SiLinkedin className='text-brand-primary text-xs col-span-1'/>
-              <p className='text-xxs text-gray-7'>{contact.contact_phone}</p>
-            </div>
+
+            {contact.contact_linkedin && (
+              <a href={contact.contact_linkedin} target='_blank' className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary'>
+                <PiLinkedinLogo className='text-brand-primary text-xs col-span-1'/>
+                <p className='text-xxs truncate'>{contact.contact_linkedin.split('.com')[1]}</p>
+              </a>
+            )}
+
+            {contact.contact_email && (
+              <a href={`mailto: ${contact.contact_email}`} className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary'>
+                <PiEnvelope className='text-brand-primary text-xs col-span-1'/>
+               <p className='text-xxs truncate'>{contact.contact_email}fhasodfjoiadjsgiasjgoi</p>
+              </a>
+            )}
+
+            {contact.contact_phone && (
+              <a href={`tel: ${contact.contact_phone}`} className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary'>
+                <PiPhone className='text-brand-primary text-xs col-span-1'/>
+                <p className='text-xxs truncate'>{contact.contact_phone}</p>
+              </a>
+            )}
           </div>
 
         ))
