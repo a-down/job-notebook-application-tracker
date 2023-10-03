@@ -1,9 +1,19 @@
 "use client"
-import JobCard from '@/components/JobCard'
 
+import JobCard from '@/components/JobCard'
+import { useEffect, useState } from 'react'
+import projects from '@/mockProjects'
 
 export default function Dashboard() {
+  console.log(projects)
 
+  // useEffect(() => {
+  //   async () => {
+  //     const res = await fetch('@/mockProjects')
+  //     const data = await res.json()
+  //     await console.log(data)
+  //   }
+  // }, [])
 
   return (
     <main className="bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
