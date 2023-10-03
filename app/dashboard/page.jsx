@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import projects from '@/mockProjects'
 
 export default function Dashboard() {
-  console.log(projects)
+  // console.log(projects)
 
   // useEffect(() => {
   //   async () => {
@@ -22,10 +22,17 @@ export default function Dashboard() {
       <div className="grid grid-cols-12 gap-4">
 
         <div className="grid-cols-2 grid grid-flow-row auto-rows-min gap-4 col-span-10">
+
+          {projects && (
+            projects.map((project) => (
+              <JobCard project={project} />
+            ))
+          )}
+
+          {/* <JobCard />
           <JobCard />
           <JobCard />
-          <JobCard />
-          <JobCard />
+          <JobCard /> */}
  
         </div>
 

@@ -3,8 +3,8 @@ import Link from 'next/link'
 import JobCardDropdown from './JobCardDropdown'
 
 
-export default function JobCard() {
-
+export default function JobCard({ project }) {
+  console.log(project)
 
   return (
     <div className='rounded-md drop-shadow-brand'>
