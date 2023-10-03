@@ -14,18 +14,27 @@ export default function ToDoItem({ item }) {
       : setItemStyle({itemColor: 'var(--gray-7', itemDecoration: 'none'})
   }, [completedState])
 
+  function toggleCompleted() {
+    completedState ? setCompletedState(false) : setCompletedState(true)
+  }
+
 
   return (
     <div className=" w-full flex justify-start items-start gap-2">
       
-      {completedState ? (
-        <BsCheckCircleFill className='text-brand-primary hover:text-black hover:font-bold flex-shrink-0'/>
-      ) : ( 
-        <BsCircle className='text-brand-primary hover:text-black hover:font-bold flex-shrink-0'/>
+      {completedState && !iconHoverState && (
+        <BsCheckCircleFill className='text-brand-primary flex-shrink-0' onMouseEnter={() => setIconHoverState(true)}/>
+      )}  
+      
+      {!completedState && !iconHoverState && (
+        <BsCircle className='text-brand-primary flex-shrink-0' onMouseEnter={() => setIconHoverState(true)}/>
       )}
 
+      {iconHoverState && (
+        <BsCheckCircle className='text-brand-primary flex-shrink-0' onClick={toggleCompleted} onMouseLeave={() => setIconHoverState(false)}/>
+      )}
 
-      <p className='text-xs' style={{color: `${itemStyle.color}`, textDecoration: `${itemStyle.decoration}`}}>
+      <p className='text-xs' style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}>
         {item && (
           item.description
         )}
