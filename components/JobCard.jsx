@@ -1,15 +1,23 @@
 "use client"
 import Link from 'next/link'
 import JobCardDropdown from './JobCardDropdown'
+import { useEffect, useState } from 'react'
 
 
 export default function JobCard({ project }) {
-  console.log(project)
+  const [ dropdownState, setDropdownState ] = useState(false)
+  const [ cardBottomMargin, setCardBottomMargin ] = useState('')
+  const [ wrapperShadow, setWrapperShadow ] = useState('')
+
+  function toggleDropdownState() {
+    dropdownState ? setDropdownState(false) : setDropdownState(true)
+    cardBottomMargin ? setCardBottomMargin('') : setCardBottomMargin('mb-[6px]')
+    wrapperShadow ? setWrapperShadow('') : setWrapperShadow('drop-shadow-brand')
+  }
 
   return (
-    <div className='rounded-md drop-shadow-brand'>
-
-      <div className="bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand">
+    <div className={`rounded-md bg-gray-3 ${wrapperShadow}`}>
+      <div className={`bg-white p-4 rounded-md flex justify-between col-span-1 cursor-pointer drop-shadow-brand job-card-upper ${cardBottomMargin}`} onClick={toggleDropdownState}>
         <div className="justify-between">
 
           <div className="flex flex-col gap-1 mb-4">
@@ -40,8 +48,12 @@ export default function JobCard({ project }) {
           <div className="w-16 aspect-square bg-white rounded-full"></div>
         </div>
       </div>  
+      
 
-      <JobCardDropdown project={project}/>
+      {dropdownState && (
+        <JobCardDropdown project={project}/>
+      )}
+      
 
     </div>
     

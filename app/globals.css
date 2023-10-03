@@ -8,3 +8,32 @@
   --gray-7: '#8C8C8C';
 }
 
+@keyframes stayInPlace {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.job-card-upper {
+  animation: 0 stayInPlace;
+  z-index: 1000;
+}
+
+.dropdown {
+  animation: 0.3s slideInFromTop;
+}
+

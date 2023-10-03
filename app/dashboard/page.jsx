@@ -25,7 +25,7 @@ export default function Dashboard() {
 
           {projects && (
             projects.map((project) => (
-              <JobCard project={project} />
+              <JobCard project={project} key={project._id}/>
             ))
           )}
 
@@ -36,7 +36,7 @@ export default function Dashboard() {
  
         </div>
 
-        <aside className="col-span-2 bg-gray-2 rounded drop-shadow-brand h-full">
+        <aside className="col-span-2 bg-gray-3 rounded drop-shadow-brand h-full">
 
         </aside>
 
