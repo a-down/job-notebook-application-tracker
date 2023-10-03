@@ -41,7 +41,7 @@ export default function JobCard({ project }) {
         </div>
       </div>  
 
-      <JobCardDropdown />
+      <JobCardDropdown project={project}/>
 
     </div>
     
