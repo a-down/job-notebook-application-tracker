@@ -9,16 +9,18 @@ export default function JobCard({ project }) {
   const [ cardBottomMargin, setCardBottomMargin ] = useState('')
   const [ wrapperShadow, setWrapperShadow ] = useState('')
   const [ wrapperHeight, setWrapperHeight ] = useState('')
+  const [ rowSpan, setRowSpan ] = useState('row-span-1')
 
   function toggleDropdownState() {
     dropdownState ? setDropdownState(false) : setDropdownState(true)
     cardBottomMargin ? setCardBottomMargin('') : setCardBottomMargin('mb-[6px]')
     wrapperShadow ? setWrapperShadow('') : setWrapperShadow('drop-shadow-brand')
     wrapperHeight === '172px' ? setWrapperHeight('fit-content') : setWrapperHeight('172px')
+    rowSpan === 'row-span-1' ? setRowSpan('row-span-4') : setRowSpan('row-span-1')
   }
 
   return (
-    <div className={`rounded-md bg-gray-3 ${wrapperShadow}`} style={{height: 'fit-content'}}>
+    <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content'}}>
       <div className={`bg-white p-4 rounded-md flex justify-between col-span-1 cursor-pointer drop-shadow-brand job-card-upper ${cardBottomMargin}`} onClick={toggleDropdownState}>
         <div className="justify-between">
 
