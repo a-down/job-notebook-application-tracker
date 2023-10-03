@@ -4,10 +4,21 @@ import { ToDoItem } from '@/components'
 export default function ToDo({ sharedStyle }) {
 
   return (
-    <div className={`${sharedStyle} row-span-2`}>
-      <h6 className="text-lg font-regular">To Do</h6>
+    <div className={`${sharedStyle} col-span-2 row-span-2`}>
+      <h6 className="text-lg font-regular mb-4">
+        To Do
+      </h6>
 
-      <ToDoItem />
+      <div className='flex flex-col items-start gap-2'>
+        <ToDoItem />
+        <ToDoItem />
+        <ToDoItem />
+        <ToDoItem />
+        <ToDoItem />
+        <ToDoItem />
+        <ToDoItem />
+      </div>
+      
 
     </div>
   )
