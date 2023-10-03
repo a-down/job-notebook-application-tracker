@@ -1,5 +1,5 @@
 import './globals.css'
-import Header from '../components/Header'
+import { Header } from '@/components'
 import { Lexend, Lexend_Deca, Kadwa  } from 'next/font/google'
 
 const lexend = Lexend({ 
