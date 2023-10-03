@@ -31,7 +31,7 @@ export default function ToDoItem({ item }) {
       )}
 
       {iconHoverState && (
-        <BsCheckCircle className='text-brand-primary flex-shrink-0' onClick={toggleCompleted} onMouseLeave={() => setIconHoverState(false)}/>
+        <BsCheckCircle className='text-brand-primary flex-shrink-0 hover:cursor-pointer' onClick={toggleCompleted} onMouseLeave={() => setIconHoverState(false)}/>
       )}
 
       <p className='text-xs' style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}>

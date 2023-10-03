@@ -5,7 +5,7 @@ export default function ToDo({ sharedStyle, toDo }) {
   console.log(toDo)
 
   return (
-    <div className={`${sharedStyle} col-span-2 row-span-2 mb-1`}>
+    <div className={`${sharedStyle} col-span-2 row-span-2 mb-1 h-full`}>
       <h6 className="text-lg font-regular mb-4">
         To Do
       </h6>
