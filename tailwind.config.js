@@ -7,10 +7,11 @@ module.exports = {
   ],
   theme: {
     fontSize: {
-      sm: ['14px', '20px'],
-      base: ['16px', '24px'],
-      lg: ['20px', '28px'],
-      xl: ['24px', '32px'],
+      xs: ['12px', '12px'],
+      sm: ['14px', '14px'],
+      base: ['16px', '16px'],
+      lg: ['18px', '18px'],
+      xl: ['20px', '20px']
     },
 
     extend: {
@@ -25,9 +26,9 @@ module.exports = {
         medium: 500
       },
 
-      fontSize: {
-        'xxs': 
-      },
+      // fontSize: {
+      //   'xxs': 
+      // },
 
       colors: {
         'brand-primary': '#9DD4C7',

@@ -38,7 +38,7 @@ export default function ToDoItem({ item }) {
         <PiCheckCircleDuotone className='text-brand-primary flex-shrink-0 text-lg hover:cursor-pointer' onClick={toggleCompleted} onMouseLeave={() => setIconHoverState(false)}/>
       )}
 
-      <p className='text-xs duration-300' style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}>
+      <p className='text-xs duration-300 leading-normal' style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}>
         {item && (
           item.description
         )}
