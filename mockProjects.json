@@ -13,19 +13,23 @@
 "to_do": [
   {
     "description": "Message employees on LinkedIn",
-    "completed": false
+    "completed": false,
+    "order": 1
   },
   {
     "description": "Tailor resume",
-    "completed": false
+    "completed": false,
+    "order": 2
   },
   {
     "description": "Write cover letter",
-    "completed": false
+    "completed": false,
+    "order": 3
   },
   {
     "description": "Submit application",
-    "completed": false
+    "completed": false,
+    "order": 4
   }
 ],
 "contacts": [

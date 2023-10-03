@@ -14,7 +14,7 @@ export default function ToDo({ sharedStyle, toDo }) {
 
         {toDo && (
           toDo.map(item => (
-            <ToDoItem item={item}/>
+            <ToDoItem item={item} key={item.order}/>
           ))
         )}
 
