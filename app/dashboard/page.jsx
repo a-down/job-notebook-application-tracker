@@ -5,6 +5,30 @@ import { useEffect, useState } from 'react'
 import projects from '@/mockProjects'
 
 export default function Dashboard() {
+  // const [ projectDropdownState, setProjectDropdownState ] = useState([])
+
+  // useEffect(() => {
+  //   console.log(projectDropdownState)
+  // }, [])
+  
+  
+  // useEffect(() => {
+  //   let arr = []
+  //   projects.forEach(project => {
+  //     arr.push({project: project, displayedDropdown: true})
+  //   })
+  //   setProjectDropdownState(arr)
+  // }, [])
+
+  // function setAllDropdownFalse() {
+  //   let arrClone = projectDropdownState
+  //   arrClone.forEach(project => {
+  //     project["displayedDropdown"] = false
+  //   })
+  //   console.log(arrClone)
+  //   setProjectDropdownState(arrClone)
+  // }
+  // console.log(projectDropdownState)
 
 
   return (
@@ -20,11 +44,6 @@ export default function Dashboard() {
               <JobCard project={project} key={project._id}/>
             ))
           )}
-
-          {/* <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard /> */}
  
         </div>
 
