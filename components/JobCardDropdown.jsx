@@ -10,7 +10,7 @@ export default function JobCardDropdown({ project }) {
       <ToDo sharedStyle={sharedStyle} toDo={project.to_do}/>
       <Contacts sharedStyle={sharedStyle} contacts={project.contacts}/>
       <Files sharedStyle={sharedStyle} files={project.files}/>
-      <Notes sharedStyle={sharedStyle}/>
+      <Notes sharedStyle={sharedStyle} notes={project.notes}/>
     </div>
   )
 }
