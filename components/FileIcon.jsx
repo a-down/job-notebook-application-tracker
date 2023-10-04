@@ -7,10 +7,11 @@ export default function FileIcon({ file }) {
   switch (file.file_type) {
     case 'Google Doc':
       return (
-        <a href={file.file_link} target="_blank">
+        <a href={file.file_link} target="_blank" className='relative' >
           <div className={`bg-[#2584FC] ${wrapperStyle}`}>
             <SiGoogledocs className='text-white'/>
           </div>
+          {/* <p className='absolute top-[50%] left-[50%] text-sm text-center overflow-visible' style={{transform: 'translateY(-50%) translateX(-50%)'}}>{file.file_name}</p> */}
         </a>
       )
       break;
