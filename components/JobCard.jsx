@@ -25,7 +25,7 @@ export default function JobCard({ project }) {
 
   return (
     <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content'}}>
-      <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 cursor-pointer drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
+      <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
         <div className="justify-between">
 
           <div className="flex flex-col gap-1 mb-4">
@@ -56,7 +56,7 @@ export default function JobCard({ project }) {
           <div className="w-16 aspect-square bg-white rounded-full"></div>
         </div>
 
-        <PiCaretDoubleDown className='absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${arrowRotation}deg)`}} onClick={toggleDropdownState}/>
+        <PiCaretDoubleDown className='cursor-pointer absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${arrowRotation}deg)`}} onClick={toggleDropdownState}/>
       </div>  
       
 
