@@ -5,15 +5,7 @@ import { useEffect, useState } from 'react'
 import projects from '@/mockProjects'
 
 export default function Dashboard() {
-  // console.log(projects)
 
-  // useEffect(() => {
-  //   async () => {
-  //     const res = await fetch('@/mockProjects')
-  //     const data = await res.json()
-  //     await console.log(data)
-  //   }
-  // }, [])
 
   return (
     <main className="bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
@@ -36,8 +28,39 @@ export default function Dashboard() {
  
         </div>
 
-        <aside className="col-span-2 bg-gray-3 rounded drop-shadow-brand h-full">
+        <aside className="col-span-2 bg-gray-3 rounded drop-shadow-brand h-full p-4">
+          <div className='mb-4'>
+            <h6 className='text-lg font-regular mb-2'>
+              Current
+              <span className='font-thin text-gray-8'> (7)</span>
+            </h6>
 
+            <button className=' text-white bg-brand-primary w-full px-4 py-2 rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>Job Title</button>
+            <button className=' text-white bg-brand-primary w-full px-4 py-2 rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>Job Title</button>
+            <button className=' text-white bg-brand-primary w-full px-4 py-2 rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>Job Title</button>
+            <button className=' text-white bg-brand-primary w-full px-4 py-2 rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>Job Title</button>
+            <button className=' text-white bg-brand-primary w-full px-4 py-2 rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>Job Title</button>
+            <button className=' text-white bg-brand-primary w-full px-4 py-2 rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>Job Title</button>
+            <button className=' text-white bg-brand-primary w-full px-4 py-2 rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>Job Title</button>
+
+
+          </div>
+          <div className='mb-4'>
+            <h6 className='text-lg font-regular mb-2'>
+              Completed
+              <span className='font-thin text-gray-8'> (3)</span>
+            </h6>
+
+            <button className=' text-gray-7 w-full px-4 py-2 rounded-md  border border-gray-7 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>Job Title</button>
+            <button className=' text-gray-7 w-full px-4 py-2 rounded-md  border border-gray-7 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>Job Title</button>
+            <button className=' text-gray-7 w-full px-4 py-2 rounded-md  border border-gray-7 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>Job Title</button>
+
+          </div>
+          
+
+          
+
+          
         </aside>
 
       </div>
