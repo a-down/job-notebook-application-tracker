@@ -14,21 +14,21 @@ export default function Contacts({ sharedStyle, contacts }) {
             <h6 className="font-regular mb-1">{contact.contact_name}</h6>
 
             {contact.contact_linkedin && (
-              <a href={contact.contact_linkedin} target='_blank' className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary'>
+              <a href={contact.contact_linkedin} target='_blank' className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary duration-300'>
                 <PiLinkedinLogoBold className='text-brand-primary text-xs'/>
                 <p className='text-xxs overflow-x-clip' style={{textOverflow: 'ellipsis'}}>{contact.contact_linkedin.split('.com')[1]}</p>
               </a>
             )}
 
             {contact.contact_email && (
-              <a href={`mailto: ${contact.contact_email}`} className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary'>
+              <a href={`mailto: ${contact.contact_email}`} className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary duration-300'>
                 <PiEnvelopeBold className='text-brand-primary text-xs flex-shrink-0'/>
                <p className='text-xxs overflow-x-clip' style={{textOverflow: 'ellipsis'}}>{contact.contact_email}fhasodfjoiadjsgiasjgoi</p>
               </a>
             )}
 
             {contact.contact_phone && (
-              <a href={`tel: ${contact.contact_phone}`} className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary'>
+              <a href={`tel: ${contact.contact_phone}`} className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary duration-300'>
                 <PiPhoneBold className='text-brand-primary text-xs'/>
                 <p className='text-xxs overflow-x-clip' style={{textOverflow: 'ellipsis'}}>{contact.contact_phone}</p>
               </a>

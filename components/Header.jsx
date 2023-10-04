@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 export default function Header() {
 
-
   return (
     <header className="flex justify-between items-center bg-white h-24 w-full px-16 py-6 drop-shadow-brand">
       <Link href="/" className=''>
@@ -11,10 +10,10 @@ export default function Header() {
       </Link>
       
       <div className='flex gap-4 font-body'>
-        <Link href="/about" className='hover:text-brand-primary'>About</Link>
-        <Link href="/howitworks" className='hover:text-brand-primary'>How It Works</Link>
-        <Link href="/dashboard" className='hover:text-brand-primary'>Dashboard</Link>
-        <Link href="/account" className='hover:text-brand-primary'>Account</Link>
+        <Link href="/about" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>About</Link>
+        <Link href="/howitworks" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>How It Works</Link>
+        <Link href="/dashboard" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Dashboard</Link>
+        <Link href="/account" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Account</Link>
       </div>
     </header>
   )
