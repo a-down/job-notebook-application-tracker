@@ -49,7 +49,7 @@ export default function Dashboard() {
 
         <aside className="col-span-2 bg-gray-3 rounded drop-shadow-brand h-full p-4">
           <div className='mb-4'>
-            <h6 className='text-lg font-regular mb-2'>
+            <h6 className='text-lg text-gray-7 font-regular mb-2'>
               Current
               <span className='font-thin text-gray-8'> (7)</span>
             </h6>
@@ -65,7 +65,7 @@ export default function Dashboard() {
 
           </div>
           <div className='mb-4'>
-            <h6 className='text-lg font-regular mb-2'>
+            <h6 className='text-lg text-gray-7 font-regular mb-2'>
               Completed
               <span className='font-thin text-gray-8'> (3)</span>
             </h6>

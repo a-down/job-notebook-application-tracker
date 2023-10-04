@@ -9,7 +9,7 @@ export default function JobCardDropdown({ project }) {
     <div className=" px-4 pt-[14px] pb-5 min-h-20 w-full rounded-b-md grid grid-cols-5 auto-rows-min gap-4 dropdown">
       <ToDo sharedStyle={sharedStyle} toDo={project.to_do}/>
       <Contacts sharedStyle={sharedStyle} contacts={project.contacts}/>
-      <Files sharedStyle={sharedStyle}/>
+      <Files sharedStyle={sharedStyle} files={project.files}/>
       <Notes sharedStyle={sharedStyle}/>
     </div>
   )

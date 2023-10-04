@@ -4,7 +4,7 @@ import { PiLinkedinLogoBold, PiPhoneBold, PiEnvelopeBold } from 'react-icons/pi'
 export default function Contacts({ sharedStyle, contacts }) {
 
   return (
-    <div className={`${sharedStyle} col-span-3 mb-1 h-full grid grid-cols-2 gap-x-1 gap-y-2`}>
+    <div className={`${sharedStyle} col-span-3 h-full grid grid-cols-2 gap-x-1 gap-y-2`}>
       <h6 className="text-lg font-regular col-span-2 mb-1">Contacts</h6>
 
       {contacts && (

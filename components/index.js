@@ -1,5 +1,6 @@
 export {default as Contacts} from './Contacts'
 export {default as Files} from './Files'
+export {default as FileIcon} from './FileIcon'
 export {default as Header} from './Header'
 export {default as JobCard} from './JobCard'
 export {default as JobCardDropdown} from './JobCardDropdown'
