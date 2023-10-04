@@ -35,7 +35,7 @@ export default function FileIcon({ file }) {
     case 'Folder':
       return (
         <a href={file.file_link} target="_blank">
-          <div className={`bg-[#5F6367] ${wrapperStyle}`}>
+          <div className={`bg-[#5F6367] ${wrapperStyle} text-3xl p-[5px]`}>
             <PiFolderSimpleFill className='text-white'/>
           </div>
         </a>
