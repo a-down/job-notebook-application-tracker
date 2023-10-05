@@ -5,7 +5,7 @@ import { UserButton, auth } from '@clerk/nextjs'
 
 export default function Header() {
   // const router = useRouter()
-  const {userId} = auth()
+  const { userId } = auth()
   console.log(userId)
 
   return (

@@ -1,11 +1,27 @@
 "use client"
-import { ClerkProvider } from '@clerk/nextjs'
 import JobCard from '@/components/JobCard'
 import { useEffect, useState } from 'react'
+import { UserButton, auth, useUser } from '@clerk/nextjs'
 import applications from '@/mockProjects'
-// import { useRouter } from 'next/navigation'
 
 export default function Dashboard() {
+  const [ applicationsState, setApplicationsState ] = useState([])
+  const { isSignedIn, user, isLoaded } = useUser();
+  
+  useEffect(() => {
+    if (user) {
+      console.log(user)
+      getApplications()
+    }
+  }, [isLoaded])
+
+  async function getApplications() {
+    const res = await fetch(`/api/applications/user/${user.id}`)
+    const data = await res.json()
+    await setApplicationsState(data)
+  }
+
+  // const { userId } = auth()
   // const router = useRouter()
   // const [ projectDropdownState, setProjectDropdownState ] = useState([])
 
@@ -32,6 +48,14 @@ export default function Dashboard() {
   // }
   // console.log(projectDropdownState)
 
+  // useEffect(() => {
+  //   let applications = async () => {
+  //     const res = await fetch(`/api/applications/user/${userId}`)
+  //     const data = await res.json()
+  //     await console.log(data)
+  //   }
+  // }, [userId])
+
 
   return (
       <main className="bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
@@ -41,8 +65,8 @@ export default function Dashboard() {
 
           <div className="grid-cols-2 grid grid-flow-row auto-rows-min gap-4 col-span-10">
 
-            {applications && (
-              applications.map((application) => (
+            {applicationsState && (
+              applicationsState.map((application) => (
                 <JobCard application={application} key={application._id}/>
               ))
             )}
