@@ -3,8 +3,10 @@ import { ClerkProvider } from '@clerk/nextjs'
 import JobCard from '@/components/JobCard'
 import { useEffect, useState } from 'react'
 import applications from '@/mockProjects'
+// import { useRouter } from 'next/navigation'
 
 export default function Dashboard() {
+  // const router = useRouter()
   // const [ projectDropdownState, setProjectDropdownState ] = useState([])
 
   // useEffect(() => {
@@ -32,7 +34,7 @@ export default function Dashboard() {
 
 
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
       <main className="bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
         <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
 
@@ -83,6 +85,6 @@ export default function Dashboard() {
         
 
       </main>
-    </ClerkProvider>
+    // </ClerkProvider>
   )
 }

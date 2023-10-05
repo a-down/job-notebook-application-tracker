@@ -1,6 +1,7 @@
 import './globals.css'
 import { Header } from '@/components'
 import { Lexend, Lexend_Deca, Kadwa  } from 'next/font/google'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const lexend = Lexend({ 
   weight: ['300', '400', '500', '600', '700'],
@@ -25,12 +26,15 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
-    <html lang="en">
-      <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
-        <Header />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

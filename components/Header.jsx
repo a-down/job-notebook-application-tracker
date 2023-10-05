@@ -1,11 +1,14 @@
+"use client"
 import Link from 'next/link'
 import { ClerkProvider } from '@clerk/nextjs'
+// import { useRouter } from 'next/navigation'
 
 
 export default function Header() {
+  // const router = useRouter()
 
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
       <header className="flex justify-between items-center bg-white h-24 w-full px-16 py-6 drop-shadow-brand">
         <Link href="/" className=''>
           <h1 className=" font-display font-semibold text-4xl hover:text-brand-primary duration-300">MyJobs</h1>
@@ -18,6 +21,6 @@ export default function Header() {
           <Link href="/account" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Account</Link>
         </nav>
       </header>
-    </ClerkProvider>
+    // </ClerkProvider>
   )
 }
