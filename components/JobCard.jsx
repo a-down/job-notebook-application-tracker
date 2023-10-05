@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { PiCaretDoubleDown } from 'react-icons/pi'
 
 
-export default function JobCard({ project }) {
+export default function JobCard({ application }) {
   const [ dropdownState, setDropdownState ] = useState(false)
   const [ cardBottomMargin, setCardBottomMargin ] = useState('')
   const [ wrapperShadow, setWrapperShadow ] = useState('')
@@ -44,7 +44,7 @@ export default function JobCard({ project }) {
             <p className='text-sm text-gray-7'>
               Due:
               <span className='text-gray-9'>
-                {` ${project.role.due_date}`}
+                {` ${application.role.due_date}`}
               </span>
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function JobCard({ project }) {
       
 
       {dropdownState && (
-        <JobCardDropdown project={project}/>
+        <JobCardDropdown application={application}/>
       )}
       
 

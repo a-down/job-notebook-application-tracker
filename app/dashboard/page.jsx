@@ -2,7 +2,7 @@
 
 import JobCard from '@/components/JobCard'
 import { useEffect, useState } from 'react'
-import projects from '@/mockProjects'
+import applications from '@/mockProjects'
 
 export default function Dashboard() {
   // const [ projectDropdownState, setProjectDropdownState ] = useState([])
@@ -39,9 +39,9 @@ export default function Dashboard() {
 
         <div className="grid-cols-2 grid grid-flow-row auto-rows-min gap-4 col-span-10">
 
-          {projects && (
-            projects.map((project) => (
-              <JobCard project={project} key={project._id}/>
+          {applications && (
+            applications.map((application) => (
+              <JobCard application={application} key={application._id}/>
             ))
           )}
  
