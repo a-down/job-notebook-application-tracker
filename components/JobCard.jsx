@@ -36,7 +36,7 @@ export default function JobCard({ project }) {
           </div>
 
           <div className="flex flex-col gap-1">
-            <p className='text-sm text-gray-7 mb-1'>
+            <p className='text-sm text-gray-7'>
               Next step:
               <span className='text-gray-9'>
                 {` ${'Write Cover Letter'}`}
@@ -46,7 +46,7 @@ export default function JobCard({ project }) {
             <p className='text-sm text-gray-7'>
               Due:
               <span className='text-gray-9'>
-                {` ${'Friday, October 7'}`}
+                {` ${project.role.due_date}`}
               </span>
             </p>
           </div>
