@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 const applicationSchema = new Schema(
   {
+    user_id: String,
     completed: {
       type: Boolean,
       default: false,
