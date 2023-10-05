@@ -12,10 +12,8 @@ export default function JobCard({ project }) {
   const [ rowSpan, setRowSpan ] = useState('row-span-1')
   const [ arrowRotation, setArrowRotation ] = useState('0')
 
-  // console.log(displayedDropdown)
-
   function toggleDropdownState() {
-    setDropdownState(prev => !prev)
+    dropdownState === true ? setDropdownState(false) : setDropdownState(true)
     cardBottomMargin ? setCardBottomMargin('') : setCardBottomMargin('mb-[6px]')
     wrapperShadow ? setWrapperShadow('') : setWrapperShadow('drop-shadow-brand')
     wrapperHeight === '172px' ? setWrapperHeight('fit-content') : setWrapperHeight('172px')
