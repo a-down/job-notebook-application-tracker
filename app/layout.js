@@ -28,13 +28,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    // <ClerkProvider>
+    <ClerkProvider>
       <html lang="en">
         <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
           <Header />
           {children}
         </body>
       </html>
-    // </ClerkProvider>
+    </ClerkProvider>
   )
 }

@@ -34,7 +34,6 @@ export default function Dashboard() {
 
 
   return (
-    <ClerkProvider>
       <main className="bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
         <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
 
@@ -85,6 +84,5 @@ export default function Dashboard() {
         
 
       </main>
-    </ClerkProvider>
   )
 }
