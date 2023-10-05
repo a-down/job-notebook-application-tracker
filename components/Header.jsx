@@ -9,12 +9,12 @@ export default function Header() {
         <h1 className=" font-display font-semibold text-4xl hover:text-brand-primary duration-300">MyJobs</h1>
       </Link>
       
-      <div className='flex gap-4 font-body'>
+      <nav className='flex gap-4 font-body'>
         <Link href="/about" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>About</Link>
         <Link href="/howitworks" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>How It Works</Link>
         <Link href="/dashboard" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Dashboard</Link>
         <Link href="/account" className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Account</Link>
-      </div>
+      </nav>
     </header>
   )
 }
