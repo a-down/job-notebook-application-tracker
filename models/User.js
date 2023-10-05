@@ -1,8 +1,26 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, model, models } from 'mongoose';
+import Application from "@/models/Application"
 
 const userSchema = new Schema(
   {
-    username: String
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    applications: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Application'
+      }
+    ]
+  },
+  {
+    timestamps: true
   }
 )
 
