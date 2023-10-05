@@ -2,7 +2,6 @@ import mongoose, { Schema } from 'mongoose';
 
 const applicationSchema = new Schema(
   {
-    created_at: Date,
     completed: {
       type: Boolean,
       default: false,
@@ -43,9 +42,12 @@ const applicationSchema = new Schema(
       }
     ],
     notes: String,
+  },
+  {
+    timestamps: true,
   }
 )
 
-const Application = mongoose.model('Application', applicationSchema)
+const Application = mongoose.models.Application || mongoose.model('Application', applicationSchema)
 
 export default Application
