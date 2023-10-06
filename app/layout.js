@@ -21,8 +21,8 @@ const kadwa = Kadwa({
 })
 
 export const metadata = {
-  title: 'Job Hunt',
-  description: 'Website for job hunters to keep track of various job applications in one place.',
+  title: 'Job Notebook',
+  description: 'Job Notebook lets job seekers keep track of their in-progress job applications.',
 }
 
 export default function RootLayout({ children }) {

@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Job Notebook](https://jobnotebook.vercel.app)
 
-## Getting Started
+[Job Notebook](https://jobnotebook.vercel.app) is a tool for job seekers to keep track of their current applications. In today's job market, there are many steps for potential candidates. The one's that are taking their time can struggle to keep each one straight. Unlike other job trackers, [Job Notebook](https://jobnotebook.vercel.app) focuses on what the user needs to do BEFORE submitting their application.
 
-First, run the development server:
+## Project Journal
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### October 5, 2023
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    I decided to use Clerk Authentication to handle my authentication/user needs. I will store user models in Clerk and use Clerk's user data to call information from MongoDB. It was a long day of studying, researching, and tutorials, but I am proud of where the page is at today!
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### October 4, 2023
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    The base functionality of the `Dashboard` page is done. User applications are fetched from `MongoDB` and rendered as cards. The user can click on the job dropdown to view detailed information. The next steps are setting up authentication to fetch applications that belong to the logged in user and adding features to allow the user to create applications.
 
-## Learn More
+## Initial Figma Mockup
 
-To learn more about Next.js, take a look at the following resources:
+![Initial Mockup](./public/mockup.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Resources
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<a target="_blank" href="https://icons8.com/icon/95088/spiral-bound-booklet">Notebook</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
