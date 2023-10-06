@@ -6,11 +6,11 @@
 
 ### October 5, 2023
 
-    I decided to use Clerk Authentication to handle my authentication/user needs. I will store user models in Clerk and use Clerk's user data to call information from MongoDB. It was a long day of studying, researching, and tutorials, but I am proud of where the page is at today!
+  I decided to use [Clerk](https://clerk.com) for my authentication/user needs. I will store user models in Clerk and use Clerk's user data to call information from MongoDB. It was a long day of studying, researching, and tutorials, but I am proud of where the page is at today!
 
 ### October 4, 2023
 
-    The base functionality of the `Dashboard` page is done. User applications are fetched from `MongoDB` and rendered as cards. The user can click on the job dropdown to view detailed information. The next steps are setting up authentication to fetch applications that belong to the logged in user and adding features to allow the user to create applications.
+  The base functionality of the `Dashboard` page is done. User applications are fetched from `MongoDB` and rendered as cards. The user can click on the job dropdown to view detailed information. The next steps are setting up authentication to fetch applications that belong to the logged in user and adding features to allow the user to create applications.
 
 ## Initial Figma Mockup
 
