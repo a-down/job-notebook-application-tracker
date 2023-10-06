@@ -1,8 +1,7 @@
 "use client"
 import JobCard from '@/components/JobCard'
 import { useEffect, useState } from 'react'
-import { UserButton, auth, useUser } from '@clerk/nextjs'
-import applications from '@/mockProjects'
+import { useUser } from '@clerk/nextjs'
 
 export default function Dashboard() {
   const [ applicationsState, setApplicationsState ] = useState([])
@@ -12,7 +11,6 @@ export default function Dashboard() {
   
   useEffect(() => {
     if (user) {
-      console.log(user)
       getApplications()
     }
   }, [isLoaded])
