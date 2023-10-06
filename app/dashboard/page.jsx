@@ -1,6 +1,6 @@
 "use client"
 import JobCard from '@/components/JobCard'
-import JobModal from './JobModal'
+import Modal from './Modal'
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 
@@ -59,7 +59,9 @@ export default function Dashboard() {
 
               {currentApplicationsState && (
                 currentApplicationsState.map(application => (
-                  <JobModal application={application} key={`${application._id}-modal`}/>
+                  <Modal buttonText={application.role.role_name} key={`${application._id}-modal`}>
+                    <JobCard application={application} isModal={true}/>
+                  </Modal>
                 ))
               )}
 
