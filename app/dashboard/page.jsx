@@ -59,13 +59,11 @@ export default function Dashboard() {
 
               {currentApplicationsState && (
                 currentApplicationsState.map(application => (
-                  <Modal buttonText={application.role.role_name} key={`${application._id}-modal`}>
+                  <Modal button={{text: application.role.role_name, style: 'primary'}} key={`${application._id}-modal`}>
                     <JobCard application={application} isModal={true}/>
                   </Modal>
                 ))
               )}
-
-
 
             </div>
             <div className='mb-4'>
@@ -76,7 +74,9 @@ export default function Dashboard() {
 
               {completedApplicationsState && (
                 completedApplicationsState.map(application => (
-                  <button className=' text-gray-7 w-full px-4 py-2 rounded-md  border border-gray-7 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>{application.rold.role_name}</button>
+                  <Modal button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`}>
+                    <JobCard application={application} isModal={true}/>
+                  </Modal>
                 ))
               )}
             </div>

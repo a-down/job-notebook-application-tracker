@@ -57,7 +57,7 @@ export default function JobCard({ application, isModal }) {
             <h4 className="text-2xl font-regular">Frontend Developer</h4>
             <h5 className=" font-regular ">Google</h5>
             <a href="https://google.com" target="_blank" className=' w-fit text-sm text-gray-7 hover:text-brand-primary hover:underline duration-200'>Application</a>
-            <button className='text-xs text-gray-7 w-fit px-2 py-1 rounded-md  border-2 border-gray-4 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9'>Job Description</button>
+            <button className='text-xs text-gray-7 w-fit px-2 py-2 rounded-md  border-2 border-gray-4 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9'>Job Description</button>
           </div>
 
           <div className="flex flex-col gap-1">
