@@ -2,6 +2,7 @@
 import JobCardDropdown from './JobCardDropdown'
 import { useEffect, useState } from 'react'
 import { PiCaretDoubleDown } from 'react-icons/pi'
+import { Modal } from '@/components'
 
 
 export default function JobCard({ application, isModal }) {
@@ -49,51 +50,72 @@ export default function JobCard({ application, isModal }) {
   }
 
   return (
-    <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content', maxWidth: '80vw'}}>
-      <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
-        <div className="justify-between">
+    <>
+      <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content', maxWidth: '80vw'}}>
+        <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
+          <div className="justify-between">
 
-          <div className="flex flex-col gap-1 mb-4">
-            <h4 className="text-2xl font-regular">Frontend Developer</h4>
-            <h5 className=" font-regular ">Google</h5>
-            <a href="https://google.com" target="_blank" className=' w-fit text-sm text-gray-7 hover:text-brand-primary hover:underline duration-200'>Application</a>
-            <button className='text-xs text-gray-7 w-fit px-2 py-2 rounded-md  border-2 border-gray-4 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9'>Job Description</button>
+            <div className="flex flex-col gap-1 mb-4">
+              <h4 className="text-2xl font-regular">Frontend Developer</h4>
+              <h5 className=" font-regular ">Google</h5>
+              <a href="https://google.com" target="_blank" className=' w-fit text-sm text-gray-7 hover:text-brand-primary hover:underline duration-200'>Application</a>
+
+              {!isModal && (
+                <Modal button={{text: 'Job Description', style: 'gray-small'}}>
+                  <p className='leading-normal '>
+                    {application.role.job_description}
+                  </p>
+                </Modal>
+              )}
+              
+
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <p className='text-sm text-gray-7'>
+                Next step:
+                <span className='text-gray-9'>
+                  {` ${'Write Cover Letter'}`}
+                </span>
+              </p>
+
+              <p className='text-sm text-gray-7'>
+                Due:
+                <span className='text-gray-9'>
+                  {` ${application.role.due_date}`}
+                </span>
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-1">
-            <p className='text-sm text-gray-7'>
-              Next step:
-              <span className='text-gray-9'>
-                {` ${'Write Cover Letter'}`}
-              </span>
-            </p>
-
-            <p className='text-sm text-gray-7'>
-              Due:
-              <span className='text-gray-9'>
-                {` ${application.role.due_date}`}
-              </span>
-            </p>
+          <div className="h-[136px] aspect-square bg-brand-primary rounded-full flex justify-center items-center">
+            <div className="w-16 aspect-square bg-white rounded-full"></div>
           </div>
-        </div>
 
-        <div className="h-[136px] aspect-square bg-brand-primary rounded-full flex justify-center items-center">
-          <div className="w-16 aspect-square bg-white rounded-full"></div>
-        </div>
-
-        {!isModal && (
-          <PiCaretDoubleDown className='cursor-pointer absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${arrowRotation}deg)`}} onClick={toggleDropdownState}/>
-        )}
+          {!isModal && (
+            <PiCaretDoubleDown className='cursor-pointer absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${arrowRotation}deg)`}} onClick={toggleDropdownState}/>
+          )}
+          
+        </div>  
         
-      </div>  
-      
 
-      {dropdownState && (
-        <JobCardDropdown application={application}/>
+        {dropdownState && (
+          <JobCardDropdown application={application}/>
+        )}
+
+      </div>
+
+      {isModal && (
+        <div className='bg-white my-4 mt-8 p-4 rounded-md drop-shadow-brand'>
+          <h6 className="text-lg font-regular mb-3">Job Description</h6>
+
+          <p className='leading-normal text-sm'>
+            {application.role.job_description}
+          </p>
+        </div>
+
       )}
-      
-
-    </div>
+    </>
     
   )
 }

@@ -1,3 +1,4 @@
+"use client"
 import * as Dialog from '@radix-ui/react-dialog';
 import { CgClose } from 'react-icons/cg'
 
@@ -6,7 +7,7 @@ export default function Modal({ children, button }) {
   return (
     <>
       <Dialog.Root>
-        <Dialog.Trigger className='w-full'>
+        <Dialog.Trigger className='w-full flex justify-start'>
           {button.style === 'primary' && (
             <button className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>
               {button.text}
@@ -15,6 +16,12 @@ export default function Modal({ children, button }) {
 
           {button.style === 'gray-outline' && (
             <button className=' text-gray-7 text-sm leading-tight w-full px-4 py-[12px] rounded-md  border border-gray-7 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>
+              {button.text}
+            </button>
+          )}
+
+          {button.style === 'gray-small' && (
+            <button className='text-xs text-gray-7 w-fit px-2 py-2 rounded-md  border-2 border-gray-4 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9'>
               {button.text}
             </button>
           )}

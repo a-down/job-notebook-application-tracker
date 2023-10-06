@@ -1,6 +1,5 @@
 "use client"
-import JobCard from '@/components/JobCard'
-import Modal from './Modal'
+import { JobCard, Modal } from '@/components'
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 
