@@ -4,7 +4,7 @@ import { Contacts, Files, Notes, ToDo } from '@/components'
 export default function JobCardDropdown({ application }) {
 
   function randomString() {
-    return Math.random() .toString(36) .slice (2)
+    return Math.random().toString(36).slice (2)
   } 
 
   const sharedStyle = 'bg-white p-4 rounded-md drop-shadow-brand'

@@ -7,11 +7,10 @@ export default function Modal({ children, button }) {
   return (
     <>
       <Dialog.Root>
-        <Dialog.Trigger className='w-full flex justify-start'>
           {button.style === 'primary' && (
-            <button className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>
+            <Dialog.Trigger className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>
               {button.text}
-            </button>
+            </Dialog.Trigger>
           )}
 
           {button.style === 'gray-outline' && (
@@ -26,7 +25,6 @@ export default function Modal({ children, button }) {
             </button>
           )}
 
-        </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="z-50 bg-[rgb(0,0,0,.6)] data-[state=open]:animate-overlayShow fixed inset-0" />
           <Dialog.Content className="modal-content z-50 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] translate-x-[-50%] translate-y-[-50%] rounded-md bg-gray-2 p-6 drop-shadow-brand overflow-scroll">
