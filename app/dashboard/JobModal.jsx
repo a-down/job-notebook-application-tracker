@@ -14,7 +14,7 @@ export default function JobModal({ application }) {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="z-50 bg-[rgb(0,0,0,.6)] data-[state=open]:animate-overlayShow fixed inset-0" />
-          <Dialog.Content className="z-50 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-fit translate-x-[-50%] translate-y-[-50%] rounded-md bg-white p-[25px] drop-shadow-brand overflow-scroll">
+          <Dialog.Content className="z-50 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] translate-x-[-50%] translate-y-[-50%] rounded-md bg-white p-6 drop-shadow-brand overflow-scroll">
 
             <JobCard application={application} isModal={true}/>
 
