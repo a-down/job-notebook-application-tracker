@@ -12,6 +12,16 @@
 
   The base functionality of the `Dashboard` page is done. User applications are fetched from `MongoDB` and rendered as cards. The user can click on the job dropdown to view detailed information. The next steps are setting up authentication to fetch applications that belong to the logged in user and adding features to allow the user to create applications.
 
+## Tech Stack
+- React.js (Next.js)
+- Tailwind CSS
+- CSS/OOCSS
+- JavaScript
+- MongoDB/Mongoose
+- Clerk
+- React-Icons
+- Vercel
+
 ## Initial Figma Mockup
 
 ![Initial Mockup](./public/mockup.png)
