@@ -25,7 +25,7 @@ export default function Dashboard() {
     let currentApps = []
     let completedApps = []
     data.forEach(app => {
-      data.completed ? completedApps.push(app) : currentApps.push(app)
+      app.completed ? completedApps.push(app) : currentApps.push(app)
     })
     console.log(currentApps, completedApps)
     setCurrentApplicationsState(currentApps)
