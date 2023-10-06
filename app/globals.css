@@ -33,7 +33,7 @@
 
 .job-card-upper {
   animation: 0 stayInPlace;
-  z-index: 1000;
+  z-index: 40;
 }
 
 .dropdown {
@@ -50,4 +50,3 @@
   scrollbar-width: none;  /* Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
 }
-

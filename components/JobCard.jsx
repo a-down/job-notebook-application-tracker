@@ -4,13 +4,40 @@ import { useEffect, useState } from 'react'
 import { PiCaretDoubleDown } from 'react-icons/pi'
 
 
-export default function JobCard({ application }) {
+export default function JobCard({ application, isModal }) {
+  let defaultValues = {}
+  // useEffect(() => {
+  //   isModal 
+  //     ? defaultValues = {
+  //       dropdown: true,
+  //       cardBottom: 'mb-[6px]',
+  //       wrapperShadow: 'drop-shadow-brand',
+  //       wrapperHeight: 'fit-content',
+  //       rowSpan: 'row-span-4',
+  //       arrowRotation: '180'
+  //     }
+  //     : defaultValues = {
+  //       yes: 
+  //     }
+  // }, [])
+
   const [ dropdownState, setDropdownState ] = useState(false)
   const [ cardBottomMargin, setCardBottomMargin ] = useState('')
   const [ wrapperShadow, setWrapperShadow ] = useState('')
   const [ wrapperHeight, setWrapperHeight ] = useState('')
   const [ rowSpan, setRowSpan ] = useState('row-span-1')
   const [ arrowRotation, setArrowRotation ] = useState('0')
+
+  useEffect(() => {
+    if (isModal) {
+      setDropdownState(true)
+      setCardBottomMargin('mb-[6px]')
+      setWrapperShadow('drop-shadow-brand')
+      setWrapperHeight('fit-content')
+      setRowSpan('row-span-4')
+      setArrowRotation('180')
+    }
+  })
 
   function toggleDropdownState() {
     dropdownState === true ? setDropdownState(false) : setDropdownState(true)
@@ -22,7 +49,7 @@ export default function JobCard({ application }) {
   }
 
   return (
-    <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content'}}>
+    <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content', maxWidth: '700px'}}>
       <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
         <div className="justify-between">
 
@@ -54,7 +81,10 @@ export default function JobCard({ application }) {
           <div className="w-16 aspect-square bg-white rounded-full"></div>
         </div>
 
-        <PiCaretDoubleDown className='cursor-pointer absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${arrowRotation}deg)`}} onClick={toggleDropdownState}/>
+        {!isModal && (
+          <PiCaretDoubleDown className='cursor-pointer absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${arrowRotation}deg)`}} onClick={toggleDropdownState}/>
+        )}
+        
       </div>  
       
 

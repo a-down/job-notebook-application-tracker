@@ -1,5 +1,6 @@
 "use client"
 import JobCard from '@/components/JobCard'
+import JobModal from './JobModal'
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 
@@ -32,44 +33,9 @@ export default function Dashboard() {
     setCompletedApplicationsState(completedApps)
   }
 
-  // const { userId } = auth()
-  // const router = useRouter()
-  // const [ projectDropdownState, setProjectDropdownState ] = useState([])
-
-  // useEffect(() => {
-  //   console.log(projectDropdownState)
-  // }, [])
-  
-  
-  // useEffect(() => {
-  //   let arr = []
-  //   projects.forEach(project => {
-  //     arr.push({project: project, displayedDropdown: true})
-  //   })
-  //   setProjectDropdownState(arr)
-  // }, [])
-
-  // function setAllDropdownFalse() {
-  //   let arrClone = projectDropdownState
-  //   arrClone.forEach(project => {
-  //     project["displayedDropdown"] = false
-  //   })
-  //   console.log(arrClone)
-  //   setProjectDropdownState(arrClone)
-  // }
-  // console.log(projectDropdownState)
-
-  // useEffect(() => {
-  //   let applications = async () => {
-  //     const res = await fetch(`/api/applications/user/${userId}`)
-  //     const data = await res.json()
-  //     await console.log(data)
-  //   }
-  // }, [userId])
-
 
   return (
-      <main className="bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
+      <main className="bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16 relative">
         <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
 
         <div className="grid grid-cols-12 gap-4">
@@ -78,7 +44,7 @@ export default function Dashboard() {
 
             {currentApplicationsState && (
               currentApplicationsState.map(application => (
-                <JobCard application={application} key={application._id}/>
+                <JobCard application={application} isModal={false} key={application._id}/>
               ))
             )}
   
@@ -93,9 +59,11 @@ export default function Dashboard() {
 
               {currentApplicationsState && (
                 currentApplicationsState.map(application => (
-                  <button className=' text-white bg-brand-primary w-full px-4 py-2 rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1'>{application.role.role_name}</button>
+                  <JobModal application={application} key={`${application._id}-modal`}/>
                 ))
               )}
+
+
 
             </div>
             <div className='mb-4'>
