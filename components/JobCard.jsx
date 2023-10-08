@@ -8,24 +8,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 export default function JobCard({ application, isModal }) {
-  let defaultValues = {}
-  // useEffect(() => {
-  //   isModal 
-  //     ? defaultValues = {
-  //       dropdown: true,
-  //       cardBottom: 'mb-[6px]',
-  //       wrapperShadow: 'drop-shadow-brand',
-  //       wrapperHeight: 'fit-content',
-  //       rowSpan: 'row-span-4',
-  //       arrowRotation: '180'
-  //     }
-  //     : defaultValues = {
-  //       yes: 
-  //     }
-  // }, [])
-
-  const [ percentage, setPercentage ] = useState(40)
-
+  const [ percentage, setPercentage ] = useState(0)
   const [ dropdownState, setDropdownState ] = useState(false)
   const [ cardBottomMargin, setCardBottomMargin ] = useState('')
   const [ wrapperShadow, setWrapperShadow ] = useState('')
@@ -34,6 +17,7 @@ export default function JobCard({ application, isModal }) {
   const [ arrowRotation, setArrowRotation ] = useState('0')
 
   useEffect(() => {
+    setProgressPercentage()
     if (isModal) {
       setDropdownState(true)
       setCardBottomMargin('mb-[6px]')
@@ -43,6 +27,16 @@ export default function JobCard({ application, isModal }) {
       setArrowRotation('180')
     }
   })
+
+  function setProgressPercentage() {
+    console.log(application.to_do)
+    let numberCompleted = 0
+    application.to_do.forEach(toDo => {
+      if(toDo.completed) numberCompleted++
+    })
+    console.log(numberCompleted)
+    setPercentage(Math.round((numberCompleted / application.to_do.length) * 100))
+  }
 
   function toggleDropdownState() {
     dropdownState === true ? setDropdownState(false) : setDropdownState(true)
