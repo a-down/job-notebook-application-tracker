@@ -3,6 +3,8 @@ import JobCardDropdown from './JobCardDropdown'
 import { useEffect, useState } from 'react'
 import { PiCaretDoubleDown } from 'react-icons/pi'
 import { Modal } from '@/components'
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 
 export default function JobCard({ application, isModal }) {
@@ -21,6 +23,8 @@ export default function JobCard({ application, isModal }) {
   //       yes: 
   //     }
   // }, [])
+
+  const [ percentage, setPercentage ] = useState(40)
 
   const [ dropdownState, setDropdownState ] = useState(false)
   const [ cardBottomMargin, setCardBottomMargin ] = useState('')
@@ -88,8 +92,19 @@ export default function JobCard({ application, isModal }) {
             </div>
           </div>
 
-          <div className="h-[136px] aspect-square bg-brand-primary rounded-full flex justify-center items-center">
-            <div className="w-16 aspect-square bg-white rounded-full"></div>
+          <div className='w-[154px] font-body'>
+            <CircularProgressbar
+              value={percentage}
+              text={`${percentage}%`}
+              background
+              backgroundPadding={6}
+              styles={buildStyles({
+                backgroundColor: "transparent",
+                textColor: "var(--brand-primary)",
+                pathColor: "var(--brand-primary)",
+                trailColor: "transparent",
+                textSize: '16px'
+            })}/>
           </div>
 
           {!isModal && (
