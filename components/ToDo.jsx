@@ -2,7 +2,7 @@
 import { ToDoItem } from '@/components'
 
 
-export default function ToDo({ sharedStyle, toDo }) {
+export default function ToDo({ sharedStyle, toDo, setProgressPercentage }) {
   // const [ toDoState, ]
 
   return (
@@ -14,7 +14,7 @@ export default function ToDo({ sharedStyle, toDo }) {
       <div className='flex flex-col items-start gap-2'>
         {toDo && (
           toDo.map(item => (
-            <ToDoItem item={item} key={item.order}/>
+            <ToDoItem item={item} key={item.order} setProgressPercentage={setProgressPercentage}/>
           ))
         )}
       </div>

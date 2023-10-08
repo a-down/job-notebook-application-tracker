@@ -29,12 +29,10 @@ export default function JobCard({ application, isModal }) {
   })
 
   function setProgressPercentage() {
-    console.log(application.to_do)
     let numberCompleted = 0
     application.to_do.forEach(toDo => {
       if(toDo.completed) numberCompleted++
     })
-    console.log(numberCompleted)
     setPercentage(Math.round((numberCompleted / application.to_do.length) * 100))
   }
 
@@ -109,7 +107,7 @@ export default function JobCard({ application, isModal }) {
         
 
         {dropdownState && (
-          <JobCardDropdown application={application}/>
+          <JobCardDropdown application={application} setProgressPercentage={setProgressPercentage}/>
         )}
 
       </div>

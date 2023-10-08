@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { PiCircle, PiCheckCircle, PiCheckCircleFill, PiCheckCircleDuotone } from 'react-icons/pi'
 
-export default function ToDoItem({ item }) {
+export default function ToDoItem({ item, setProgressPercentage }) {
   const [ iconHoverState, setIconHoverState ] = useState(false)
   const [ completedState, setCompletedState ] = useState(item.completed)
   const [ itemStyle, setItemStyle ] = useState({})
@@ -16,7 +16,6 @@ export default function ToDoItem({ item }) {
   function toggleCompleted() {
     completedState ? setCompletedState(false) : setCompletedState(true)
   }
-
 
   return (
     <div className=" w-full flex justify-start items-start gap-2">
