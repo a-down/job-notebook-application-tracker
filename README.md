@@ -4,6 +4,10 @@
 
 ## Project Journal
 
+### October 6, 2023
+
+  Today I built the modal component that will wrap various nested children on the site (individual applications, add application form, login/signup forms). When that was built, I added the elements that need to render dynamically on the dashboard aside.
+
 ### October 5, 2023
 
   I decided to use [Clerk](https://clerk.com) for my authentication/user needs. I will store user models in Clerk and use Clerk's user data to call information from MongoDB. It was a long day of studying, researching, and tutorials, but I am proud of where the page is at today!
