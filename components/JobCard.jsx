@@ -8,6 +8,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 export default function JobCard({ application, isModal }) {
+
   const [ percentage, setPercentage ] = useState(0)
   const [ dropdownState, setDropdownState ] = useState(false)
   const [ cardBottomMargin, setCardBottomMargin ] = useState('')

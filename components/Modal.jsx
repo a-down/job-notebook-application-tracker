@@ -14,15 +14,15 @@ export default function Modal({ children, button }) {
           )}
 
           {button.style === 'gray-outline' && (
-            <button className=' text-gray-7 text-sm leading-tight w-full px-4 py-[12px] rounded-md  border border-gray-7 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>
+            <Dialog.Trigger className=' text-gray-7 text-sm leading-tight w-full px-4 py-[12px] rounded-md  border border-gray-7 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>
               {button.text}
-            </button>
+            </Dialog.Trigger>
           )}
 
           {button.style === 'gray-small' && (
-            <button className='text-xs text-gray-7 w-fit px-2 py-2 rounded-md  border-2 border-gray-4 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9'>
+            <Dialog.Trigger className='text-xs text-gray-7 w-fit px-2 py-2 rounded-md  border-2 border-gray-4 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9'>
               {button.text}
-            </button>
+            </Dialog.Trigger>
           )}
 
         <Dialog.Portal>
