@@ -64,7 +64,6 @@ export default function JobCard({ application, isModal }) {
                   </p>
                 </Modal>
               )}
-              
 
             </div>
 

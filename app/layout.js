@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
-          <Header />
+          <Header/>
           {children}
         </body>
       </html>
