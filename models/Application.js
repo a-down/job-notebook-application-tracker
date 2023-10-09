@@ -20,12 +20,8 @@ const applicationSchema = new Schema(
     },
     to_do: [
       {
-        description: String,
-        completed: {
-          type: Boolean,
-          default: false,
-        },
-        created_at: Date,
+        type: Schema.Types.ObjectId,
+        ref: 'ToDo'
       }
     ],
     contacts: [
