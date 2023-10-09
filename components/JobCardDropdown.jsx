@@ -11,10 +11,10 @@ export default function JobCardDropdown({ application, setProgressPercentage }) 
 
   return (
     <div className=" px-4 pt-[14px] pb-5 min-h-20 w-full rounded-b-md grid grid-cols-5 auto-rows-min gap-4 dropdown">
-      <ToDo sharedStyle={sharedStyle} toDo={application.to_do} key={randomString} setProgressPercentage={setProgressPercentage}/>
-      <Contacts sharedStyle={sharedStyle} contacts={application.contacts} key={randomString}/>
-      <Files sharedStyle={sharedStyle} files={application.files} key={randomString}/>
-      <Notes sharedStyle={sharedStyle} notes={application.notes} key={randomString}/>
+      <ToDo sharedStyle={sharedStyle} toDo={application.to_do} setProgressPercentage={setProgressPercentage}/>
+      <Contacts sharedStyle={sharedStyle} contacts={application.contacts}/>
+      <Files sharedStyle={sharedStyle} files={application.files}/>
+      <Notes sharedStyle={sharedStyle} notes={application.notes}/>
     </div>
   )
 }

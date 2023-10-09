@@ -32,14 +32,10 @@ export default function Files({ sharedStyle, files }) {
       <h6 className="text-lg font-regular mb-3">Files</h6>
 
       <div className="flex gap-2">
-        {/* <img src='https://placehold.co/32' className='rounded-sm'/>
-        <img src='https://placehold.co/32' className='rounded-sm'/>
-        <img src='https://placehold.co/32' className='rounded-sm'/>
-        <img src='https://placehold.co/32' className='rounded-sm'/> */}
         
         {files && (
-          files.map(file => (
-            <FileIcon file={file}/>
+          files.map((file, index) => (
+            <FileIcon file={file} key={index}/>
           ))
         )}
 

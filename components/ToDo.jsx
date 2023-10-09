@@ -13,8 +13,8 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage }) {
 
       <div className='flex flex-col items-start gap-2'>
         {toDo && (
-          toDo.map(item => (
-            <ToDoItem item={item} key={item.order} setProgressPercentage={setProgressPercentage}/>
+          toDo.map((item, index) => (
+            <ToDoItem item={item} key={index} setProgressPercentage={setProgressPercentage}/>
           ))
         )}
       </div>

@@ -8,9 +8,9 @@ export default function Contacts({ sharedStyle, contacts }) {
       <h6 className="text-lg font-regular col-span-2 mb-1">Contacts</h6>
 
       {contacts && (
-        contacts.map(contact => (
+        contacts.map((contact, index) => (
 
-          <div className="col-span-1 w-full h-16" >
+          <div className="col-span-1 w-full h-16" key={index}>
             <h6 className="font-regular mb-1">{contact.contact_name}</h6>
 
             {contact.contact_linkedin && (
