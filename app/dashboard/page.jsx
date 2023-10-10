@@ -1,5 +1,5 @@
 "use client"
-import { JobCard, Modal } from '@/components'
+import { JobCard, Modal, ApplicationForm } from '@/components'
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 
@@ -11,7 +11,6 @@ export default function Dashboard() {
   
   useEffect(() => {
     if (user) {
-      console.log(user)
       getApplications()
     }
   }, [isLoaded])
@@ -36,7 +35,17 @@ export default function Dashboard() {
 
   return (
       <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
-        <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
+        <div className='flex justify-between items-start'>
+          <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
+
+          <div className='max-w-64'>
+            <Modal button={{text: 'New Application', style: 'primary'}}>
+              <ApplicationForm />
+            </Modal>
+          </div>
+
+        </div>
+        
 
         <div className="grid grid-cols-12 gap-4">
 
