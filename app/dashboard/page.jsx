@@ -32,7 +32,6 @@ export default function Dashboard() {
     setCompletedApplicationsState(completedApps)
   }
 
-
   return (
       <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
         <div className='flex justify-between items-start'>
@@ -41,7 +40,7 @@ export default function Dashboard() {
           <div className='max-w-64'>
             {user && (
               <Modal button={{text: 'New Application', style: 'primary'}}>
-                <ApplicationForm userId={user.id}/>
+                <ApplicationForm userId={user.id} getApplications={getApplications}/>
               </Modal>
             )}
             

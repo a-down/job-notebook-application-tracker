@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 
 
-export default function ApplicationForm({ userId }) {
+export default function ApplicationForm({ userId, getApplications }) {
   const defaultFormData = {
     jobTitle: '',
     applicationLink: '',
@@ -19,8 +19,9 @@ export default function ApplicationForm({ userId }) {
     setFormData({ ...formData, [name]: value });
   }
 
-  async function createApplication() {
-    const res = await fetch('api/applications', {
+  async function createApplication(e) {
+    e.preventDefault()
+    await fetch('api/applications', {
       method: 'POST',
       body: JSON.stringify({
           user_id: userId,
@@ -35,10 +36,12 @@ export default function ApplicationForm({ userId }) {
             job_description: formData.jobDescription,
             due_date: formData.dueDate
           }
-      })
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-    const data = await res.json()
-    console.log(data)
+    getApplications()
   }
 
 
