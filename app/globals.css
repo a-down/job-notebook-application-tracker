@@ -4,7 +4,7 @@
 
 :root {
   line-height: 1;
-  --brand-primary: #9DD4C7;
+  --brand-primary: rgb(157, 212, 199);
   --gray-7: '#8C8C8C';
 }
 
