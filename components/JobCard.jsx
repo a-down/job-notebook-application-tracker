@@ -39,11 +39,15 @@ export default function JobCard({ application, isModal }) {
   }
 
   function setProgressPercentage() {
-    let numberCompleted = 0
-    applicationState.to_do.forEach(toDo => {
-      if(toDo.completed) numberCompleted++
-    })
-    setPercentage(Math.round((numberCompleted / applicationState.to_do.length) * 100))
+    if (!applicationState.to_do.length) {
+      setPercentage(0)
+    } else {
+      let numberCompleted = 0
+      applicationState.to_do.forEach(toDo => {
+        if(toDo.completed) numberCompleted++
+      })
+      setPercentage(Math.round((numberCompleted / applicationState.to_do.length) * 100))
+    }
   }
 
   function toggleDropdownState() {
