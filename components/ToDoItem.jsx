@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { PiCircle, PiCheckCircle, PiCheckCircleFill, PiCheckCircleDuotone } from 'react-icons/pi'
 
-export default function ToDoItem({ item, setProgressPercentage }) {
+export default function ToDoItem({ item, setProgressPercentage, updateCard }) {
   const [ iconHoverState, setIconHoverState ] = useState(false)
   const [ completedState, setCompletedState ] = useState(item.completed)
   const [ itemStyle, setItemStyle ] = useState({})
@@ -30,8 +30,7 @@ export default function ToDoItem({ item, setProgressPercentage }) {
     const data = await res.json()
     setItemState(data)
     setCompletedState(data.completed)
-    await setProgressPercentage()
-
+    updateCard()
   }
 
   return (

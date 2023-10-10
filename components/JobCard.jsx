@@ -32,14 +32,17 @@ export default function JobCard({ application, isModal }) {
 
   async function updateCard() {
     const res = await fetch(`/api/applications/${applicationState._id}`)
+    const data = await res.json()
+    setApplicationState(data)
+    setProgressPercentage()
   }
 
   function setProgressPercentage() {
     let numberCompleted = 0
-    application.to_do.forEach(toDo => {
+    applicationState.to_do.forEach(toDo => {
       if(toDo.completed) numberCompleted++
     })
-    setPercentage(Math.round((numberCompleted / application.to_do.length) * 100))
+    setPercentage(Math.round((numberCompleted / applicationState.to_do.length) * 100))
   }
 
   function toggleDropdownState() {
@@ -112,7 +115,7 @@ export default function JobCard({ application, isModal }) {
         
 
         {dropdownState && (
-          <JobCardDropdown application={applicationState} setProgressPercentage={setProgressPercentage}/>
+          <JobCardDropdown application={applicationState} setProgressPercentage={setProgressPercentage} updateCard={updateCard}/>
         )}
 
       </div>
