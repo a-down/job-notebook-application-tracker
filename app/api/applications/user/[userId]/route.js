@@ -1,6 +1,6 @@
 import connectMongoDB from "@/libs/mongodb";
-import ToDo from "@/models/Application";
 import Application from "@/models/Application";
+import ToDo from "@/models/ToDo";
 import { NextResponse } from "next/server";
 
 // export async function POST (req) {

@@ -11,6 +11,7 @@ export default function Dashboard() {
   
   useEffect(() => {
     if (user) {
+      console.log(user)
       getApplications()
     }
   }, [isLoaded])
