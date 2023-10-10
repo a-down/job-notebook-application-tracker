@@ -39,9 +39,12 @@ export default function Dashboard() {
           <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
 
           <div className='max-w-64'>
-            <Modal button={{text: 'New Application', style: 'primary'}}>
-              <ApplicationForm />
-            </Modal>
+            {user && (
+              <Modal button={{text: 'New Application', style: 'primary'}}>
+                <ApplicationForm userId={user.id}/>
+              </Modal>
+            )}
+            
           </div>
 
         </div>
