@@ -16,6 +16,7 @@ export default function JobCard({ application, isModal }) {
   const [ wrapperHeight, setWrapperHeight ] = useState('')
   const [ rowSpan, setRowSpan ] = useState('row-span-1')
   const [ arrowRotation, setArrowRotation ] = useState('0')
+  const [ applicationState, setApplicationState ] = useState(application)
 
   useEffect(() => {
     setProgressPercentage()
@@ -28,6 +29,10 @@ export default function JobCard({ application, isModal }) {
       setArrowRotation('180')
     }
   })
+
+  async function updateCard() {
+    const res = await fetch(`/api/applications/${applicationState._id}`)
+  }
 
   function setProgressPercentage() {
     let numberCompleted = 0
@@ -53,14 +58,14 @@ export default function JobCard({ application, isModal }) {
           <div className="justify-between">
 
             <div className="flex flex-col gap-1 mb-4">
-              <h4 className="text-2xl font-regular">Frontend Developer</h4>
-              <h5 className=" font-regular ">Google</h5>
+              <h4 className="text-2xl font-regular">{applicationState.role.role_name}</h4>
+              <h5 className=" font-regular ">{applicationState.role.company.company_name}</h5>
               <a href="https://google.com" target="_blank" className=' w-fit text-sm text-gray-7 hover:text-brand-primary hover:underline duration-200'>Application</a>
 
               {!isModal && (
                 <Modal button={{text: 'Job Description', style: 'gray-small'}}>
                   <p className='leading-normal '>
-                    {application.role.job_description}
+                    {applicationState.role.job_description}
                   </p>
                 </Modal>
               )}
@@ -71,14 +76,14 @@ export default function JobCard({ application, isModal }) {
               <p className='text-sm text-gray-7'>
                 Next step:
                 <span className='text-gray-9'>
-                  {` ${'Write Cover Letter'}`}
+                  {` ${'MAKE THIS WORK'}`}
                 </span>
               </p>
 
               <p className='text-sm text-gray-7'>
                 Due:
                 <span className='text-gray-9'>
-                  {` ${application.role.due_date}`}
+                  {` ${applicationState.role.due_date}`}
                 </span>
               </p>
             </div>
@@ -107,7 +112,7 @@ export default function JobCard({ application, isModal }) {
         
 
         {dropdownState && (
-          <JobCardDropdown application={application} setProgressPercentage={setProgressPercentage}/>
+          <JobCardDropdown application={applicationState} setProgressPercentage={setProgressPercentage}/>
         )}
 
       </div>
@@ -117,7 +122,7 @@ export default function JobCard({ application, isModal }) {
           <h6 className="text-lg font-regular mb-3">Job Description</h6>
 
           <p className='leading-normal text-sm'>
-            {application.role.job_description}
+            {applicationState.role.job_description}
           </p>
         </div>
 
