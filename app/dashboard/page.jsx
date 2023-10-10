@@ -55,7 +55,7 @@ export default function Dashboard() {
 
             {currentApplicationsState && (
               currentApplicationsState.map(application => (
-                <JobCard application={application} isModal={false} key={application._id}/>
+                <JobCard application={application} getApplications={getApplications} isModal={false} key={application._id}/>
               ))
             )}
   
@@ -71,7 +71,7 @@ export default function Dashboard() {
               {currentApplicationsState && (
                 currentApplicationsState.map(application => (
                   <Modal button={{text: application.role.role_name, style: 'primary'}} key={`${application._id}-modal`}>
-                    <JobCard application={application} isModal={true}/>
+                    <JobCard application={application} getApplications={getApplications} isModal={true}/>
                   </Modal>
                 ))
               )}
@@ -86,7 +86,7 @@ export default function Dashboard() {
               {completedApplicationsState && (
                 completedApplicationsState.map(application => (
                   <Modal button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`}>
-                    <JobCard application={application} isModal={true}/>
+                    <JobCard application={applicatiion} getApplications={getApplications} isModal={true}/>
                   </Modal>
                 ))
               )}

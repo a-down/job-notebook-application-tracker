@@ -6,8 +6,7 @@ import { Modal } from '@/components'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-
-export default function JobCard({ application, isModal }) {
+export default function JobCard({ application, isModal, getApplications }) {
 
   const [ percentage, setPercentage ] = useState(0)
   const [ dropdownState, setDropdownState ] = useState(false)
@@ -120,7 +119,11 @@ export default function JobCard({ application, isModal }) {
         
 
         {dropdownState && (
-          <JobCardDropdown application={applicationState} setProgressPercentage={setProgressPercentage} updateCard={updateCard}/>
+          <JobCardDropdown 
+            application={applicationState} 
+            setProgressPercentage={setProgressPercentage} 
+            updateCard={updateCard}
+            getApplications={getApplications}/>
         )}
 
       </div>
