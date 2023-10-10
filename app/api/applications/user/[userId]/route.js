@@ -13,6 +13,6 @@ import { NextResponse } from "next/server";
 export async function GET (req, { params }) {
   const userId = await params.userId
   await connectMongoDB();
-  const applications = await Application.find({ user_id: userId })
+  const applications = await Application.find({ user_id: userId }).populate('to_do')
   return NextResponse.json(applications)
 }
