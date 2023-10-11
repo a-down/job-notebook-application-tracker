@@ -19,7 +19,7 @@ export default function JobCard({ application, isModal, getApplications }) {
 
   useEffect(() => {
     applicationState ? console.log('yes application state', applicationState) : console.log('no application state')
-    setProgressPercentage()
+    // setProgressPercentage()
     if (isModal) {
       updateCard()
       setDropdownState(true)
