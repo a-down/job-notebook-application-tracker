@@ -4,7 +4,7 @@ import { Contacts, Files, Notes, ToDo, Modal } from '@/components'
 import * as Dialog from '@radix-ui/react-dialog';
 
 
-export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility }) {
+export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility, isModal }) {
   const [ confirmDeleteState, setConfirmDeleteState ] = useState(false)
 
   async function deleteApplication() {
@@ -13,6 +13,21 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
       method: 'DELETE'
     })
     const data = await res.json()
+  }
+
+  async function toggleApplicationCompleted(isCompleted) {
+    // if you are marking an application as completed, hide the card
+    // if you are marking an application as not completed, keep the card visible until the modal you are viewing is deleted
+    if (!isModal) setCardVisibility(false)
+    const res = await fetch(`/api/applications/${application._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({completed: isCompleted})
+    })
+    const data = await res.json()
+    await getApplications()
   }
 
   const sharedStyle = 'bg-white p-4 rounded-md drop-shadow-brand'
@@ -27,9 +42,19 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
           </div>
           <div className='px-4 pb-4 flex justify-between'>
             <div>
-              <button className=' text-xs p-2 px-3 bg-brand-primary border border-brand-primary text-white rounded-full hover:bg-gray-7 hover:border-gray-7 duration-300 mr-2'>
-                Mark Complete
-              </button>
+
+              {!application.completed ? (
+                <button className=' text-xs p-2 px-3 bg-brand-primary border border-brand-primary text-white rounded-full hover:bg-gray-7 hover:border-gray-7 duration-300 mr-2'
+                  onClick={() => toggleApplicationCompleted(true)}>
+                  Mark Complete
+                </button>
+              ) : (
+                <button className=' text-xs p-2 px-3 bg-transparent border border-brand-primary text-brand-primary rounded-full hover:bg-brand-primary hover:text-white duration-300 mr-2'
+                  onClick={() => toggleApplicationCompleted(false)}>
+                  Mark Not Complete
+                </button>
+              )}
+              
 
               <button className=' text-xs p-2 px-3 bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
                 Edit Application
@@ -46,7 +71,7 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
                     </button>
                   </Dialog.Close>
                   <button 
-                    className=' p-4 grow bg-transparent border bg-red-400 text-white rounded-full hover:bg-red-600 hover:text-white duration-300'
+                    className=' p-4 grow bg-transparent border bg-red-500 text-white rounded-full hover:bg-red-700 duration-300'
                     onClick={deleteApplication}>
                     Delete
                   </button>

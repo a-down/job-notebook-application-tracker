@@ -126,7 +126,8 @@ export default function JobCard({ application, isModal, getApplications }) {
               setProgressPercentage={setProgressPercentage} 
               updateCard={updateCard}
               getApplications={getApplications}
-              setCardVisibility={setCardVisibility}/>
+              setCardVisibility={setCardVisibility}
+              isModal={isModal}/>
           )}
 
         </div>

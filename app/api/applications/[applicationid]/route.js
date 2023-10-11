@@ -10,11 +10,18 @@ export async function GET (req, { params }) {
   return NextResponse.json(applications)
 }
 
-  export async function DELETE (req, { params }) {
-    await connectMongoDB();
-    await Application.findByIdAndDelete(params.applicationId)
-    return NextResponse.json({message: "Application Deleted", status: 200})
-  }
+export async function PUT (req, { params }) {
+  const body = await req.json()
+  await connectMongoDB();
+  await Application.findByIdAndUpdate(params.applicationId, body)
+  return NextResponse.json({message: "Application Updated", status: 200})
+}
+
+export async function DELETE (req, { params }) {
+  await connectMongoDB();
+  await Application.findByIdAndDelete(params.applicationId)
+  return NextResponse.json({message: "Application Deleted", status: 200})
+}
 
 // export async function POST (req) {
 //   const {to_do, ...body} = await req.json()

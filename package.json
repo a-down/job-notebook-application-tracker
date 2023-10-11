@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.25.2",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-toast": "^1.1.5",
     "mongodb": "^6.1.0",
     "mongoose": "^7.5.3",
     "next": "^13.5.4",

@@ -2,9 +2,9 @@
 import { JobCard, Modal, ApplicationForm } from '@/components'
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
+// import * as Toast from '@radix-ui/react-toast';
 
 export default function Dashboard() {
-  const [ applicationsState, setApplicationsState ] = useState([])
   const [ currentApplicationsState, setCurrentApplicationsState ] = useState([]) 
   const [ completedApplicationsState, setCompletedApplicationsState ] = useState([]) 
   const { isSignedIn, user, isLoaded } = useUser();
@@ -26,7 +26,7 @@ export default function Dashboard() {
     let currentApps = []
     let completedApps = []
     data.forEach(app => {
-      app.completed ? completedApps.unshift(app) : currentApps.unshift(app)
+      app.completed ? completedApps.unshift(app) : currentApps.push(app)
     })
     console.log(currentApps, completedApps)
     setCurrentApplicationsState(currentApps)
@@ -90,7 +90,7 @@ export default function Dashboard() {
               {completedApplicationsState && (
                 completedApplicationsState.map(application => (
                   <Modal button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`}>
-                    <JobCard application={applicatiion} getApplications={getApplications} isModal={true}/>
+                    <JobCard application={application} getApplications={getApplications} isModal={true}/>
                   </Modal>
                 ))
               )}
