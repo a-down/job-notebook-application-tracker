@@ -21,7 +21,7 @@ export default function JobCard({ application, isModal, getApplications }) {
     applicationState ? console.log('yes application state', applicationState) : console.log('no application state')
     // setProgressPercentage()
     if (isModal) {
-      updateCard()
+      // updateCard()
       setDropdownState(true)
       setCardBottomMargin('mb-[6px]')
       setWrapperShadow('drop-shadow-brand')
