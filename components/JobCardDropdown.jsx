@@ -7,6 +7,8 @@ import * as Dialog from '@radix-ui/react-dialog';
 export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility, isModal }) {
   const [ confirmDeleteState, setConfirmDeleteState ] = useState(false)
 
+  if(application) console.log('here it is', application)
+
   async function deleteApplication() {
     setCardVisibility(false)
     await fetch(`/api/applications/${application._id}`, {
