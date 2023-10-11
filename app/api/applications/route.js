@@ -15,12 +15,13 @@ export async function POST (req) {
   await connectMongoDB();
   const application = await Application.create(body)
   let toDoIdArr = []
+  if (to_do) {
   for (const item of to_do) {
     const res = await ToDo.create(item)
     await Application.findByIdAndUpdate(application._id, {
       $push: { to_do: res._id }
     }, { new: true })
-  }
+  }}
 
   // await Application.create(body)
   return NextResponse.json({message: "Application Created", status: 201})
