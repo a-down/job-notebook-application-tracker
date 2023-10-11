@@ -39,7 +39,7 @@ export default function JobCard({ application, isModal, getApplications }) {
   }
 
   function setProgressPercentage() {
-    if (!applicationState.to_do?.length) {
+    if (applicationState.to_do?.length === 0) {
       setPercentage(0)
     } else {
       let numberCompleted = 0
