@@ -17,6 +17,8 @@ export default function JobCard({ application, isModal, getApplications }) {
   const [ arrowRotation, setArrowRotation ] = useState('0')
   const [ applicationState, setApplicationState ] = useState(application)
 
+  console.log(applicationState)
+
   useEffect(() => {
     setProgressPercentage()
     if (isModal) {
@@ -60,7 +62,7 @@ export default function JobCard({ application, isModal, getApplications }) {
 
   return (
     <>
-    {cardVisibility && (
+    {cardVisibility && applicationState && (
       <>
         <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content', maxWidth: '80vw'}}>
           <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${cardBottomMargin}`}>

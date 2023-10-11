@@ -28,7 +28,6 @@ export default function Dashboard() {
     data.forEach(app => {
       app.completed ? completedApps.unshift(app) : currentApps.push(app)
     })
-    console.log(currentApps, completedApps)
     setCurrentApplicationsState(currentApps)
     setCompletedApplicationsState(completedApps)
   }
