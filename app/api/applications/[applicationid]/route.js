@@ -6,14 +6,14 @@ import { NextResponse } from "next/server";
 
 export async function GET (req, { params }) {
   await connectMongoDB();
-  const applications = await Application.findById(params.applicationId).populate('to_do')
+  const applications = await Application.findById(params.applicationid).populate('to_do')
   return NextResponse.json(applications)
 }
 
 export async function PUT (req, { params }) {
   const body = await req.json()
   await connectMongoDB();
-  await Application.findByIdAndUpdate(params.applicationId, body)
+  await Application.findByIdAndUpdate(params.applicationid, body)
   return NextResponse.json({message: "Application Updated", status: 200})
 }
 
