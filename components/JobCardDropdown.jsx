@@ -8,6 +8,7 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
   const [ confirmDeleteState, setConfirmDeleteState ] = useState(false)
 
   if(application) console.log('here it is', application)
+  if(!application) console.log('no application')
 
   async function deleteApplication() {
     setCardVisibility(false)
