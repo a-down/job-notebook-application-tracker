@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react'
 
 
-
 export default function ApplicationForm({ userId, getApplications, setNewApplicationModalState }) {
   const defaultFormData = {
     jobTitle: '',
@@ -44,8 +43,6 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
     setNewApplicationModalState(false)
     getApplications()
   }
-
-
 
   const formFieldsArr = [
     {type: 'input', label: 'Job Title', name: 'jobTitle', placeholder: 'Graphic Designer', value: formData.jobTitle},
