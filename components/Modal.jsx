@@ -25,6 +25,12 @@ export default function Modal({ children, button }) {
             </Dialog.Trigger>
           )}
 
+          {button.style === 'danger' && (
+            <Dialog.Trigger className=' text-xs p-2 px-3 bg-transparent border border-red-400 text-red-400 rounded-full hover:bg-red-400 hover:border-red-400 hover:text-white duration-300'>
+              {button.text}
+            </Dialog.Trigger>
+          )}
+
         <Dialog.Portal>
           <Dialog.Overlay className="z-50 bg-[rgb(0,0,0,.6)] data-[state=open]:animate-overlayShow fixed inset-0" />
           <Dialog.Content className="modal-content z-50 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] translate-x-[-50%] translate-y-[-50%] rounded-md bg-gray-2 p-6 drop-shadow-brand overflow-scroll">

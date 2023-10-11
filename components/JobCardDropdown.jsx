@@ -1,9 +1,11 @@
 "use client"
 import { useState } from 'react'
-import { Contacts, Files, Notes, ToDo } from '@/components'
+import { Contacts, Files, Notes, ToDo, Modal } from '@/components'
+import * as Dialog from '@radix-ui/react-dialog';
 
 
 export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility }) {
+  const [ confirmDeleteState, setConfirmDeleteState ] = useState(false)
 
   async function deleteApplication() {
     setCardVisibility(false)
@@ -34,11 +36,24 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
               </button>
             </div>
 
-            <button 
-              className=' text-xs p-2 px-3 bg-transparent border border-red-400 text-red-400 rounded-full hover:bg-red-400 hover:border-red-400 hover:text-white duration-300'
-              onClick={deleteApplication}>
-              Delete
-            </button>
+            <Modal button={{text: 'Delete', style: 'danger'}}>
+              <form className="flex flex-col items-center gap-4 w-[80vw] max-w-[600px] bg-white py-12 px-20 rounded-lg border drop-shadow-brand"> 
+                <label className='text-xl'>Are you sure you want to delete this application?</label>
+                <div className='flex gap-4 w-full justify-between'>
+                  <Dialog.Close className='grow'>
+                    <button className=' p-4 w-full bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
+                      Cancel
+                    </button>
+                  </Dialog.Close>
+                  <button 
+                    className=' p-4 grow bg-transparent border bg-red-400 text-white rounded-full hover:bg-red-600 hover:text-white duration-300'
+                    onClick={deleteApplication}>
+                    Delete
+                  </button>
+                </div>
+              </form>
+            </Modal>
+
           </div>
 
     </>
