@@ -12,10 +12,11 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
 
   async function deleteApplication() {
     setCardVisibility(false)
-    await fetch(`/api/applications/${application._id}`, {
+    const res = await fetch(`/api/applications/${application._id}`, {
       method: 'DELETE'
     })
-    console.log('deleted')
+    const data = await res.json()
+    console.log('deleted', data)
   }
 
   async function toggleApplicationCompleted(isCompleted) {
