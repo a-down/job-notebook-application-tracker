@@ -66,7 +66,7 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
 
         <Modal button={{text: 'Delete', style: 'danger'}}>
           <div className="flex flex-col items-center gap-4 w-[80vw] max-w-[600px] bg-white py-12 px-20 rounded-lg border drop-shadow-brand"> 
-            <p className='text-xl'>Are you sure you want to delete this application?</label>
+            <p className='text-xl'>Are you sure you want to delete this application?</p>
             <div className='flex gap-4 w-full justify-between'>
               <Dialog.Close className='grow'>
                 <button className=' p-4 w-full bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
