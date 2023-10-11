@@ -18,7 +18,7 @@ export default function JobCard({ application, isModal, getApplications }) {
   const [ applicationState, setApplicationState ] = useState(application)
 
   useEffect(() => {
-    applicationState ? console.log(applicationState) : console.log('no application state')
+    applicationState ? console.log('yes application state', applicationState) : console.log('no application state')
     setProgressPercentage()
     if (isModal) {
       updateCard()
@@ -39,7 +39,7 @@ export default function JobCard({ application, isModal, getApplications }) {
   }
 
   function setProgressPercentage() {
-    if (!applicationState.to_do.length) {
+    if (!applicationState.to_do?.length) {
       setPercentage(0)
     } else {
       let numberCompleted = 0
