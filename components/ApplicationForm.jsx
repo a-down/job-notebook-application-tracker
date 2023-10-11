@@ -42,8 +42,8 @@ export default function ApplicationForm({ userId, getApplications }) {
         'Content-Type': 'application/json',
       },
     })
-    getApplications()
     setFormVisibilityState(false)
+    getApplications()
   }
 
 
