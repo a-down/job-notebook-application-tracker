@@ -121,7 +121,7 @@ export default function JobCard({ application, isModal, getApplications }) {
           </div>  
           
 
-          {dropdownState && (
+          {dropdownState && applicationState && (
             <JobCardDropdown 
               application={applicationState} 
               setProgressPercentage={setProgressPercentage} 
