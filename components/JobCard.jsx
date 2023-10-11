@@ -17,7 +17,7 @@ export default function JobCard({ application, isModal, getApplications }) {
   const [ arrowRotation, setArrowRotation ] = useState('0')
   const [ applicationState, setApplicationState ] = useState(application)
 
-  console.log(applicationState)
+  if(applicationState) console.log(`application for ${applicationState.role.role_name}`, applicationState)
 
   useEffect(() => {
     setProgressPercentage()
