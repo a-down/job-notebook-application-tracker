@@ -9,6 +9,7 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
 
   if(application) console.log('here it is', application)
   if(!application) console.log('no application')
+  console.log(application)
 
   async function deleteApplication() {
     setCardVisibility(false)
