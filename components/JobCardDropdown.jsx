@@ -5,7 +5,6 @@ import * as Dialog from '@radix-ui/react-dialog';
 
 
 export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility, isModal }) {
-  const [ confirmDeleteState, setConfirmDeleteState ] = useState(false)
 
   if(application) console.log('here it is', application)
   if(!application) console.log('no application')
@@ -66,8 +65,8 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
         </div>
 
         <Modal button={{text: 'Delete', style: 'danger'}}>
-          <form className="flex flex-col items-center gap-4 w-[80vw] max-w-[600px] bg-white py-12 px-20 rounded-lg border drop-shadow-brand"> 
-            <label className='text-xl'>Are you sure you want to delete this application?</label>
+          <div className="flex flex-col items-center gap-4 w-[80vw] max-w-[600px] bg-white py-12 px-20 rounded-lg border drop-shadow-brand"> 
+            <p className='text-xl'>Are you sure you want to delete this application?</label>
             <div className='flex gap-4 w-full justify-between'>
               <Dialog.Close className='grow'>
                 <button className=' p-4 w-full bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
@@ -80,7 +79,7 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
                 Delete
               </button>
             </div>
-          </form>
+          </div>
         </Modal>
 
       </div>
