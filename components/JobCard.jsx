@@ -30,7 +30,7 @@ export default function JobCard({ application, isModal, getApplications }) {
       setRowSpan('row-span-4')
       setArrowRotation('180')
     }
-  })
+  }, [applicationState])
 
   async function updateCard() {
     const res = await fetch(`/api/applications/${applicationState._id}`)
