@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react'
 
 
-export default function ApplicationForm({ userId, getApplications }) {
+
+export default function ApplicationForm({ userId, getApplications, setNewApplicationModalState }) {
   const defaultFormData = {
     jobTitle: '',
     applicationLink: '',
@@ -13,8 +14,6 @@ export default function ApplicationForm({ userId, getApplications }) {
     dueDate: ''
   }
   const [ formData, setFormData ] = useState(defaultFormData)
-  const [ formVisibilityState, setFormVisibilityState ] = useState(true)
-
   function handleApplicationForm(event) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -42,7 +41,7 @@ export default function ApplicationForm({ userId, getApplications }) {
         'Content-Type': 'application/json',
       },
     })
-    setFormVisibilityState(false)
+    setNewApplicationModalState(false)
     getApplications()
   }
 
@@ -60,71 +59,65 @@ export default function ApplicationForm({ userId, getApplications }) {
 
   return (
     <> 
-      {formVisibilityState ? (
-        <form className="flex flex-col gap-4 w-[80vw] max-w-[600px] bg-white p-4 rounded-lg border drop-shadow-brand">
-          <h3 className="text-lg text-display font-bold">Enter Job Info Below</h3>
+      <form className="flex flex-col gap-4 w-[80vw] max-w-[600px] bg-white p-4 rounded-lg border drop-shadow-brand">
+        <h3 className="text-lg text-display font-bold">Enter Job Info Below</h3>
 
-          {formFieldsArr.map((field, index) => (
-            <fieldset className="flex flex-col gap-2">
-              <label className="text-body text-sm text-black">
-                {`${field.label} `}
+        {formFieldsArr.map((field, index) => (
+          <fieldset className="flex flex-col gap-2">
+            <label className="text-body text-sm text-black">
+              {`${field.label} `}
 
-                {field.guideline && (
-                  <span className="text-gray-500">
-                    {field.guideline}
-                  </span>
-                )}
-              
-              </label>
-
-              {field.type === 'input' && (
-                <input className=" text-sm bg-white border border-gray-6 text-black p-2 rounded-md" 
-                  type="text" 
-                  name={field.name} 
-                  value={field.value} 
-                  placeholder={field.placeholder}
-                  onChange={handleApplicationForm} />
+              {field.guideline && (
+                <span className="text-gray-500">
+                  {field.guideline}
+                </span>
               )}
+            
+            </label>
 
-              {field.type === 'textarea' && (
-                <textarea 
-                  className=" text-sm bg-white border border-gray-6 text-black p-2 rounded-md"
-                  type="text" 
-                  name={field.name} 
-                  value={field.value} 
-                  placeholder={field.placeholder} 
-                  onChange={handleApplicationForm} >
-                </textarea>
-              )}
+            {field.type === 'input' && (
+              <input className=" text-sm bg-white border border-gray-6 text-black p-2 rounded-md" 
+                type="text" 
+                name={field.name} 
+                value={field.value} 
+                placeholder={field.placeholder}
+                onChange={handleApplicationForm} />
+            )}
 
-              {field.type === 'link' && (
-                <input 
-                  className=" bg-white border border-gray-6 text-sm text-black p-2 rounded-md"
-                  type="url" 
-                  pattern="https://.*" 
-                  required 
-                  name={field.name} 
-                  value={field.value} 
-                  placeholder={field.placeholder}
-                  onChange={handleApplicationForm} />
-              )}
-              
-            </fieldset>
-          ))}
+            {field.type === 'textarea' && (
+              <textarea 
+                className=" text-sm bg-white border border-gray-6 text-black p-2 rounded-md"
+                type="text" 
+                name={field.name} 
+                value={field.value} 
+                placeholder={field.placeholder} 
+                onChange={handleApplicationForm} >
+              </textarea>
+            )}
 
-          <button 
-            className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1 font-bold max-w-[300px] mx-auto'
-            type='submit'
-            onClick={createApplication}>
-            Create Application
-          </button>
-          
-        </form>
-      ) : (
-        <div className='flex justify-center items-center bg-[rgb(157,212,199,.5)] border-2 border-brand-primary w-[80vw] max-w-[600px] py-8 rounded-md'>
-          <h3 className='text-black font-semibold'>Application Created</h3>
-        </div>
-      )}
+            {field.type === 'link' && (
+              <input 
+                className=" bg-white border border-gray-6 text-sm text-black p-2 rounded-md"
+                type="url" 
+                pattern="https://.*" 
+                required 
+                name={field.name} 
+                value={field.value} 
+                placeholder={field.placeholder}
+                onChange={handleApplicationForm} />
+            )}
+            
+          </fieldset>
+        ))}
+
+        <button 
+          className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1 font-bold max-w-[300px] mx-auto'
+          type='submit'
+          onClick={createApplication}>
+          Create Application
+        </button>
+        
+      </form>
     </>
   )
 }

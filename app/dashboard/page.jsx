@@ -8,6 +8,7 @@ export default function Dashboard() {
   const [ currentApplicationsState, setCurrentApplicationsState ] = useState([]) 
   const [ completedApplicationsState, setCompletedApplicationsState ] = useState([]) 
   const { isSignedIn, user, isLoaded } = useUser();
+  const [ newApplicationModalState, setNewApplicationModalState ] = useState(true)
   
   useEffect(() => {
     if (user) {
@@ -38,9 +39,12 @@ export default function Dashboard() {
           <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
 
           <div className='max-w-64'>
-            {user && (
+            {user && newApplicationModalState && (
               <Modal button={{text: 'New Application', style: 'primary'}}>
-                <ApplicationForm userId={user.id} getApplications={getApplications}/>
+                <ApplicationForm 
+                  userId={user.id} 
+                  getApplications={getApplications} 
+                  setNewApplicationModalState={setNewApplicationModalState}/>
               </Modal>
             )}
             
