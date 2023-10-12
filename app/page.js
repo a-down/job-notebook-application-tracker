@@ -40,15 +40,31 @@ export default function Home() {
               <path d="M0 576V0C866.393 26.8364 1153.26 47.687 1440 98.8432V576H0Z" fill="#9DD4C7"/>
             </svg>
 
-            <div className='relative z-10'>
-              <h1 className='text-white'>How it works</h1>
+            <div className='relative z-10 px-16 py-24'>
+              <h3 className='text-black font-bold text-2xl mb-16'>Job information available at a glance</h3>
+
+              <div className='grid grid-cols-4 gap-4'>
+                <div className='col-span-1 h-[288px] bg-brand-soft'>
+
+                </div>
+                <div className='col-span-1 h-[288px] bg-brand-soft'>
+
+                </div>
+                <div className='col-span-1 h-[288px] bg-brand-soft'>
+
+                </div>
+                <div className='col-span-1 h-[288px] bg-brand-soft'>
+
+                </div>
+
+              </div>
             </div>
-
-
 
           </div>
 
           <div className='w-full h-[664px]'>
+
+            
 
           </div>
 
