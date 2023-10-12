@@ -36,6 +36,8 @@ module.exports = {
 
       colors: {
         'brand-primary': '#9DD4C7',
+        'brand-dark': '#253330',
+        'brand-soft': '#C5ECE3',
         'gray-1': '#F9F9F9',
         'gray-2': '#F1F1F1',
         'gray-3': '#EEEEEE',

@@ -5,6 +5,8 @@
 :root {
   line-height: 1;
   --brand-primary: rgb(157, 212, 199);
+  --brand-dark: rgb(37, 51, 48);
+  --brand-soft: rgb(197, 236, 227);
   --gray-7: '#8C8C8C';
 }
 
