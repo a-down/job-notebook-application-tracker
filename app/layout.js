@@ -1,5 +1,4 @@
 import './globals.css'
-import { Header } from '@/components'
 import { Lexend, Lexend_Deca, Kadwa  } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 
@@ -31,7 +30,6 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
-          <Header/>
           {children}
         </body>
       </html>

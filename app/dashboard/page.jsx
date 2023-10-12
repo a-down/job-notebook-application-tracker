@@ -1,5 +1,5 @@
 "use client"
-import { JobCard, Modal, ApplicationForm } from '@/components'
+import { JobCard, Modal, ApplicationForm, Header } from '@/components'
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 // import * as Toast from '@radix-ui/react-toast';
@@ -33,6 +33,9 @@ export default function Dashboard() {
   }
 
   return (
+    <>
+      <Header isDark={false} />
+
       <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
         <div className='flex justify-between items-start'>
           <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
@@ -97,9 +100,7 @@ export default function Dashboard() {
           </aside>
 
         </div>
-
-        
-
       </main>
+    </>
   )
 }
