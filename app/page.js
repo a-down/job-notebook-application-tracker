@@ -6,6 +6,7 @@ import career from '../public/career.png'
 import contacts from '../public/contacts.png'
 import todo from '../public/todo.png'
 import file from '../public/file.png'
+import dropdownCard from '../public/dropdowncard.png'
 
 export default function Home() {
   const featureDetails = [
@@ -33,7 +34,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <Link href='/dashboard' className=' bg-brand-primary text-brand-dark hover:bg-brand-soft duration-300 rounded-full w-full text-lg font-bold py-6 px-8'>Start your notebook</Link>
+              <Link href='/dashboard' className=' bg-brand-primary text-brand-dark hover:bg-brand-soft duration-300 rounded-full text-lg font-bold py-6 px-8' style={{transitionDuration: '.3s'}}>Start your notebook</Link>
             </div>
 
             <div className="col-span-7 col-start-6 2xl:col-start-8">
@@ -77,15 +78,23 @@ export default function Home() {
 
                 ))}
 
-                
-
               </div>
             </div>
-
           </div>
 
-          <div className='w-full h-[664px]'>
+          <div className='w-full h-[664px] grid grid-cols-12 px-16 pt-24'>
+            
+            <Image src={dropdownCard} alt='Job Card Dropdown Example' height={834} width={680} className='col-span-6 rounded-xl relative -left-20'/>
 
+            <div className='mt-28 col-span-6 col-start-7 flex flex-col items-center'>
+              <h3 className='w-[478px] text-white text-4xl font-bold leading-normal mb-16'>
+                Don't find any more postings until you have a 
+                <span className='text-brand-primary'> Notebook </span>
+                to keep them in!
+              </h3>
+
+              <Link href='/dashboard' className=' bg-brand-primary text-brand-dark hover:bg-brand-soft duration-300 rounded-full text-lg font-bold py-6 px-8' style={{transitionDuration: '.3s'}}>Start your notebook</Link>
+            </div>
             
 
           </div>
