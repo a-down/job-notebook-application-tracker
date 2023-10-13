@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <div className='bg-brand-dark'>
-        <Header isDark={true} />
+        <Header isDark={true} activePage={'landing'}/>
 
         <main className="bg-brand-dark min-h-screen overflow-clip">
         
