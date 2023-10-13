@@ -14,7 +14,7 @@ export default function Modal({ children, button }) {
           )}
 
           {button.style === 'gray-outline' && (
-            <Dialog.Trigger className=' text-gray-7 text-sm leading-tight w-full px-4 py-[12px] rounded-md  border border-gray-7 hover:bg-brand-primary hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>
+            <Dialog.Trigger className=' text-gray-7 text-sm leading-tight w-full px-4 py-[12px] rounded-md  border border-gray-7 hover:bg-gray-7 hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>
               {button.text}
             </Dialog.Trigger>
           )}

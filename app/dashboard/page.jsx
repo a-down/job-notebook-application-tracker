@@ -89,11 +89,10 @@ export default function Dashboard() {
 
               {completedApplicationsState && (
                 completedApplicationsState.map(application => (
-                  <Modal button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`}>
-                    <JobCard application={application} getApplications={getApplications} isModal={true}/>
-                  </Modal>
+                  <AsideWrapper button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`} application={application} getApplications={getApplications}/>
                 ))
               )}
+
             </div>
             
           </aside>
