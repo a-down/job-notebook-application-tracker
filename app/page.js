@@ -16,10 +16,10 @@ export default function Home() {
   ]
   return (
     <>
-      <div className='bg-brand-dark'>
+      <div className='bg-brand-dark overflow-clip'>
         <Header isDark={true} activePage={'landing'}/>
 
-        <main className="bg-brand-dark min-h-screen overflow-clip">
+        <main className="bg-brand-dark min-h-screen">
         
           {/* hero section */}
           <div className='grid grid-cols-12 gap-4 pt-24 h-[636px] px-16 2xl:px-32'>
@@ -92,8 +92,8 @@ export default function Home() {
 
         </main>
 
-        <footer className="w-full h-[260px] z-10 relative">
-          <svg width="100%" height="260" viewBox="0 0 1444 260" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-0 left-0 z-0'>
+        <footer className="w-screen h-[260px] relative">
+          <svg width="100%" height="260" viewBox="0 0 1444 260" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-px left-0 z-0'>
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#9dd4c7"/>
           </svg>
 
