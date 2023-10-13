@@ -2,8 +2,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Header } from '@/components'
 import mockup from '../public/mockup.png'
+import career from '../public/career.png'
+import contacts from '../public/contacts.png'
+import todo from '../public/todo.png'
+import file from '../public/file.png'
 
 export default function Home() {
+  const featureDetails = [
+    { title: 'Job Details', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: career },
+    { title: 'Contacts', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: contacts },
+    { title: 'To Do Lisk', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: todo },
+    { title: 'Documents', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: file },
+  ]
   return (
     <>
       <div className='bg-brand-dark'>
@@ -51,18 +61,23 @@ export default function Home() {
               <h3 className='text-black font-bold text-2xl mb-16'>Job information available at a glance</h3>
 
               <div className='grid grid-cols-4 gap-4'>
-                <div className='col-span-1 h-[288px] bg-brand-soft'>
 
+                {featureDetails.map((feature, index) => (
+                  <div className='col-span-1' key={index}>
+                    
+                    <div className='bg-brand-soft rounded-lg w-12 aspect-square mb-4 flex justify-center items-center'>
+                      <Image src={feature.image} alt={`${feature.title} Icon`} width={32} height={32}/>
+                    </div>
+                    <h4 className='text-black text-2xl font-bold mb-4'>{feature.title}</h4>
+                    <p className='text-black leading-normal mb-8'>
+                      {feature.description}
+                    </p>
+                    <Link href='/howitworks' className='py-2 px-4 rounded-md text-black bg-brand-soft hover:opacity-60 duration-300'>Learn more</Link>
                 </div>
-                <div className='col-span-1 h-[288px] bg-brand-soft'>
 
-                </div>
-                <div className='col-span-1 h-[288px] bg-brand-soft'>
+                ))}
 
-                </div>
-                <div className='col-span-1 h-[288px] bg-brand-soft'>
-
-                </div>
+                
 
               </div>
             </div>
@@ -77,7 +92,7 @@ export default function Home() {
 
         </main>
 
-        <footer className="w-full h-[260px] bg-[url('../public/footer-wave.svg')] bg-left-top z-10 relative">
+        <footer className="w-full h-[260px] z-10 relative">
           <svg width="100%" height="260" viewBox="0 0 1444 260" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-0 left-0 z-0'>
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#9dd4c7"/>
           </svg>
