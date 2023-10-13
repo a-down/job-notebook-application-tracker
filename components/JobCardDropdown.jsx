@@ -78,7 +78,8 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
               </Dialog.Close>
               <Dialog.Close className='grow'>
                 <button 
-                  className=' p-4 w-full grow bg-transparent border border-red-400 bg-red-400 text-white rounded-full hover:bg-red-500 duration-300'
+                  className=' p-4 w-full grow bg-transparent border text-white rounded-full hover:opacity-60 duration-200'
+                  style={{backgroundColor: '#f87171', borderColor: '#f87171'}}
                   onClick={deleteApplication}>
                   Delete
                 </button>
