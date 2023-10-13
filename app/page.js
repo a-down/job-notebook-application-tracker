@@ -142,7 +142,7 @@ export default function Home() {
               <Link href='/' className=' hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Home</Link>
               <Link href='/about' className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>About</Link>
               <Link href='/howitworks' className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>How It Works</Link>
-              <Link href='/Dashboard' className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Dashboard</Link>
+              <Link href='/dashboard' className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Dashboard</Link>
             </div>
           </div>
 
