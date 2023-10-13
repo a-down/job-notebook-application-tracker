@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Header } from '@/components'
-import primaryWave from '@/public/primary-wave.svg'
+import mockup from '../public/mockup.png'
 
 export default function Home() {
   return (
@@ -14,10 +14,16 @@ export default function Home() {
           {/* hero section */}
           <div className='grid grid-cols-12 gap-4 pt-24 h-[636px] px-16'>
             <div className='col-span-4'>
-              <div className='bg-white h-[324px] mb-6'>
-
+              <div className='mb-16'>
+                <p className='text-xl text-white leading-normal mb-4'>
+                  You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.
+                </p>
+                <p className='text-xl text-white leading-normal'>
+                  Sound familiar? Keep track of your applications in one Job Notebook.
+                </p>
               </div>
-              <button className='h-20 bg-brand-primary text-brand-dark rounded-full w-full text-lg font-bold'>Start your notebook</button>
+
+              <Link href='/dashboard' className=' bg-brand-primary text-brand-dark hover:bg-brand-soft duration-300 rounded-full w-full text-lg font-bold py-6 px-8'>Start your notebook</Link>
             </div>
 
             <div className="col-span-7 col-start-6">
@@ -27,9 +33,10 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="bg-white rounded-md w-[904px] h-[638px] z-0 2xl:absolute 2xl:-right-16">
-
+              <div className="w-[904px] h-[638px] z-0 2xl:absolute 2xl:-right-[36px]">
+                <Image src={mockup} alt='Job Notebook mockup' height={638} width={904} className='rounded-md'/>
               </div>
+
             </div>
           </div>
 
