@@ -72,13 +72,13 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
             <p className='text-xl'>Are you sure you want to delete this application?</p>
             <div className='flex gap-4 w-full justify-between'>
               <Dialog.Close className='grow'>
-                <button className=' p-3 w-full bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
+                <button className=' p-4 w-full bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
                   Cancel
                 </button>
               </Dialog.Close>
               <Dialog.Close className='grow'>
                 <button 
-                  className=' p-3 w-full grow bg-transparent border border-red-400 bg-red-400 text-white rounded-full hover:bg-red-500 duration-300'
+                  className=' p-4 w-full grow bg-transparent border border-red-400 bg-red-400 text-white rounded-full hover:bg-red-500 duration-300'
                   onClick={deleteApplication}>
                   Delete
                 </button>
