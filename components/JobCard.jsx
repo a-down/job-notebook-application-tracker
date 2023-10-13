@@ -6,7 +6,7 @@ import { Modal } from '@/components'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-export default function JobCard({ application, isModal, getApplications }) {
+export default function JobCard({ application, isModal, getApplications, setAsideModalState, asideModalState }) {
   const [ cardVisibility, setCardVisibility ] = useState(true)
   const [ percentage, setPercentage ] = useState(0)
   const [ dropdownState, setDropdownState ] = useState(false)
@@ -128,7 +128,10 @@ export default function JobCard({ application, isModal, getApplications }) {
               updateCard={updateCard}
               getApplications={getApplications}
               setCardVisibility={setCardVisibility}
-              isModal={isModal}/>
+              isModal={isModal}
+              setAsideModalState={setAsideModalState}
+              asideModalState={asideModalState}
+              />
           )}
 
         </div>

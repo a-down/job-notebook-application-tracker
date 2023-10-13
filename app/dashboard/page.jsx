@@ -1,5 +1,5 @@
 "use client"
-import { JobCard, Modal, ApplicationForm, Header } from '@/components'
+import { JobCard, Modal, ApplicationForm, Header, AsideWrapper } from '@/components'
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 // import * as Toast from '@radix-ui/react-toast';
@@ -76,9 +76,7 @@ export default function Dashboard() {
 
               {currentApplicationsState && (
                 currentApplicationsState.map(application => (
-                  <Modal button={{text: application.role.role_name, style: 'primary'}} key={`${application._id}-modal`}>
-                    <JobCard application={application} getApplications={getApplications} isModal={true}/>
-                  </Modal>
+                  <AsideWrapper button={{text: application.role.role_name, style: 'primary'}} key={`${application._id}-modal`} application={application} getApplications={getApplications}/>
                 ))
               )}
 

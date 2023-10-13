@@ -1,3 +1,4 @@
+export {default as AsideWrapper} from './AsideWrapper'
 export {default as ApplicationForm} from './ApplicationForm'
 export {default as Contacts} from './Contacts'
 export {default as Files} from './Files'
