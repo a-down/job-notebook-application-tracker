@@ -27,7 +27,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="bg-white rounded-md w-[904px] h-[638px] overflow z-0">
+              <div className="bg-white rounded-md w-[904px] h-[638px] z-0 2xl:absolute 2xl:-right-16">
 
               </div>
             </div>
