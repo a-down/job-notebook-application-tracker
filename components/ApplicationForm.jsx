@@ -60,7 +60,7 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
         <h3 className="text-lg text-display font-bold">Enter Job Info Below</h3>
 
         {formFieldsArr.map((field, index) => (
-          <fieldset className="flex flex-col gap-2">
+          <fieldset className="flex flex-col gap-2" key={index}>
             <label className="text-body text-sm text-black">
               {`${field.label} `}
 
@@ -107,7 +107,8 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
           </fieldset>
         ))}
 
-        <button 
+        <button
+          tabIndex='0'
           className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1 font-bold max-w-[300px] mx-auto'
           type='submit'
           onClick={createApplication}>

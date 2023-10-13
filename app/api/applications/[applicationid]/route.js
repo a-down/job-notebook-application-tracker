@@ -19,7 +19,7 @@ export async function PUT (req, { params }) {
 
 export async function DELETE (req, { params }) {
   await connectMongoDB();
-  await Application.findByIdAndDelete(params.applicationId)
+  await Application.findByIdAndDelete(params.applicationid)
   return NextResponse.json({message: "Application Deleted", status: 200, params: params})
 }
 
