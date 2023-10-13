@@ -16,7 +16,7 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
       method: 'DELETE'
     })
     const data = await res.json()
-    // console.log('deleted', data)
+    getApplications()
   }
 
   async function toggleApplicationCompleted(isCompleted) {
@@ -75,11 +75,14 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
                   Cancel
                 </button>
               </Dialog.Close>
-              <button 
-                className=' p-4 grow bg-transparent border bg-red-500 text-white rounded-full hover:bg-red-700 duration-300'
-                onClick={deleteApplication}>
-                Delete
-              </button>
+              <Dialog.Close>
+                <button 
+                  className=' p-4 grow bg-transparent border bg-red-500 text-white rounded-full hover:bg-red-700 duration-300'
+                  onClick={deleteApplication}>
+                  Delete
+                </button>
+              </Dialog.Close>
+              
             </div>
           </div>
         </Modal>
