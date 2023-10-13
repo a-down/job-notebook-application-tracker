@@ -7,6 +7,12 @@ import contacts from '../public/contacts.png'
 import todo from '../public/todo.png'
 import file from '../public/file.png'
 import dropdownCard from '../public/dropdowncard.png'
+import clerk from '../public/clerk.png'
+import github from '../public/github.png'
+import icons8 from '../public/icons8.png'
+import linkedIn from '../public/linkedin.png'
+import phosphor from '../public/phosphor.png'
+import simpleIcons from '../public/simpleicons.png'
 
 export default function Home() {
   const featureDetails = [
@@ -15,6 +21,17 @@ export default function Home() {
     { title: 'To Do List', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: todo },
     { title: 'Documents', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: file },
   ]
+
+  const footerLinks = [
+    { title: '/in/alec-downing', link: 'https://linkedin.com/in/alec-downing', icon: linkedIn },
+    { title: 'GitHub (for issues and resources)', link: 'https://github.com/a-down/job-notebook-application-tracker', icon: github },
+    { title: 'Clerk', link: 'https://clerk.com', icon: clerk },
+    { title: 'Icons8', link: 'https://https://icons8.com/', icon: icons8 },
+    { title: 'Phosphor Icons', link: 'https://phosphoricons.com/', icon: phosphor },
+    { title: 'Simple Icons', link: 'https://simpleicons.org/', icon: simpleIcons },
+  ]
+
+
   return (
     <>
       <div className='bg-brand-dark overflow-clip'>
@@ -101,14 +118,33 @@ export default function Home() {
 
         </main>
 
-        <footer className="w-screen h-[260px] relative">
-          <svg width="100%" height="260" viewBox="0 0 1444 260" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute left-0 z-0'>
+        <footer className="w-screen h-[240px] relative">
+          <svg width="100%" height="240" viewBox="0 0 1444 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2400/svg" className='absolute left-0 z-0'>
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#9dd4c7"/>
           </svg>
-          <svg width="100%" height="260" viewBox="0 0 1444 260" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-[5px] left-0 z-0'>
+          <svg width="100%" height="240" viewBox="0 0 1444 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-[5px] left-0 z-0'>
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#253330"/>
           </svg>
           
+          <div className='flex justify-between items-end h-full relative p-16 py-20 2xl:px-32 text-gray-5'>
+            <div className=' h-[88px] w-[560px] flex gap-6 flex-wrap'>
+              {footerLinks.map((link, index) => (
+                <div className='hover:text-brand-primary duration-300 flex'>
+                  <a href={link.link} target="_blank" className='flex gap-2 items-center'>
+                    <Image src={link.icon} height={24} width={24}/>
+                    <p className='font-semibold'>{link.title}</p>
+                  </a>
+                </div>
+              ))}
+            </div>
+            
+            <div className='flex gap-6 mb-1.5 font-semibold'>
+              <Link href='/' className=' hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Home</Link>
+              <Link href='/about' className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>About</Link>
+              <Link href='/howitworks' className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>How It Works</Link>
+              <Link href='/Dashboard' className='hover:text-brand-primary' style={{transitionDuration: '.3s'}}>Dashboard</Link>
+            </div>
+          </div>
 
         </footer>
       </div>
