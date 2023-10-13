@@ -20,6 +20,7 @@ export default function Dashboard() {
     const res = await fetch(`/api/applications/user/${user.id}`)
     const data = await res.json()
     createApplicationsArrays(data)
+    setNewApplicationModalState(true)
   }
 
   function createApplicationsArrays(data) {
