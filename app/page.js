@@ -77,12 +77,12 @@ export default function Home() {
 
         </main>
 
-        {/* <footer className="w-full h-[260px] bg-[url('../public/footer-wave.svg')] bg-left-top z-10 relative">
+        <footer className="w-full h-[260px] bg-[url('../public/footer-wave.svg')] bg-left-top z-10 relative">
           <svg width="100%" height="260" viewBox="0 0 1444 260" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-0 left-0 z-0'>
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#9dd4c7"/>
           </svg>
 
-        </footer> */}
+        </footer>
       </div>
     </>
     
