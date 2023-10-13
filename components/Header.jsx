@@ -8,7 +8,7 @@ export default function Header({ isDark }) {
 
   return (
     <>
-      <header className={`${backroundColor} flex justify-between items-center h-24 w-full px-16 py-6 drop-shadow-brand`}>
+      <header className={`${backroundColor} flex justify-between items-center h-24 w-full px-16 2xl:px-32 py-6 drop-shadow-brand`}>
         <Link href="/" className=''>
           <h1 className={`${titleColor} font-display font-semibold text-4xl duration-300`}>Job Notebook</h1>
         </Link>

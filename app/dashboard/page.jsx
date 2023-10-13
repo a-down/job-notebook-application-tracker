@@ -36,7 +36,7 @@ export default function Dashboard() {
     <>
       <Header isDark={false} />
 
-      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-16 py-16">
+      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-16 2xl:px-32 py-16">
         <div className='flex justify-between items-start'>
           <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
 
