@@ -1,14 +1,20 @@
 "use client"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ToDoItem } from '@/components'
 import { PiPlusBold } from 'react-icons/pi'
 
 
 export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateCard, applicationId }) {
+  const [ toDoState, setToDoState ] = useState(toDo)
   const [ toDoFormData, setToDoFormData ] = useState('')
-  console.log(toDo)
+
+  useEffect(() => {
+    setToDoState(toDo)
+  }, [toDo])
 
   async function createToDoItem(e) {
+    setToDoFormData('')
+    setToDoState([...toDoState, {description: toDoFormData, completed: false}])
     e.preventDefault()
     const res = await fetch(`/api/applications/${applicationId}/todo`, {
       method: 'POST',
@@ -18,9 +24,7 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
       body: JSON.stringify({description: toDoFormData})
     })
     await updateCard()
-    setToDoFormData('')
   }
-
 
 
   return (
@@ -31,8 +35,8 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
         </h6>
 
         <div className='to-do-wrapper flex flex-col items-start gap-2 mb-2 overflow-scroll max-h-[216px]'>
-          {toDo && (
-            toDo.map((item, index) => (
+          {toDoState && (
+            toDoState.map((item, index) => (
               <ToDoItem item={item} key={index} setProgressPercentage={setProgressPercentage} updateCard={updateCard} applicationId={applicationId}/>
             ))
           )}
