@@ -1,10 +1,22 @@
 "use client"
+import { useState } from 'react'
 import { ToDoItem } from '@/components'
 import { PiPlusBold } from 'react-icons/pi'
 
 
-export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateCard }) {
-  // const [ toDoState, ]
+export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateCard, applicationId }) {
+  const [ toDoFormData, setToDoFormData ] = useState('')
+
+  async function createToDoItem(e) {
+    e.preventDefault()
+    const res = await fetch(`/api/applications/${applicationId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({to_do: toDoFormData})
+    })
+  }
 
   return (
     <div className={`${sharedStyle} col-span-2 row-span-2 mb-1 h-full flex flex-col`}>
@@ -25,7 +37,11 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
           <button className=''>
             <PiPlusBold className='text-brand-primary text-lg rounded-sm'/>
           </button>
-          <input className='w-full rounded-md border border-brand-primary px-1.5 py-1 text-xs focus:border-brand-primary'/>
+          <input 
+            className='w-full rounded-md border border-brand-primary px-1.5 py-1 text-xs focus:border-brand-primary'
+            value={toDoFormData}
+            name='toDoInput'
+            onChange={(e) => setToDoFormData(e.target.value)}/>
         </form>
       </div>
       

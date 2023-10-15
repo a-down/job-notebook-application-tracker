@@ -40,7 +40,7 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
     <>
       {/* section with information */}
       <div className=" px-4 pt-[14px] pb-5 min-h-20 w-full rounded-b-md grid grid-cols-5 auto-rows-min gap-4 dropdown">
-        <ToDo sharedStyle={sharedStyle} toDo={application.to_do} setProgressPercentage={setProgressPercentage} updateCard={updateCard}/>
+        <ToDo sharedStyle={sharedStyle} toDo={application.to_do} setProgressPercentage={setProgressPercentage} updateCard={updateCard} applicationId={application._id}/>
         <Contacts sharedStyle={sharedStyle} contacts={application.contacts}/>
         <Files sharedStyle={sharedStyle} files={application.files}/>
         <Notes sharedStyle={sharedStyle} notes={application.notes}/>
