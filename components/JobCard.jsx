@@ -74,7 +74,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
 
                 {!isModal && (
                   <Modal button={{text: 'Job Description', style: 'gray-small'}}>
-                    <p className='leading-normal '>
+                    <p className='leading-normal bg-white p-4 rounded-md drop-shadow-brand'>
                       {applicationState.role.job_description}
                     </p>
                   </Modal>
