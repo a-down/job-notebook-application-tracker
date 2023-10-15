@@ -7,6 +7,8 @@
   --brand-primary: rgb(157, 212, 199);
   --brand-dark: rgb(37, 51, 48);
   --brand-soft: rgb(197, 236, 227);
+  --gray-3: '#EEEEEE';
+  --gray-5: '#E4E4E4';
   --gray-7: '#8C8C8C';
 }
 
@@ -44,13 +46,15 @@
 
 /* Hiding scrollbar for Chrome, Safari and Opera */
 .notes-wrapper::-webkit-scrollbar,
-.modal-content::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar, 
+.to-do-wrapper::-webkit-scrollbar {
   display: none;
 }
 
 /* Hiding scrollbar for IE, Edge and Firefox */
 .notes-wrapper, 
-.modal-content {
+.modal-content,
+.to-do-wrapper {
   scrollbar-width: none;  /* Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
 }

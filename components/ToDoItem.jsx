@@ -10,8 +10,8 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard }) {
 
   useEffect(() => {
     completedState
-      ? setItemStyle({itemColor: 'var(--brand-primary', itemDecoration: 'line-through'})
-      : setItemStyle({itemColor: 'var(--gray-7', itemDecoration: 'none'})
+      ? setItemStyle({itemColor: 'var(--brand-primary)', itemDecoration: 'line-through'})
+      : setItemStyle({itemColor: '#8C8C8C', itemDecoration: 'none'})
   }, [completedState])
 
   function toggleCompleted() {
