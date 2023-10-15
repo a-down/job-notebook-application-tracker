@@ -9,13 +9,14 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
 
   async function createToDoItem(e) {
     e.preventDefault()
-    const res = await fetch(`/api/applications/${applicationId}`, {
-      method: 'PUT',
+    const res = await fetch(`/api/applications/${applicationId}/todo`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({to_do: toDoFormData})
+      body: JSON.stringify({description: toDoFormData})
     })
+    await updateCard()
   }
 
   return (
@@ -34,7 +35,8 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
 
       <div className='flex items-end h-full'>
         <form className='flex gap-2 items-center justify-start'>
-          <button className=''>
+          <button className=''
+            onClick={createToDoItem}>
             <PiPlusBold className='text-brand-primary text-lg rounded-sm'/>
           </button>
           <input 
