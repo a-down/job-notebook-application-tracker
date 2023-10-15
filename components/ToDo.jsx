@@ -6,6 +6,7 @@ import { PiPlusBold } from 'react-icons/pi'
 
 export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateCard, applicationId }) {
   const [ toDoFormData, setToDoFormData ] = useState('')
+  console.log(toDo)
 
   async function createToDoItem(e) {
     e.preventDefault()
@@ -20,6 +21,8 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
     setToDoFormData('')
   }
 
+
+
   return (
     <div className={`${sharedStyle} col-span-2 row-span-2 mb-1 h-full flex flex-col justify-between`}>
       <div>
@@ -30,7 +33,7 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
         <div className='to-do-wrapper flex flex-col items-start gap-2 mb-2 overflow-scroll max-h-[216px]'>
           {toDo && (
             toDo.map((item, index) => (
-              <ToDoItem item={item} key={index} setProgressPercentage={setProgressPercentage} updateCard={updateCard}/>
+              <ToDoItem item={item} key={index} setProgressPercentage={setProgressPercentage} updateCard={updateCard} applicationId={applicationId}/>
             ))
           )}
         </div>

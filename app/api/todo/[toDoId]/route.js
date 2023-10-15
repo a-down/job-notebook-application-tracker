@@ -16,6 +16,7 @@ export async function PUT (req, { params }) {
   return NextResponse.json(toDo)
 }
 
+
 // export async function POST (req) {
 //   const {to_do, ...body} = await req.json()
 //   await connectMongoDB();
