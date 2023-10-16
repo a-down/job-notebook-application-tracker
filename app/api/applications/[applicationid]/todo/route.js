@@ -7,11 +7,11 @@ import { NextResponse } from "next/server";
 export async function POST (req, { params }) {
   const body = await req.json()
   await connectMongoDB();
-  await ToDo.create(body)
-  const res = await Application.findByIdAndUpdate(params.applicationid, {
+  const res = await ToDo.create(body)
+  await Application.findByIdAndUpdate(params.applicationid, {
     $push: { to_do: res._id }
   }, { new: true })
-  return NextResponse.json({message: "Application Updated", status: 200})
+  return NextResponse.json({message: "Application Updated", status: 200, res})
 }
 
 
