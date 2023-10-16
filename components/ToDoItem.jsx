@@ -54,7 +54,7 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
   return (
     <>
 
-        <div className=" w-full flex justify-start items-start gap-2 relative">
+      <div className=" w-full flex justify-start items-start gap-2 relative">
         
         {completedState && !iconHoverState && (
           <PiCheckCircleFill className='text-brand-primary flex-shrink-0 text-lg' 
@@ -96,7 +96,7 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
                 }} />
           )}
           {redTrashState && (
-            <PiTrashFill className='text-red-400 flex-shrink-0 text-lg hover:cursor-pointer'
+            <PiTrashFill className='text-red-400 active:text-red-800 flex-shrink-0 text-lg hover:cursor-pointer'
               onMouseLeave={() => setRedTrashState(false)}
               onClick={deleteToDoItem} />
           )}
