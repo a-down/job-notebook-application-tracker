@@ -5,7 +5,7 @@ import { toast } from 'sonner';
 import { PiTrash, PiTrashFill } from 'react-icons/pi'
 
 export default function IndividualContact({ contact, applicationId, updateCard}) {
-  const [ newContactVisibility, setContactVisibility ] = useState(false)
+  const [ contactVisibility, setContactVisibility ] = useState(true)
   const [ grayTrashState, setGrayTrashState ] = useState(false)
   const [ redTrashState, setRedTrashState ] = useState(false)
 
@@ -25,16 +25,14 @@ export default function IndividualContact({ contact, applicationId, updateCard})
     e.preventDefault()
     setContactVisibility(false)
     try {
-      const res = await fetch(`/api/applications/${applicationId}/contact`, {
+      const res = await fetch(`/api/contacts/${contact._id}/${applicationId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newContactFormData)
+        }
       })
       const data = await res.json()
       if (data.status === 200) {
-        setNewContactFormData(defaultFormData)
         updateCard()
       } else {
         toast.error(data.message, {
@@ -52,6 +50,7 @@ export default function IndividualContact({ contact, applicationId, updateCard})
 
   return (
     <>
+    {contactVisibility && (
       <div className="col-span-1 w-full h-16">
         <div className='mb-1 flex justify-between w-full relative'>
           <h6 className="font-regular w-full"
@@ -97,6 +96,7 @@ export default function IndividualContact({ contact, applicationId, updateCard})
           </a>
         )}
       </div>
+    )}
     </>
   )
 }

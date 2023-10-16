@@ -22,6 +22,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
   async function createNewContact(e) {
     e.preventDefault()
     setNewContactVisibility(false)
+    const prevContacts = contactsState
     setContactsState([...contactsState, newContactFormData])
     try {
       const res = await fetch(`/api/applications/${applicationId}/contact`, {
@@ -36,6 +37,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
         setNewContactFormData(defaultFormData)
         updateCard()
       } else {
+        setContactsState(prevContacts)
         toast.error(data.message, {
           style: {
             backgroundColor: '#F87171',
