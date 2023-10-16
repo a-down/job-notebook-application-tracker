@@ -7,7 +7,7 @@ export default function Notes({ sharedStyle, notes }) {
     <div className={`${sharedStyle} col-span-5`}>
       <h6 className="text-lg font-regular mb-3">Notes</h6>
 
-      <div className="w-full h-[135px] rounded-sm border border-gray-6 py-1 px-2 overflow-scroll notes-wrapper">
+      <div className="w-full h-[135px] rounded-sm border border-gray-6 py-1 px-2 overflow-y-scroll notes-wrapper">
         <p className="text-xs leading-normal">
           {notes}
         </p>

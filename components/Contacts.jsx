@@ -7,7 +7,7 @@ export default function Contacts({ sharedStyle, contacts }) {
   const [ newContactFormData, setNewContactFormData ] = useState({})
 
   return (
-    <div className={` ${sharedStyle} col-span-3 max-h-[192px] relative`}>
+    <div className={` ${sharedStyle} col-span-3 max-h-[208px] relative`}>
       <h6 className="text-lg font-regular col-span-2 mb-1">Contacts</h6>
 
       {newContactVisibility && (
@@ -40,7 +40,7 @@ export default function Contacts({ sharedStyle, contacts }) {
 
       {!newContactVisibility && contacts && (
 
-        <div className=' h-[calc(100%-24px)] mt-3 contact-wrapper grid grid-cols-2 gap-x-1 gap-y-2 overflow-scroll'>
+        <div className=' h-[calc(100%-24px)] mt-3 contact-wrapper grid grid-cols-2 gap-x-1 gap-y-2 overflow-y-scroll'>
           {contacts.map((contact, index) => (
   
             <div className="col-span-1 w-full h-16" key={index}>
