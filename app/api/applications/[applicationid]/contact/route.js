@@ -17,9 +17,18 @@ export async function PUT (req, { params }) {
 }
 
 export async function DELETE (req, { params }) {
-  await connectMongoDB();
-  await Application.findByIdAndDelete(params.applicationid)
-  return NextResponse.json({message: "Application Deleted", status: 200, params: params})
+  const body = await req.json()
+  console.log(body)
+  try {
+    await connectMongoDB();
+    const res = await Application.findByIdAndUpdate(params.applicationId, {
+      $pull: { contacts: { _id: body.contactId } }
+    }, { new: true })
+    return NextResponse.json({message: "Application Deleted", status: 200, res})
+  } catch (err) {
+    return NextResponse.json({message: "Error deleting contact", status: 500})
+  }
+  
 }
 
 // export async function POST (req) {
