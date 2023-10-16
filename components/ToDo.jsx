@@ -33,7 +33,7 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
           To Do
         </h6>
 
-        <div className='to-do-wrapper flex flex-col items-start gap-2 mb-2 overflow-y-scroll max-h-[216px]'>
+        <div className='to-do-wrapper flex flex-col items-start gap-2 mb-2 overflow-y-scroll h-[216px]'>
           {toDoState && (
             toDoState.map((item, index) => (
               <ToDoItem item={item} key={index} setProgressPercentage={setProgressPercentage} updateCard={updateCard} applicationId={applicationId}/>

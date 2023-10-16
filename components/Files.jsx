@@ -28,7 +28,7 @@ export default function Files({ sharedStyle, files }) {
   
 
   return (
-    <div className={`${sharedStyle} col-span-3`}>
+    <div className={`${sharedStyle} col-span-3 h-[96px]`}>
       <h6 className="text-lg font-regular mb-3">Files</h6>
 
       <div className="flex gap-2">

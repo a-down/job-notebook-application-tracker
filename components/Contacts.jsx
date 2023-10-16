@@ -13,7 +13,6 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
 
   useEffect(() => {
     setContactsState(contacts)
-    console.log(contacts)
   }, [contacts])
 
   function handleContactFormChange(e) {
@@ -51,7 +50,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
   }
 
   return (
-    <div className={` ${sharedStyle} col-span-3 max-h-[200px] relative`}>
+    <div className={` ${sharedStyle} col-span-3 h-[200px] relative`}>
       <h6 className="text-lg font-regular col-span-2 mb-1">Contacts</h6>
 
       {newContactVisibility && (
