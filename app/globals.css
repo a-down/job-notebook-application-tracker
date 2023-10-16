@@ -47,14 +47,16 @@
 /* Hiding scrollbar for Chrome, Safari and Opera */
 .notes-wrapper::-webkit-scrollbar,
 .modal-content::-webkit-scrollbar, 
-.to-do-wrapper::-webkit-scrollbar {
+.to-do-wrapper::-webkit-scrollbar,
+.contact-wrapper::-webkit-scrollbar {
   display: none;
 }
 
 /* Hiding scrollbar for IE, Edge and Firefox */
 .notes-wrapper, 
 .modal-content,
-.to-do-wrapper {
+.to-do-wrapper,
+.contact-wrapper {
   scrollbar-width: none;  /* Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
 }
