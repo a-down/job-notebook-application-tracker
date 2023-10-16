@@ -1,5 +1,5 @@
 import connectMongoDB from "@/libs/mongodb";
-import Contact from "@/models/Contact";
+import ToDo from "@/models/ToDo";
 import { NextResponse } from "next/server";
 
 

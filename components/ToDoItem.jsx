@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { PiCircle, PiCheckCircle, PiCheckCircleFill, PiCheckCircleDuotone, PiTrash, PiTrashFill } from 'react-icons/pi'
+import { toast } from 'sonner';
 
 export default function ToDoItem({ item, setProgressPercentage, updateCard, applicationId }) {
   const [ visibilityState, setVisibilityState ] = useState(true)
@@ -27,17 +28,39 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
 
   async function updateToDoItem(completed) {
     toggleCompleted()
-    const res = await fetch(`/api/todo/${itemState._id}`, {
-      method: 'PUT', 
-      body: JSON.stringify({
-        completed: completed
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    })
-    const data = await res.json()
-    setItemState(data)
-    setCompletedState(data.completed)
-    updateCard()
+    try {
+      const res = await fetch(`/api/todo/${itemState._id}`, {
+        method: 'PUT', 
+        body: JSON.stringify({
+          completed: completed
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      })
+      const data = await res.json()
+
+      if (res.status === 200) {
+        setItemState(data)
+        setCompletedState(data.completed)
+        updateCard()
+
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+      }
+
+    } catch (err) {
+      toast.error('Error updated to do item', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+    }
+    
   }
 
   async function deleteToDoItem() {

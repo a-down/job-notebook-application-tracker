@@ -43,7 +43,12 @@ export default function IndividualContact({ contact, applicationId, updateCard})
         })
       }
     } catch (err) {
-      console.log('Error creating new contact')
+      toast.error('Error deleting contact', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
     }
   
   }
