@@ -28,7 +28,8 @@ const applicationSchema = new Schema(
       {
         contact_name: String,
         contact_linkedin: String,
-        contact_email: String
+        contact_email: String,
+        contact_phone: Number
       }
     ],
     files: [

@@ -33,7 +33,7 @@ export default function Modal({ children, button }) {
 
         <Dialog.Portal>
           <Dialog.Overlay className="z-50 bg-[rgb(0,0,0,.6)] data-[state=open]:animate-overlayShow fixed inset-0" />
-          <Dialog.Content className="modal-content z-50 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] translate-x-[-50%] translate-y-[-50%] rounded-md bg-transparent p-6 overflow-scroll">
+          <Dialog.Content className="modal-content z-50 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] translate-x-[-50%] translate-y-[-50%] rounded-md bg-transparent p-6 overflow-y-scroll">
 
             <Dialog.Close className='flex justify-end w-full pb-4'>
               <CgClose className='text-xl text-white rounded-full hover:opacity-60 duration-300'/>
