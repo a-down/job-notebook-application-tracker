@@ -4,11 +4,16 @@ import { NextResponse } from "next/server";
 
 export async function PUT (req, { params }) {
   const body = await req.json()
-  await connectMongoDB();
-  const res = await Application.findByIdAndUpdate(params.applicationid, {
-    $push: { contacts: body }
-  }, { new: true })
-  return NextResponse.json({message: "Contact Added", status: 200, body})
+  try {
+    await connectMongoDB();
+    await Application.findByIdAndUpdate(params.applicationid, {
+      $push: { contacts: body }
+    }, { new: true })
+    return NextResponse.json({message: "Contact Added", status: 200, body})
+
+  } catch (err) {
+    return NextResponse.json({message: "Error creating new contact", status: 500})
+  }
 }
 
 export async function DELETE (req, { params }) {

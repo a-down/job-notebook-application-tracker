@@ -20,15 +20,25 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
     e.preventDefault()
     setNewContactVisibility(false)
     setContactsState([...contactsState, newContactFormData])
-    const res = await fetch(`/api/applications/${applicationId}/contact`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newContactFormData)
-    })
-    setNewContactFormData(defaultFormData)
-    updateCard()
+    try {
+      const res = await fetch(`/api/applications/${applicationId}/contact`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newContactFormData)
+      })
+      const data = await res.json()
+      if (data.status === 200) {
+        setNewContactFormData(defaultFormData)
+        updateCard()
+      } else {
+        console.log(data.message)
+      }
+    } catch (err) {
+      console.log('Error creating new contact')
+    }
+  
   }
 
   return (
@@ -86,7 +96,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
 
       {!newContactVisibility && contactsState && (
 
-        <div className=' h-[calc(100%-24px)] mt-3 contact-wrapper grid grid-cols-2 gap-x-1 gap-y-2 overflow-y-scroll pb-2'>
+        <div className=' h-[calc(100%-24px)] mt-3 contact-wrapper grid grid-cols-2 gap-x-1 gap-y-2 overflow-y-scroll pb-1'>
           {contactsState.map((contact, index) => (
   
             <div className="col-span-1 w-full h-16" key={index}>
