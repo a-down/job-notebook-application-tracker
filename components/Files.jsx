@@ -49,11 +49,11 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
   }
 
   return (
-    <div className={`${sharedStyle} col-span-3 h-[120px]`}>
-      <h6 className="text-lg font-regular mb-3">File</h6>
+    <div className={`${sharedStyle} col-span-3 h-[112px]`}>
+      <h6 className="text-lg font-regular mb-2">Files</h6>
 
       {!newFileFormVisibility && (
-        <div className="flex gap-2">
+        <div className="file-wrapper h-[64px] flex flex-wrap gap-2 mt-1 overflow-y-scroll">
           {files && (
             files.map((file, index) => (
               <FileIcon file={file} key={index}/>
@@ -79,7 +79,7 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
               <option value="Google Doc">Google Doc</option>
               <option value="Google Slide">Google Slide</option>
               <option value="Google Sheet">Google Sheet</option>
-              <option value="Google Folder">Google Folder</option>
+              <option value="Folder">Folder</option>
             </select>
           <input className="text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full col-span-3" 
             placeholder='File Link'
