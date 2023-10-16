@@ -1,6 +1,7 @@
 import connectMongoDB from "@/libs/mongodb";
 import Application from "@/models/Application";
 import ToDo from "@/models/ToDo";
+import Contact from "@/models/Contact";
 import { NextResponse } from "next/server";
 
 // export async function POST (req) {
@@ -14,6 +15,6 @@ import { NextResponse } from "next/server";
 export async function GET (req, { params }) {
   const userId = await params.userId
   await connectMongoDB();
-  const applications = await Application.find({ user_id: userId }).populate('to_do')
+  const applications = await Application.find({ user_id: userId }).populate('to_do').populate('contacts')
   return NextResponse.json(applications)
 }

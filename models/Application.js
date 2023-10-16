@@ -26,10 +26,8 @@ const applicationSchema = new Schema(
     ],
     contacts: [
       {
-        contact_name: String,
-        contact_linkedin: String,
-        contact_email: String,
-        contact_phone: Number
+        type: Schema.Types.ObjectId,
+        ref: 'Contact'
       }
     ],
     files: [

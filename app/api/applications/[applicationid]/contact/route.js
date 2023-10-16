@@ -1,15 +1,32 @@
 import connectMongoDB from "@/libs/mongodb";
 import Application from "@/models/Application";
+import Contact from "@/models/Contact";
 import { NextResponse } from "next/server";
 
-export async function PUT (req, { params }) {
+// export async function PUT (req, { params }) {
+//   const body = await req.json()
+//   try {
+//     await connectMongoDB();
+//     await Application.findByIdAndUpdate(params.applicationid, {
+//       $push: { contacts: body }
+//     }, { new: true })
+//     return NextResponse.json({message: "Contact Added", status: 200, body})
+
+//   } catch (err) {
+//     return NextResponse.json({message: "Error creating new contact", status: 500})
+//   }
+// }
+
+export async function POST (req, { params }) {
   const body = await req.json()
+  console.log(body)
   try {
     await connectMongoDB();
+    const res = await Contact.create(body)
     await Application.findByIdAndUpdate(params.applicationid, {
-      $push: { contacts: body }
+      $push: { contacts: res._id }
     }, { new: true })
-    return NextResponse.json({message: "Contact Added", status: 200, body})
+    return NextResponse.json({message: "Contact Created", status: 200, res})
 
   } catch (err) {
     return NextResponse.json({message: "Error creating new contact", status: 500})

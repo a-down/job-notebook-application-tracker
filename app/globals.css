@@ -46,10 +46,13 @@
 
 /* Hiding scrollbar for Chrome, Safari and Opera */
 .notes-wrapper::-webkit-scrollbar,
-.modal-content::-webkit-scrollbar, 
 .to-do-wrapper::-webkit-scrollbar,
 .contact-wrapper::-webkit-scrollbar {
   background-color: transparent;
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none;
 }
 
 .notes-wrapper::-webkit-scrollbar-thumb,

@@ -13,6 +13,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
 
   useEffect(() => {
     setContactsState(contacts)
+    console.log(contacts)
   }, [contacts])
 
   function handleContactFormChange(e) {
@@ -25,7 +26,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
     setContactsState([...contactsState, newContactFormData])
     try {
       const res = await fetch(`/api/applications/${applicationId}/contact`, {
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },

@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 
 export async function GET (req) {
   await connectMongoDB();
-  const applications = await Application.find().populate('to_do')
+  const applications = await Application.find().populate('to_do').populate('contacts')
   return NextResponse.json(applications)
 }
 
