@@ -41,7 +41,7 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
   }
 
   async function deleteToDoItem() {
-    setVisibilityState(false)
+    setItemState({})
     await fetch(`/api/todo/${item._id}/${applicationId}`, {
       method: 'DELETE',
       headers: {
@@ -53,57 +53,57 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
 
   return (
     <>
-
-      <div className=" w-full flex justify-start items-start gap-2 relative">
-        
-        {completedState && !iconHoverState && (
-          <PiCheckCircleFill className='text-brand-primary flex-shrink-0 text-lg' 
-            onMouseEnter={() => setIconHoverState(true)}/>
-        )}  
-        
-        {!completedState && !iconHoverState && (
-          <PiCircle className='text-brand-primary flex-shrink-0 text-lg' 
-            onMouseEnter={() => setIconHoverState(true)}/>
-        )}
-
-        {iconHoverState && !completedState && (
-          <PiCheckCircle className='text-brand-primary flex-shrink-0 text-lg hover:cursor-pointer' 
-            onClick={() => updateToDoItem(true)} 
-            onMouseLeave={() => setIconHoverState(false)}/>
-        )}
-
-        {iconHoverState && completedState && (
-          <PiCheckCircleDuotone className='text-brand-primary flex-shrink-0 text-lg hover:cursor-pointer' 
-            onClick={() => updateToDoItem(false)} 
-            onMouseLeave={() => setIconHoverState(false)}/>
-        )}
-
-        <p className='grow text-xs duration-300 leading-normal' 
-          style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}
-          onMouseEnter={() => setGrayTrashState(true)}
-          onMouseLeave={() => setGrayTrashState(false)}>
-          {itemState && (
-            itemState.description
-          )}
-        </p>
-
-        <div className='flex grow justify-end items-center absolute right-0 bg-white opacity-80 rounded-full'>
-          {grayTrashState && !redTrashState && (
-            <PiTrash className='text-gray-7 flex-shrink-0 text-lg hover:cursor-pointer'
-              onMouseEnter={() => {
-                  setGrayTrashState(false)
-                  setRedTrashState(true)
-                }} />
-          )}
-          {redTrashState && (
-            <PiTrashFill className='text-red-400 active:text-red-800 flex-shrink-0 text-lg hover:cursor-pointer'
-              onMouseLeave={() => setRedTrashState(false)}
-              onClick={deleteToDoItem} />
+      {itemState.description && (
+        <div className=" w-full flex justify-start items-start gap-2 relative">
+          
+          {completedState && !iconHoverState && (
+            <PiCheckCircleFill className='text-brand-primary flex-shrink-0 text-lg' 
+              onMouseEnter={() => setIconHoverState(true)}/>
+          )}  
+          
+          {!completedState && !iconHoverState && (
+            <PiCircle className='text-brand-primary flex-shrink-0 text-lg' 
+              onMouseEnter={() => setIconHoverState(true)}/>
           )}
 
+          {iconHoverState && !completedState && (
+            <PiCheckCircle className='text-brand-primary flex-shrink-0 text-lg hover:cursor-pointer' 
+              onClick={() => updateToDoItem(true)} 
+              onMouseLeave={() => setIconHoverState(false)}/>
+          )}
+
+          {iconHoverState && completedState && (
+            <PiCheckCircleDuotone className='text-brand-primary flex-shrink-0 text-lg hover:cursor-pointer' 
+              onClick={() => updateToDoItem(false)} 
+              onMouseLeave={() => setIconHoverState(false)}/>
+          )}
+
+          <p className='grow text-xs duration-300 leading-normal' 
+            style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}
+            onMouseEnter={() => setGrayTrashState(true)}
+            onMouseLeave={() => setGrayTrashState(false)}>
+            {itemState && (
+              itemState.description
+            )}
+          </p>
+
+          <div className='flex grow justify-end items-center absolute right-0 bg-white opacity-80 rounded-full'>
+            {grayTrashState && !redTrashState && (
+              <PiTrash className='text-gray-7 flex-shrink-0 text-lg hover:cursor-pointer'
+                onMouseEnter={() => {
+                    setGrayTrashState(false)
+                    setRedTrashState(true)
+                  }} />
+            )}
+            {redTrashState && (
+              <PiTrashFill className='text-red-400 active:text-red-800 flex-shrink-0 text-lg hover:cursor-pointer'
+                onMouseLeave={() => setRedTrashState(false)}
+                onClick={deleteToDoItem} />
+            )}
+
+          </div>
         </div>
-      </div>
-
+      )}
     </>
   )
 }

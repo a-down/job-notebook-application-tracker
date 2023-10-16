@@ -6,10 +6,6 @@ import * as Dialog from '@radix-ui/react-dialog';
 
 export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility, isModal, setAsideModalState, asideModalState }) {
 
-  // if(application) console.log('here it is', application)
-  // if(!application) console.log('no application')
-  // console.log(application)
-
   async function deleteApplication() {
     setCardVisibility(false)
     if(asideModalState) setAsideModalState(false)

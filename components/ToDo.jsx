@@ -9,8 +9,6 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
   const [ toDoFormData, setToDoFormData ] = useState('')
 
   useEffect(() => {
-    if (toDo) console.log('yes application', toDo)
-    if (!toDo) console.log('no application')
     setToDoState(toDo)
   }, [toDo])
 
