@@ -1,13 +1,13 @@
 import connectMongoDB from "@/libs/mongodb";
-import ToDo from "@/models/ToDo";
+import Contact from "@/models/Contact";
 import { NextResponse } from "next/server";
 
 
-export async function GET (req, { params }) {
-  await connectMongoDB();
-  const toDo = await ToDo.findById(params.toDoId)
-  return NextResponse.json(toDo)
-}
+// export async function GET (req, { params }) {
+//   await connectMongoDB();
+//   const toDo = await ToDo.findById(params.toDoId)
+//   return NextResponse.json(toDo)
+// }
 
 export async function PUT (req, { params }) {
   const body = await req.json()

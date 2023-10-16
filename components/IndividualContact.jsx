@@ -5,19 +5,49 @@ import { toast } from 'sonner';
 import { PiTrash, PiTrashFill } from 'react-icons/pi'
 
 export default function IndividualContact({ contact, applicationId, updateCard}) {
+  const [ newContactVisibility, setContactVisibility ] = useState(false)
   const [ grayTrashState, setGrayTrashState ] = useState(false)
   const [ redTrashState, setRedTrashState ] = useState(false)
 
-  async function deleteContact() {
+  // async function deleteContact() {
+  //   try {
+  //     const res = await fetch(`/api/applications/${applicationId}/contact`, {
+  //       method: 'DELETE', 
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({contactId: contact._id})
+  //     })
+  //   } catch (err) {
+  //     console.log('Error deleting contact')
+  //   }
+  // }
+
+  async function deleteContact(e) {
+    e.preventDefault()
+    setContactVisibility(false)
     try {
       const res = await fetch(`/api/applications/${applicationId}/contact`, {
-        method: 'DELETE', 
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({contactId: contact._id})
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newContactFormData)
       })
+      const data = await res.json()
+      if (data.status === 200) {
+        setNewContactFormData(defaultFormData)
+        updateCard()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+      }
     } catch (err) {
-      console.log('Error deleting contact')
+      console.log('Error creating new contact')
     }
+  
   }
 
   return (
