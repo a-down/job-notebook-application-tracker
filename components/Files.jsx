@@ -2,10 +2,12 @@
 import { FileIcon } from '@/components'
 import { PiPlusBold } from 'react-icons/pi'
 import { useState, useEffect } from 'react'
+import { toast } from 'sonner';
 
-export default function Files({ sharedStyle, files }) {
+export default function Files({ sharedStyle, files, applicationId, updateCard }) {
+  const defaultFormData = {file_name: '', file_type: '', file_link: ''}
   const [ newFileFormVisibility, setNewFileFormVisibility ] = useState(false)
-  const [ newFileFormData, setNewFileFormData ] = useState({file_name: '', file_type: '', file_link: ''})
+  const [ newFileFormData, setNewFileFormData ] = useState(defaultFormData)
 
   function handleNewFileFormChange(e) {
     setNewFileFormData({...newFileFormData, [e.target.name]: e.target.value})
@@ -13,7 +15,37 @@ export default function Files({ sharedStyle, files }) {
 
   async function createFile(e) {
     e.preventDefault()
-    console.log(newFileFormData)
+    setNewFileFormVisibility(false)
+    try {
+      const res = await fetch(`/api/applications/${applicationId}/file`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newFileFormData)
+      })
+      const data = res.json()
+
+      if (res.status === 200) {
+        setNewFileFormData(defaultFormData)
+        updateCard()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+      }
+
+    } catch {
+      toast.error('Error creating file', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+    }
   }
 
   return (
