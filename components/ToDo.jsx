@@ -9,13 +9,14 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
   const [ toDoFormData, setToDoFormData ] = useState('')
 
   useEffect(() => {
-    setToDoState(toDo)
+    if (toDo) console.log('yes application', toDo)
+    if (!toDo) console.log('no application')
   }, [toDo])
 
   async function createToDoItem(e) {
+    e.preventDefault()
     setToDoFormData('')
     setToDoState([...toDoState, {description: toDoFormData, completed: false}])
-    e.preventDefault()
     const res = await fetch(`/api/applications/${applicationId}/todo`, {
       method: 'POST',
       headers: {
@@ -35,8 +36,8 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
         </h6>
 
         <div className='to-do-wrapper flex flex-col items-start gap-2 mb-2 overflow-scroll max-h-[216px]'>
-          {toDoState && (
-            toDoState.map((item, index) => (
+          {toDo && (
+            toDo.map((item, index) => (
               <ToDoItem item={item} key={index} setProgressPercentage={setProgressPercentage} updateCard={updateCard} applicationId={applicationId}/>
             ))
           )}

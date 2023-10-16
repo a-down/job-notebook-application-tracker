@@ -12,6 +12,10 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
   const [ itemState, setItemState ] = useState(item)
 
   useEffect(() => {
+    setItemState(item)
+  }, [item])
+
+  useEffect(() => {
     completedState
       ? setItemStyle({itemColor: 'var(--brand-primary)', itemDecoration: 'line-through'})
       : setItemStyle({itemColor: '#8C8C8C', itemDecoration: 'none'})
@@ -36,10 +40,9 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
     updateCard()
   }
 
-  async function deleteToDoItem(e) {
-    e.preventDefault()
-    // setVisibilityState(false)
-    const res = await fetch(`/api/todo/${item._id}/${applicationId}`, {
+  async function deleteToDoItem() {
+    setVisibilityState(false)
+    await fetch(`/api/todo/${item._id}/${applicationId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -50,7 +53,7 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
 
   return (
     <>
-      {visibilityState && (
+
         <div className=" w-full flex justify-start items-start gap-2 relative">
         
         {completedState && !iconHoverState && (
@@ -85,7 +88,7 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
         </p>
 
         <div className='flex grow justify-end items-center absolute right-0 bg-white opacity-80 rounded-full'>
-          {grayTrashState && (
+          {grayTrashState && !redTrashState && (
             <PiTrash className='text-gray-7 flex-shrink-0 text-lg hover:cursor-pointer'
               onMouseEnter={() => {
                   setGrayTrashState(false)
@@ -100,7 +103,7 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
 
         </div>
       </div>
-      )}
+
     </>
   )
 }
