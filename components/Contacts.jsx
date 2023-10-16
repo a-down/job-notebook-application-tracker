@@ -1,6 +1,7 @@
 "use client"
 import { PiLinkedinLogoBold, PiPhoneBold, PiEnvelopeBold, PiPlusBold } from 'react-icons/pi'
 import { useState, useEffect } from 'react'
+import { toast } from 'sonner';
 
 export default function Contacts({ sharedStyle, contacts, updateCard, applicationId }) {
   const defaultFormData = {contact_name: '', contact_linkedin: '', contact_email: '', contact_phone: ''}
@@ -34,6 +35,12 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
         updateCard()
       } else {
         console.log(data.message)
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
       }
     } catch (err) {
       console.log('Error creating new contact')

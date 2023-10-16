@@ -19,7 +19,8 @@
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
-    "react-id-generator": "^3.0.2"
+    "react-id-generator": "^3.0.2",
+    "sonner": "^1.0.3"
   },
   "devDependencies": {
     "autoprefixer": "latest",
