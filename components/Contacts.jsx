@@ -57,7 +57,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
 
       {newContactVisibility && (
         <form className="col-span-2 w-full mt-3 mb-1">
-          <input className="font-regular mb-1 p-1 border border-gray-5 rounded-sm w-full" 
+          <input className="font-regular mb-1 p-1 px-1.5 border border-gray-5 rounded-sm w-full" 
             placeholder='New Contact Name'
             name='contact_name'
             value={newContactFormData.contact_name}
@@ -65,7 +65,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
 
           <div className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7'>
             <PiLinkedinLogoBold className='text-brand-primary text-xxs ml-px'/>
-            <input className=' text-xxs p-1 border border-gray-5 rounded-sm w-full' 
+            <input className=' text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full' 
               placeholder='LinkedIn'
               type='url'
               pattern="https://.*"
@@ -76,7 +76,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
 
           <div className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 '>
             <PiEnvelopeBold className='text-brand-primary text-xs'/>
-            <input className='text-xxs p-1 border border-gray-5 rounded-sm w-full' 
+            <input className='text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full' 
               placeholder='Email'
               type='email'
               name='contact_email'
@@ -86,7 +86,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
 
           <div className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 '>
             <PiPhoneBold className='text-brand-primary text-xs'/>
-            <input className='text-xxs p-1 border border-gray-5 rounded-sm w-full' 
+            <input className='text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full' 
               placeholder='Phone'
               type='tel'
               name='contact_phone'
