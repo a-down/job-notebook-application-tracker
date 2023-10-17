@@ -36,7 +36,6 @@ export default function Home() {
     { title: 'Simple Icons', link: 'https://simpleicons.org/', icon: simpleIcons },
   ]
 
-
   return (
     <>
       <div className='bg-brand-dark overflow-clip'>
@@ -126,30 +125,30 @@ export default function Home() {
         </main>
 
         <footer className="w-screen h-fit relative">
-          <svg width="100%" height="240" viewBox="0 0 1444 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2400/svg" className='absolute left-0 z-0'>
+          <svg width="100%" height="100%" viewBox="0 0 1444 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2400/svg" className='absolute left-0 z-0'>
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#9dd4c7"/>
           </svg>
-          <svg width="100%" height="240" viewBox="0 0 1444 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-[5px] left-0 z-0'>
+          <svg width="100%" height="100%" viewBox="0 0 1444 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-[5px] left-0 z-0'>
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#253330"/>
           </svg>
           
-          <div className='flex flex-wrap gap-6 lg:flex-row justify-between items-end h-full relative px-8 lg:p-16 py-20 2xl:px-32 text-gray-5'>
+          <div className='flex justify-between gap-6 lg:flex-row items-end h-full relative px-8 lg:p-16 py-20 2xl:px-32 text-gray-5'>
             <div className=' flex flex-col justify-end gap-6 pb-0.5'>
-              <div className=' flex gap-6 flex-wrap '>
+              <div className=' flex flex-col gap-6 flex-wrap '>
                 {footerLinks1.map((link, index) => (
                   <div className='hover:text-brand-primary duration-300 flex' key={index}>
-                    <a href={link.link} target="_blank" className='flex gap-2 items-center'>
-                      <Image src={link.icon} height={24} width={24}/>
+                    <a href={link.link} target="_blank" className='flex gap-4 items-center'>
+                      <Image src={link.icon} alt={`${link.title} icon`} height={24} width={24}/>
                       <p className='font-semibold'>{link.title}</p>
                     </a>
                   </div>
                 ))}
               </div>
-              <div className=' flex gap-6 flex-wrap'>
+              <div className=' flex flex-col gap-6 flex-wrap mb-10'>
                 {footerLinks2.map((link, index) => (
                   <div className='hover:text-brand-primary duration-300 flex' key={index}>
-                    <a href={link.link} target="_blank" className='flex gap-2 items-center'>
-                      <Image src={link.icon} height={24} width={24}/>
+                    <a href={link.link} target="_blank" className='flex gap-4 items-center'>
+                      <Image src={link.icon} alt={`${link.title} icon`} height={24} width={24}/>
                       <p className='font-semibold'>{link.title}</p>
                     </a>
                   </div>

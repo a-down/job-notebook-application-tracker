@@ -39,16 +39,13 @@ export default function Header({ isDark, activePage }) {
           <UserButton afterSignOutUrl='/'/>
         </nav>
 
-        <nav className='md:hidden'>
+        <div className='md:hidden'>
           <DropdownMenu.Root>
             <DropdownMenu.Trigger className='h-full flex justify-center'>
               <BiMenu className={`${linkColor} text-3xl`} />
             </DropdownMenu.Trigger>
 
-            <DropdownMenu.Portal>
-              <DropdownMenu.Content className={`${backgroundColor} relative ${isDark ? 'right-4' : ''} w-screen mt-4 py-4 px-8 pb-8 drop-shadow-brand rounded-md text-right flex flex-col items-end gap-6 mobile-nav`}>
-
-                  <UserButton afterSignOutUrl='/'/>
+              <DropdownMenu.Content className={`${backgroundColor} ${isDark ? 'px-12' : 'px-8'} w-screen mt-4 py-4 pb-8 drop-shadow-brand rounded-md text-right flex items-center justify-end gap-6 mobile-nav`}>
 
                   {activePage === 'about' ? (
                     <Link href="/about" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>About</Link>
@@ -68,10 +65,11 @@ export default function Header({ isDark, activePage }) {
                     <Link href="/dashboard" className={linkColor} style={{transitionDuration: '.3s'}}>Dashboard</Link>
                   )}
 
+                  <UserButton afterSignOutUrl='/'/>
+
               </DropdownMenu.Content>
-            </DropdownMenu.Portal>
           </DropdownMenu.Root>
-        </nav>
+        </div>
       </header>
     </>
     
