@@ -65,7 +65,6 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
 
   async function updateApplication(e) {
     e.preventDefault()
-    console.log(application._id)
     try {
       const res = await fetch(`/api/applications/${application._id}`, {
         method: 'PUT',
@@ -84,9 +83,8 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
           }
         })
       })
-      console.log(res.status)
       const data = await res.json()
-      console.log(data)
+      
       if (res.status === 200) {
         setUpdateModalState(false)
         updateCard()
