@@ -1,9 +1,8 @@
 "use client"
-import { BiLogoLinkedinSquare, BiSolidEnvelope, BiSolidPhone } from 'react-icons/bi'
+import { BiLogoLinkedinSquare, BiSolidEnvelope, BiSolidPhone, BiSolidTrash } from 'react-icons/bi'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner';
 import { PiTrash, PiTrashFill } from 'react-icons/pi'
-import { BiSolidTrash } from 'react-icons/bi'
 
 export default function IndividualContact({ contact, applicationId, updateCard}) {
   const [ contactVisibility, setContactVisibility ] = useState(true)

@@ -135,7 +135,7 @@ export default function Home() {
             <div className='flex flex-col justify-end'>
               <div className=' h-[44px] w-[568px] flex gap-6 flex-wrap'>
                 {footerLinks1.map((link, index) => (
-                  <div className='hover:text-brand-primary duration-300 flex'>
+                  <div className='hover:text-brand-primary duration-300 flex' key={index}>
                     <a href={link.link} target="_blank" className='flex gap-2 items-center'>
                       <Image src={link.icon} height={24} width={24}/>
                       <p className='font-semibold'>{link.title}</p>
@@ -145,7 +145,7 @@ export default function Home() {
               </div>
               <div className=' h-[44px] w-[568px] flex gap-6 flex-wrap'>
                 {footerLinks2.map((link, index) => (
-                  <div className='hover:text-brand-primary duration-300 flex'>
+                  <div className='hover:text-brand-primary duration-300 flex' key={index}>
                     <a href={link.link} target="_blank" className='flex gap-2 items-center'>
                       <Image src={link.icon} height={24} width={24}/>
                       <p className='font-semibold'>{link.title}</p>

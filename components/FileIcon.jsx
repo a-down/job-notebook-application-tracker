@@ -1,7 +1,8 @@
 "use client"
 import { SiGoogledocs, SiGoogleslides, SiGooglesheets } from 'react-icons/si'
 import { useState, useEffect } from 'react'
-import { PiFolderSimpleFill, PiTrash, PiTrashFill } from 'react-icons/pi'
+import { PiFolderSimpleFill } from 'react-icons/pi'
+import { BiSolidTrash } from 'react-icons/bi'
 import { toast } from 'sonner'
 
 export default function FileIcon({ file, applicationId, updateCard }) {
@@ -103,7 +104,7 @@ export default function FileIcon({ file, applicationId, updateCard }) {
 
           <div className='flex grow justify-end items-center absolute top-[22px] right-0 bg-gray-7 rounded-br-md rounded-tl-md p-px hover:bg-red-400'>
             {grayTrashState && (
-              <PiTrash className='text-gray-3 flex-shrink-0 hover:cursor-pointer'
+              <BiSolidTrash className='text-gray-3 flex-shrink-0 hover:cursor-pointer'
                 onClick={deleteFile}/>
             )}
           </div>

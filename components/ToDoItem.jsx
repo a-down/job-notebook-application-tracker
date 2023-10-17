@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { PiCircle, PiCheckCircle, PiCheckCircleFill, PiCheckCircleDuotone, PiTrash, PiTrashFill } from 'react-icons/pi'
+import { BiSolidTrash } from 'react-icons/bi'
 import { toast } from 'sonner';
 
 export default function ToDoItem({ item, setProgressPercentage, updateCard, applicationId }) {
@@ -77,7 +78,9 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
   return (
     <>
       {itemState.description && (
-        <div className=" w-full flex justify-start items-start gap-2 relative">
+        <div className=" w-full flex justify-start items-start gap-2 relative"
+          onMouseEnter={() => setGrayTrashState(true)}
+          onMouseLeave={() => setGrayTrashState(false)}>
           
           {completedState && !iconHoverState && (
             <PiCheckCircleFill className='text-brand-primary flex-shrink-0 text-lg' 
@@ -102,26 +105,16 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
           )}
 
           <p className='grow text-xs duration-300 leading-normal' 
-            style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}
-            onMouseEnter={() => setGrayTrashState(true)}
-            onMouseLeave={() => setGrayTrashState(false)}>
+            style={{color: `${itemStyle.itemColor}`, textDecoration: `${itemStyle.itemDecoration}`}}>
             {itemState && (
               itemState.description
             )}
           </p>
 
           <div className='flex grow justify-end items-center absolute right-0 bg-white opacity-80 rounded-full'>
-            {grayTrashState && !redTrashState && (
-              <PiTrash className='text-gray-7 flex-shrink-0 text-lg hover:cursor-pointer'
-                onMouseEnter={() => {
-                    setGrayTrashState(false)
-                    setRedTrashState(true)
-                  }} />
-            )}
-            {redTrashState && (
-              <PiTrashFill className='text-red-400 active:text-red-800 flex-shrink-0 text-lg hover:cursor-pointer'
-                onMouseLeave={() => setRedTrashState(false)}
-                onClick={deleteToDoItem} />
+            {grayTrashState && (
+              <BiSolidTrash className='text-gray-7 hover:text-red-400 flex-shrink-0 text-lg hover:cursor-pointer'
+                onClick={deleteToDoItem}/>
             )}
 
           </div>
