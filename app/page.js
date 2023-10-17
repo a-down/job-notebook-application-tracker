@@ -132,7 +132,7 @@ export default function Home() {
           </svg>
           
           <div className='flex justify-between items-end h-full relative p-16 py-20 2xl:px-32 text-gray-5'>
-            <div className='flex flex-col justify-end'>
+            <div className='flex flex-col justify-end gap-2'>
               <div className=' h-[44px] w-[568px] flex gap-6 flex-wrap'>
                 {footerLinks1.map((link, index) => (
                   <div className='hover:text-brand-primary duration-300 flex' key={index}>
