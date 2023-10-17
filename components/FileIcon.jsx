@@ -14,7 +14,6 @@ export default function FileIcon({ file, applicationId, updateCard }) {
 
   async function deleteFile(e) {
     e.preventDefault()
-    console.log(applicationId, file._id)
     try {
       const res = await fetch(`/api/applications/${applicationId}/file`, {
         method: 'DELETE',
@@ -32,7 +31,6 @@ export default function FileIcon({ file, applicationId, updateCard }) {
             color: '#fff'
           }
         })
-        console.log(data)
         updateCard()
       } else {
         toast.error(data.message, {
@@ -41,16 +39,14 @@ export default function FileIcon({ file, applicationId, updateCard }) {
             color: '#fff'
           }
         })
-        console.log(data)
       }
-    } catch (err) {
+    } catch {
       toast.error('Error deleting file', {
         style: {
           backgroundColor: '#F87171',
           color: '#fff'
         }
       })
-      console.log('catch')
     }
   } 
 
