@@ -1,10 +1,15 @@
 "use client"
 import { useState, useEffect } from 'react'
-import { Contacts, Files, Notes, ToDo, Modal } from '@/components'
+import { Contacts, Files, Notes, ToDo, Modal, ApplicationForm } from '@/components'
 import * as Dialog from '@radix-ui/react-dialog';
 
 
 export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility, isModal, setAsideModalState, asideModalState }) {
+  const [ updateModalState, setUpdateModalState ] = useState(true)
+
+  useEffect(() => {
+    setUpdateModalState(true)
+  }, [application])
 
   async function deleteApplication() {
     setCardVisibility(false)
@@ -58,9 +63,12 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
             </button>
           )}
           
-          <button className=' text-xs p-2 px-3 bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
+          {/* <button className=' text-xs p-2 px-3 bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
             Edit Application
-          </button>
+          </button> */}
+          <Modal button={{text: 'Edit Application', style: 'edit'}}>
+            <ApplicationForm isEdit={true} application={application} userId={application.user_id} setUpdateModalState={setUpdateModalState}/>
+          </Modal>
         </div>
 
         <Modal button={{text: 'Delete', style: 'danger'}}>

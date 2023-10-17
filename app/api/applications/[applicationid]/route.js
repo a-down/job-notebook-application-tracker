@@ -12,6 +12,8 @@ export async function GET (req, { params }) {
 
 export async function PUT (req, { params }) {
   const body = await req.json()
+  console.log(body)
+  console.log(params.applicationid)
   await connectMongoDB();
   await Application.findByIdAndUpdate(params.applicationid, body)
   return NextResponse.json({message: "Application Updated", status: 200})
