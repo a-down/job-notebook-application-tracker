@@ -21,7 +21,7 @@
   }
 }
 
-@keyframes slideInFromTop {
+@keyframes slideInFromBottom {
   0% {
     transform: translateY(16px);
     opacity: 0;
@@ -41,6 +41,19 @@
 }
 
 .dropdown {
+  animation: 0.3s slideInFromBottom;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-16px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav {
   animation: 0.3s slideInFromTop;
 }
 

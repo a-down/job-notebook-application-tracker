@@ -45,7 +45,7 @@ export default function Home() {
         <main className="bg-brand-dark min-h-screen">
         
           {/* hero section */}
-          <div className='grid grid-cols-12 gap-4 pt-24 h-[636px] px-16 2xl:px-32'>
+          <div className='grid grid-cols-12 gap-4 pt-24 h-[636px] px-4 md:px-16 2xl:px-32'>
             <div className='col-span-4'>
               <div className='mb-16'>
                 <p className='text-xl text-white leading-normal mb-4'>
