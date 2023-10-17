@@ -37,7 +37,7 @@ export default function Dashboard() {
     <>
       <Header isDark={false} activePage={'dashboard'} />
 
-      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-16 2xl:px-32 pt-16">
+      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-16 2xl:px-32 py-16">
         <div className='flex justify-between items-start'>
           <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
 
@@ -67,7 +67,7 @@ export default function Dashboard() {
   
           </div>
 
-          <aside className="col-span-2 bg-gray-2 rounded drop-shadow-brand h-full min-h-[calc(100vh-244px)] p-4">
+          <aside className="col-span-2 bg-gray-2 rounded drop-shadow-brand h-full min-h-[calc(100vh-308px)] p-4">
             <div className='mb-4'>
               <h6 className='text-lg text-gray-7 font-regular mb-2'>
                 Current
