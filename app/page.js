@@ -26,10 +26,10 @@ export default function Home() {
   const footerLinks1 = [
     { title: '/in/alec-downing', link: 'https://linkedin.com/in/alec-downing', icon: linkedIn },
     { title: 'GitHub', link: 'https://github.com/a-down/job-notebook-application-tracker', icon: github },
-    { title: 'Clerk', link: 'https://clerk.com', icon: clerk }
   ]
 
   const footerLinks2 = [
+    { title: 'Clerk', link: 'https://clerk.com', icon: clerk },
     { title: 'Phosphor Icons', link: 'https://phosphoricons.com/', icon: phosphor },
     { title: 'Icons8', link: 'https://https://icons8.com/', icon: icons8 },
     { title: 'Box Icons', link: 'https://boxicons.com/', icon: boxIcons },
@@ -125,7 +125,7 @@ export default function Home() {
 
         </main>
 
-        <footer className="w-screen h-[240px] relative">
+        <footer className="w-screen h-fit relative">
           <svg width="100%" height="240" viewBox="0 0 1444 240" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2400/svg" className='absolute left-0 z-0'>
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#9dd4c7"/>
           </svg>
