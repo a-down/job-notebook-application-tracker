@@ -13,6 +13,12 @@ export default function Modal({ children, button }) {
             </Dialog.Trigger>
           )}
 
+          {button.style === 'primary-outline' && (
+            <Dialog.Trigger className=' text-brand-primary text-sm leading-tight bg-transparent w-full px-4 py-[12px] rounded-md border-2 border-brand-primary hover:bg-brand-primary  hover:text-white duration-300 active:border-black mb-1'>
+              {button.text}
+            </Dialog.Trigger>
+          )}
+
           {button.style === 'gray-outline' && (
             <Dialog.Trigger className=' text-gray-7 text-sm leading-tight w-full px-4 py-[12px] rounded-md  border border-gray-7 hover:bg-gray-7 hover:border-brand-primary hover:text-white duration-300 active:border-gray-9 mb-1'>
               {button.text}
