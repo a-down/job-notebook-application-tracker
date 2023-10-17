@@ -45,7 +45,7 @@ export default function Home() {
         <main className="bg-brand-dark min-h-screen">
         
           {/* hero section */}
-          <div className='grid grid-cols-12 gap-4 pt-12 lg:pt-24 h-[636px] px-4 lg:px-16 2xl:px-32'>
+          <div className='grid grid-cols-12 gap-4 pt-12 lg:pt-24 h-[636px] px-4 md:px-8 lg:px-16 2xl:px-32'>
             <div className='col-span-12 lg:col-span-4'>
               <div className='mb-8 lg:mb-16'>
                 <p className='text-xl text-white leading-normal mb-4'>
@@ -83,11 +83,15 @@ export default function Home() {
               <path d="M0 576V0C866.393 26.8364 1153.26 47.687 1440 98.8432V576H0Z" fill="#9DD4C7"/>
             </svg>
 
-            <svg width="100%" height="740" viewBox="0 0 1444 576" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-0 left-0 z-0'>
+            <svg width="100%" height="680" viewBox="0 0 1444 576" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-0 left-0 z-0 hidden md:block lg:hidden'>
               <path d="M0 576V0C866.393 26.8364 1153.26 47.687 1440 98.8432V576H0Z" fill="#9DD4C7"/>
             </svg>
 
-            <div className='relative z-10 px-4 lg:px-16 2xl:px-32 py-24'>
+            <svg width="100%" height="760" viewBox="0 0 1444 576" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute top-0 left-0 z-0 md:hidden'>
+              <path d="M0 576V0C866.393 26.8364 1153.26 47.687 1440 98.8432V576H0Z" fill="#9DD4C7"/>
+            </svg>
+
+            <div className='relative z-10 px-4 md:px-8 lg:px-16 2xl:px-32 py-24'>
               <h3 className='text-black font-bold text-2xl mb-8 lg:mb-16'>Job information available at a glance</h3>
 
               <div className='grid grid-cols-4 gap-12 lg:gap-4'>
