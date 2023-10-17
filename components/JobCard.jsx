@@ -20,7 +20,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
   useEffect(() => {
     setProgressPercentage()
     if (isModal) {
-      // updateCard()
+      updateCard()
       setDropdownState(true)
       setCardBottomMargin('mb-[6px]')
       setWrapperShadow('drop-shadow-brand')
