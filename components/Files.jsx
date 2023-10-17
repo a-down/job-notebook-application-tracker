@@ -1,6 +1,6 @@
 "use client"
 import { FileIcon } from '@/components'
-import { PiPlusBold } from 'react-icons/pi'
+import { BiSolidPlusSquare } from 'react-icons/bi'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner';
 import { MdAddBox } from 'react-icons/md'
@@ -102,7 +102,7 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
         </form>
       )}
 
-      <MdAddBox className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300 absolute top-4 right-4 cursor-pointer' onClick={() => setNewFileFormVisibility(prev => !prev)}/>
+      <BiSolidPlusSquare className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300 absolute top-4 right-4 cursor-pointer' onClick={() => setNewFileFormVisibility(prev => !prev)}/>
 
     </div>
   )

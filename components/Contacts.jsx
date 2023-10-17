@@ -1,10 +1,8 @@
 "use client"
-import { PiLinkedinLogoBold, PiPhoneBold, PiEnvelopeBold, PiPlusBold } from 'react-icons/pi'
-import { BiLogoLinkedinSquare, BiSolidEnvelope, BiSolidPhone } from 'react-icons/bi'
+import { BiLogoLinkedinSquare, BiSolidEnvelope, BiSolidPhone, BiSolidPlusSquare } from 'react-icons/bi'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner';
 import { IndividualContact } from '@/components'
-import { MdAddBox } from 'react-icons/md'
 
 
 export default function Contacts({ sharedStyle, contacts, updateCard, applicationId }) {
@@ -115,7 +113,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
         </div>
       )}
 
-      <MdAddBox className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300 absolute top-4 right-4 cursor-pointer' onClick={() => setNewContactVisibility(prev => !prev)}/>
+      <BiSolidPlusSquare className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300 absolute top-4 right-4 cursor-pointer' onClick={() => setNewContactVisibility(prev => !prev)}/>
 
     </div>
   )
