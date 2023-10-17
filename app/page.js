@@ -133,7 +133,7 @@ export default function Home() {
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#253330"/>
           </svg>
           
-          <div className='flex flex-wrap gap-6 lg:flex-row justify-between items-start lg:items-end h-full relative px-8 lg:p-16 py-20 2xl:px-32 text-gray-5'>
+          <div className='flex flex-wrap gap-6 lg:flex-row justify-between items-end h-full relative px-8 lg:p-16 py-20 2xl:px-32 text-gray-5'>
             <div className=' flex flex-col justify-end gap-6 pb-0.5'>
               <div className=' flex gap-6 flex-wrap '>
                 {footerLinks1.map((link, index) => (
@@ -157,12 +157,6 @@ export default function Home() {
               </div>
             </div>
             
-            <div className='text-brand-primary flex flex-o gap-6 mb-1.5 font-semibold'>
-              <Link href='/' className=' hover:white' style={{transitionDuration: '.3s'}}>Home</Link>
-              <Link href='/about' className='hover:white' style={{transitionDuration: '.3s'}}>About</Link>
-              <Link href='/howitworks' className='hover:white' style={{transitionDuration: '.3s'}}>How It Works</Link>
-              <Link href='/dashboard' className='hover:white' style={{transitionDuration: '.3s'}}>Dashboard</Link>
-            </div>
           </div>
 
         </footer>
