@@ -17,9 +17,24 @@ export default function JobCard({ application, isModal, getApplications, setAsid
   const [ rowSpan, setRowSpan ] = useState('row-span-1')
   const [ arrowRotation, setArrowRotation ] = useState('0')
   const [ applicationState, setApplicationState ] = useState(application)
+  const [ nextStep, setNextStep ] = useState('')
+
+  function updateNextStep() {
+    let nextUncompletedStep 
+    for (let i = 0; i < applicationState.to_do.length; i++) {
+      if (!applicationState.to_do[i].completed) {
+        nextUncompletedStep = applicationState.to_do[i].description
+        break
+      }
+    }
+
+    console.log(nextUncompletedStep)
+    setNextStep(nextUncompletedStep)
+  }
 
   useEffect(() => {
     setProgressPercentage()
+    updateNextStep()
     if (isModal) {
       // updateCard()
       setDropdownState(true)
@@ -36,6 +51,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
     const data = await res.json()
     setApplicationState(data)
     setProgressPercentage()
+    updateNextStep()
   }
 
   function setProgressPercentage() {
@@ -95,7 +111,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
                   <p className='text-sm text-gray-7'>
                     Next step:
                     <span className='text-gray-9'>
-                      {` ${'MAKE THIS WORK'}`}
+                      {` ${nextStep}`}
                     </span>
                   </p>
 
