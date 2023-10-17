@@ -67,7 +67,7 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
     e.preventDefault()
     console.log(application._id)
     try {
-      const res = fetch(`/api/applications/${application._id}`, {
+      const res = await fetch(`/api/applications/${application._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -84,6 +84,7 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
           }
         })
       })
+      console.log(res.status)
       const data = await res.json()
       console.log(data)
       if (res.status === 200) {

@@ -11,12 +11,16 @@ export async function GET (req, { params }) {
 }
 
 export async function PUT (req, { params }) {
-  const body = await req.json()
-  console.log(body)
-  console.log(params.applicationid)
-  await connectMongoDB();
-  await Application.findByIdAndUpdate(params.applicationid, body)
-  return NextResponse.json({message: "Application Updated", status: 200})
+  try {
+    const body = await req.json()
+    await connectMongoDB();
+    await Application.findByIdAndUpdate(params.applicationid, body)
+    return NextResponse.json({message: "Application Updated", status: 200})
+
+  } catch {
+    return NextResponse.json({message: "Error updating application", status: 500})
+  }
+  
 }
 
 export async function DELETE (req, { params }) {
