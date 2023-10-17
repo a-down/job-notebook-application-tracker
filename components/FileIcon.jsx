@@ -89,7 +89,10 @@ export default function FileIcon({ file, applicationId, updateCard }) {
         }}>
       <a href={file.file_link} target="_blank" className='flex flex-col gap-0.5' >
         {icon}
-        <p className='text-xxs text-gray-7 w-10 text-center'>{file.file_name}</p>
+        <div className='min-h-[20px] flex items-center'>
+          <p className='text-xxs text-gray-7 w-10 text-center'>{file.file_name}</p>
+        </div>
+        
       </a>
 
       <div className='flex grow justify-end items-center absolute top-[22px] right-0 bg-gray-7 rounded-br-md rounded-tl-md p-px'>

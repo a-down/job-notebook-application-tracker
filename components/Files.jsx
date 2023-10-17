@@ -27,6 +27,12 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
       const data = res.json()
 
       if (res.status === 200) {
+        toast.success('File created', {
+          style: {
+            backgroundColor: 'var(--brand-primary)',
+            color: '#fff'
+          }
+        })
         setNewFileFormData(defaultFormData)
         updateCard()
       } else {
