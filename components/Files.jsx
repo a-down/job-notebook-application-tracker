@@ -3,6 +3,8 @@ import { FileIcon } from '@/components'
 import { PiPlusBold } from 'react-icons/pi'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner';
+import { MdAddBox } from 'react-icons/md'
+
 
 export default function Files({ sharedStyle, files, applicationId, updateCard }) {
   const defaultFormData = {file_name: '', file_type: '', file_link: ''}
@@ -100,10 +102,8 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
         </form>
       )}
 
+      <MdAddBox className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300 absolute top-4 right-4 cursor-pointer' onClick={() => setNewFileFormVisibility(prev => !prev)}/>
 
-      <PiPlusBold 
-        className=' cursor-pointer bg-brand-primary text-white rounded-sm text-lg  hover:bg-brand-soft active:bg-gray-2 absolute top-4 right-4'
-        onClick={() => setNewFileFormVisibility(prev => !prev)}/>
     </div>
   )
 }

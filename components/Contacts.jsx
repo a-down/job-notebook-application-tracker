@@ -1,9 +1,11 @@
 "use client"
 import { PiLinkedinLogoBold, PiPhoneBold, PiEnvelopeBold, PiPlusBold } from 'react-icons/pi'
+import { BiLogoLinkedinSquare, BiSolidEnvelope, BiSolidPhone } from 'react-icons/bi'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner';
-import { PiTrash, PiTrashFill } from 'react-icons/pi'
 import { IndividualContact } from '@/components'
+import { MdAddBox } from 'react-icons/md'
+
 
 export default function Contacts({ sharedStyle, contacts, updateCard, applicationId }) {
   const defaultFormData = {contact_name: '', contact_linkedin: '', contact_email: '', contact_phone: ''}
@@ -64,7 +66,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
             onChange={handleContactFormChange}/>
 
           <div className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7'>
-            <PiLinkedinLogoBold className='text-brand-primary text-xxs ml-px'/>
+            <BiLogoLinkedinSquare className='text-brand-primary text-lg'/>
             <input className=' text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full' 
               placeholder='LinkedIn'
               type='url'
@@ -75,7 +77,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
           </div>
 
           <div className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 '>
-            <PiEnvelopeBold className='text-brand-primary text-xs'/>
+            <BiSolidEnvelope className='text-brand-primary text-lg'/>
             <input className='text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full' 
               placeholder='Email'
               type='email'
@@ -85,7 +87,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
           </div>
 
           <div className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 '>
-            <PiPhoneBold className='text-brand-primary text-xs'/>
+            <BiSolidPhone className='text-brand-primary text-lg'/>
             <input className='text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full' 
               placeholder='Phone'
               type='tel'
@@ -113,13 +115,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
         </div>
       )}
 
-      
-
-
-
-      <PiPlusBold 
-        className=' cursor-pointer bg-brand-primary text-white rounded-sm text-lg  hover:bg-brand-soft active:bg-gray-2 absolute top-4 right-4'
-        onClick={() => setNewContactVisibility(prev => !prev)}/>
+      <MdAddBox className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300 absolute top-4 right-4 cursor-pointer' onClick={() => setNewContactVisibility(prev => !prev)}/>
 
     </div>
   )

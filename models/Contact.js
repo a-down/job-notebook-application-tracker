@@ -8,7 +8,7 @@ const contactSchema = new Schema(
     },
     contact_linkedin: String,
     contact_email: String,
-    contact_phone: Number
+    contact_phone: String
   },
   {
     timestamps: true,

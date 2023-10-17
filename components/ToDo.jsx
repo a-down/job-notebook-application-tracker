@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { ToDoItem } from '@/components'
 import { PiPlusBold } from 'react-icons/pi'
+import { MdAddBox } from 'react-icons/md'
 
 
 export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateCard, applicationId }) {
@@ -45,7 +46,7 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
       <form className='flex gap-2 items-center justify-start'>
         <button className=''
           onClick={createToDoItem}>
-          <PiPlusBold className='text-brand-primary text-lg rounded-sm hover:text-gray-7 active:text-gray-9'/>
+          <MdAddBox className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300'/>
         </button>
         <input 
           className='w-full rounded-sm border border-brand-primary px-1.5 py-1 text-xs text-gray-7 focus:border-brand-primary'

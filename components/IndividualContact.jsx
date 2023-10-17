@@ -1,5 +1,6 @@
 "use client"
 import { PiLinkedinLogoBold, PiPhoneBold, PiEnvelopeBold, PiPlusBold } from 'react-icons/pi'
+import { BiLogoLinkedinSquare, BiSolidEnvelope, BiSolidPhone } from 'react-icons/bi'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner';
 import { PiTrash, PiTrashFill } from 'react-icons/pi'
@@ -57,8 +58,8 @@ export default function IndividualContact({ contact, applicationId, updateCard})
     <>
     {contactVisibility && (
       <div className="col-span-1 w-full h-16">
-        <div className='mb-1 flex justify-between w-full relative'>
-          <h6 className="font-regular w-full"
+        <div className='mb-0.5 flex justify-between w-full relative'>
+          <h6 className="font-regular w-full mb-0.5"
             onMouseEnter={() => setGrayTrashState(true)}
             onMouseLeave={() => setGrayTrashState(false)}>
             {contact.contact_name}
@@ -81,22 +82,22 @@ export default function IndividualContact({ contact, applicationId, updateCard})
         </div>
 
         {contact.contact_linkedin && (
-          <a href={contact.contact_linkedin} target='_blank' className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary duration-300'>
-            <PiLinkedinLogoBold className='text-brand-primary text-xs'/>
+          <a href={contact.contact_linkedin} target='_blank' className='flex gap-1 items-center mb-px text-gray-7 hover:text-brand-primary duration-300'>
+            <BiLogoLinkedinSquare className='text-brand-primary text-md'/>
             <p className='text-xxs overflow-x-clip' style={{textOverflow: 'ellipsis'}}>{contact.contact_linkedin.split('.com')[1]}</p>
           </a>
         )}
 
         {contact.contact_email && (
-          <a href={`mailto: ${contact.contact_email}`} className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary duration-300'>
-            <PiEnvelopeBold className='text-brand-primary text-xs flex-shrink-0'/>
+          <a href={`mailto: ${contact.contact_email}`} className='flex gap-1 items-center mb-px text-gray-7 hover:text-brand-primary duration-300'>
+            <BiSolidEnvelope className='text-brand-primary text-md flex-shrink-0'/>
             <p className='text-xxs overflow-x-clip' style={{textOverflow: 'ellipsis'}}>{contact.contact_email}fhasodfjoiadjsgiasjgoi</p>
           </a>
         )}
 
         {contact.contact_phone && (
-          <a href={`tel: ${contact.contact_phone}`} className='flex gap-1 items-center pl-0.5 mb-1 text-gray-7 hover:text-brand-primary duration-300'>
-            <PiPhoneBold className='text-brand-primary text-xs'/>
+          <a href={`tel: ${contact.contact_phone}`} className='flex gap-1 items-center mb-px text-gray-7 hover:text-brand-primary duration-300'>
+            <BiSolidPhone className='text-brand-primary text-md'/>
             <p className='text-xxs overflow-x-clip' style={{textOverflow: 'ellipsis'}}>{contact.contact_phone}</p>
           </a>
         )}
