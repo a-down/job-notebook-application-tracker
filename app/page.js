@@ -23,10 +23,14 @@ export default function Home() {
     { title: 'Documents', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: file },
   ]
 
-  const footerLinks = [
+  const footerLinks1 = [
     { title: '/in/alec-downing', link: 'https://linkedin.com/in/alec-downing', icon: linkedIn },
-    { title: 'GitHub (for issues and resources)', link: 'https://github.com/a-down/job-notebook-application-tracker', icon: github },
-    { title: 'Clerk', link: 'https://clerk.com', icon: clerk },
+    { title: 'GitHub', link: 'https://github.com/a-down/job-notebook-application-tracker', icon: github },
+    { title: 'Clerk', link: 'https://clerk.com', icon: clerk }
+  ]
+
+  const footerLinks2 = [
+    { title: 'Phosphor Icons', link: 'https://phosphoricons.com/', icon: phosphor },
     { title: 'Icons8', link: 'https://https://icons8.com/', icon: icons8 },
     { title: 'Box Icons', link: 'https://boxicons.com/', icon: boxIcons },
     { title: 'Simple Icons', link: 'https://simpleicons.org/', icon: simpleIcons },
@@ -128,15 +132,27 @@ export default function Home() {
           </svg>
           
           <div className='flex justify-between items-end h-full relative p-16 py-20 2xl:px-32 text-gray-5'>
-            <div className=' h-[88px] w-[560px] flex gap-6 flex-wrap'>
-              {footerLinks.map((link, index) => (
-                <div className='hover:text-brand-primary duration-300 flex'>
-                  <a href={link.link} target="_blank" className='flex gap-2 items-center'>
-                    <Image src={link.icon} height={24} width={24}/>
-                    <p className='font-semibold'>{link.title}</p>
-                  </a>
-                </div>
-              ))}
+            <div className='flex flex-col justify-end'>
+              <div className=' h-[44px] w-[568px] flex gap-6 flex-wrap'>
+                {footerLinks1.map((link, index) => (
+                  <div className='hover:text-brand-primary duration-300 flex'>
+                    <a href={link.link} target="_blank" className='flex gap-2 items-center'>
+                      <Image src={link.icon} height={24} width={24}/>
+                      <p className='font-semibold'>{link.title}</p>
+                    </a>
+                  </div>
+                ))}
+              </div>
+              <div className=' h-[44px] w-[568px] flex gap-6 flex-wrap'>
+                {footerLinks2.map((link, index) => (
+                  <div className='hover:text-brand-primary duration-300 flex'>
+                    <a href={link.link} target="_blank" className='flex gap-2 items-center'>
+                      <Image src={link.icon} height={24} width={24}/>
+                      <p className='font-semibold'>{link.title}</p>
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
             
             <div className='flex gap-6 mb-1.5 font-semibold'>
