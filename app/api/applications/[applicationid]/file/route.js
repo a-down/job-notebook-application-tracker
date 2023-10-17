@@ -35,11 +35,14 @@ export async function POST (req, { params }) {
 
 export async function DELETE (req, { params }) {
   const body = await req.json()
+  console.log(body)
+  console.log(params.applicationid)
   try {
     await connectMongoDB();
-    const res = await Application.updateOne({_id: params.applicationd}, {
+    const res = await Application.updateOne({_id: params.applicationid}, {
       $pull: { files: { "_id": body.fileId}}
-    }, { new: true })
+    })
+    console.log(res)
     return NextResponse.json({message: "File Deleted", status: 200, res})
   } catch (err) {
     return NextResponse.json({message: "Error deleting file", status: 500})
