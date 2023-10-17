@@ -11,7 +11,7 @@ export default function Header({ isDark, activePage }) {
 
   return (
     <>
-      <header className={`${backroundColor} flex justify-between items-center h-24 w-full px-4 md:px-8 lg:px-16 2xl:px-32 py-6 drop-shadow-brand`}>
+      <header className={`${backroundColor} flex justify-between items-center h-24 w-full px-8 lg:px-16 2xl:px-32 py-6 drop-shadow-brand`}>
         <Link href="/" className=''>
           <h1 className={`${titleColor} font-display font-semibold text-4xl duration-300`}>Job Notebook</h1>
         </Link>
@@ -46,7 +46,7 @@ export default function Header({ isDark, activePage }) {
             </DropdownMenu.Trigger>
 
             <DropdownMenu.Portal>
-              <DropdownMenu.Content className='relative right-4 w-screen mt-4 p-4 pb-8 bg-brand-dark drop-shadow-brand rounded-md text-right flex flex-col items-end gap-6 mobile-nav'>
+              <DropdownMenu.Content className='relative right-4 w-screen mt-4 py-4 px-8 pb-8 bg-brand-dark drop-shadow-brand rounded-md text-right flex flex-col items-end gap-6 mobile-nav'>
 
                   <UserButton afterSignOutUrl='/'/>
 

@@ -88,10 +88,10 @@ export default function JobCard({ application, isModal, getApplications, setAsid
 
                   <div className='flex gap-0.5'>
                     <h5 className=" font-regular ">{applicationState.role.company.company_name}</h5>
-                    <a href={applicationState.role.company.company_website} target="_blank">
+                    <a href={applicationState.role.company.company_linkedin} target="_blank">
                       <BiLogoLinkedinSquare className="text-brand-primary hover:text-gray-7 duration-300 cursor-pointer"/>
                     </a>
-                    <a href={applicationState.role.company.company_linkedin} target="_blank">
+                    <a href={applicationState.role.company.company_website} target="_blank">
                       <BiLink className="text-brand-primary hover:text-gray-7 duration-300 cursor-pointer"/>
                     </a>
                   </div>
