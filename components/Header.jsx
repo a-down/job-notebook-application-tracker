@@ -46,9 +46,10 @@ export default function Header({ isDark, activePage }) {
             </DropdownMenu.Trigger>
 
             <DropdownMenu.Portal>
-              <DropdownMenu.Content>
-                <div className='relative right-4 w-screen mt-4 p-4 pb-8 bg-brand-dark drop-shadow-brand rounded-md text-right flex flex-col items-end gap-6 mobile-nav'>
+              <DropdownMenu.Content className='relative right-4 w-screen mt-4 p-4 pb-8 bg-brand-dark drop-shadow-brand rounded-md text-right flex flex-col items-end gap-6 mobile-nav'>
+
                   <UserButton afterSignOutUrl='/'/>
+
                   {activePage === 'about' ? (
                     <Link href="/about" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>About</Link>
                   ) : (
@@ -66,8 +67,6 @@ export default function Header({ isDark, activePage }) {
                   ) : (
                     <Link href="/dashboard" className={linkColor} style={{transitionDuration: '.3s'}}>Dashboard</Link>
                   )}
-
-                </div>
 
               </DropdownMenu.Content>
             </DropdownMenu.Portal>

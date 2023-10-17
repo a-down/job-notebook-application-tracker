@@ -15,6 +15,10 @@ module.exports = {
     },
 
     extend: {
+      screens: {
+        'lg': '940px'
+      },
+
       fontFamily: {
         'display': 'var(--lexend-deca)',
         'body': 'var(--lexend)'
