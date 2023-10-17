@@ -69,33 +69,33 @@ export default function Dashboard() {
 
             {loadingState && (
               <>
-                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[172px] p-4'>
+                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[20px] w-1/2'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/4'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/6'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/4 mt-12'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-2/12'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/6'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4 mt-12'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-2/12'></div>
                   </div>
                   <div className='bg-gray-5 rounded-full animate-pulse h-full aspect-square'></div>
                 </div>
-                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[172px] p-4'>
+                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[20px] w-1/2'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/4'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/6'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/4 mt-12'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-2/12'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/6'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4 mt-12'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-2/12'></div>
                   </div>
                   <div className='bg-gray-5 rounded-full animate-pulse h-full aspect-square'></div>
                 </div>
-                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[172px] p-4'>
+                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[20px] w-1/2'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/4'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/6'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-1/4 mt-12'></div>
-                    <div className='bg-gray-5 rounded-md animate-pulse h-[16px] w-2/12'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/6'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4 mt-12'></div>
+                    <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-2/12'></div>
                   </div>
                   <div className='bg-gray-5 rounded-full animate-pulse h-full aspect-square'></div>
                 </div>
