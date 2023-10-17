@@ -81,7 +81,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
         <>
           <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content', maxWidth: '80vw'}}>
             <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
-              <div className="justify-between flex flex-col justify-between">
+              <div className="justify-between flex flex-col">
 
                 <div className="flex flex-col gap-1 mb-4">
                   <h4 className="text-2xl font-regular">{applicationState.role.role_name}</h4>

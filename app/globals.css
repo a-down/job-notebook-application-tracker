@@ -37,7 +37,6 @@
 
 .job-card-upper {
   animation: 0 stayInPlace;
-  z-index: 40;
 }
 
 .dropdown {
