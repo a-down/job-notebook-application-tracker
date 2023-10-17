@@ -1,14 +1,13 @@
 "use client"
-import { PiLinkedinLogoBold, PiPhoneBold, PiEnvelopeBold, PiPlusBold } from 'react-icons/pi'
 import { BiLogoLinkedinSquare, BiSolidEnvelope, BiSolidPhone } from 'react-icons/bi'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner';
 import { PiTrash, PiTrashFill } from 'react-icons/pi'
+import { BiSolidTrash } from 'react-icons/bi'
 
 export default function IndividualContact({ contact, applicationId, updateCard}) {
   const [ contactVisibility, setContactVisibility ] = useState(true)
   const [ grayTrashState, setGrayTrashState ] = useState(false)
-  const [ redTrashState, setRedTrashState ] = useState(false)
 
   // async function deleteContact() {
   //   try {
@@ -57,25 +56,17 @@ export default function IndividualContact({ contact, applicationId, updateCard})
   return (
     <>
     {contactVisibility && (
-      <div className="col-span-1 w-full h-16">
-        <div className='mb-0.5 flex justify-between w-full relative'>
-          <h6 className="font-regular w-full mb-0.5"
-            onMouseEnter={() => setGrayTrashState(true)}
-            onMouseLeave={() => setGrayTrashState(false)}>
+      <div className="col-span-1 w-full h-16"
+        onMouseEnter={() => setGrayTrashState(true)}
+        onMouseLeave={() => setGrayTrashState(false)}>
+        <div className='mb-0.5 flex justify-between w-full relative' >
+          <h6 className="font-regular w-full mb-0.5">
             {contact.contact_name}
           </h6>
 
           <div className='flex grow justify-end items-center absolute right-0 bg-white opacity-80 rounded-full'>
-            {grayTrashState && !redTrashState && (
-              <PiTrash className='text-gray-7 flex-shrink-0 text-lg hover:cursor-pointer pr-1'
-                onMouseEnter={() => {
-                    setGrayTrashState(false)
-                    setRedTrashState(true)
-                  }} />
-            )}
-            {redTrashState && (
-              <PiTrashFill className='text-red-400 active:text-red-800 flex-shrink-0 text-lg hover:cursor-pointer pr-1'
-                onMouseLeave={() => setRedTrashState(false)}
+            {grayTrashState && (
+              <BiSolidTrash className='text-gray-7 hover:text-red-400 flex-shrink-0 text-lg hover:cursor-pointer pr-1'
                 onClick={deleteContact} />
             )}
           </div>

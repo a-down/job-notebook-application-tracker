@@ -13,6 +13,7 @@ import icons8 from '../public/icons8.png'
 import linkedIn from '../public/linkedin.png'
 import phosphor from '../public/phosphor.png'
 import simpleIcons from '../public/simpleicons.png'
+import boxIcons from '../public/boxicons.png'
 
 export default function Home() {
   const featureDetails = [
@@ -27,7 +28,7 @@ export default function Home() {
     { title: 'GitHub (for issues and resources)', link: 'https://github.com/a-down/job-notebook-application-tracker', icon: github },
     { title: 'Clerk', link: 'https://clerk.com', icon: clerk },
     { title: 'Icons8', link: 'https://https://icons8.com/', icon: icons8 },
-    { title: 'Phosphor Icons', link: 'https://phosphoricons.com/', icon: phosphor },
+    { title: 'Box Icons', link: 'https://boxicons.com/', icon: boxIcons },
     { title: 'Simple Icons', link: 'https://simpleicons.org/', icon: simpleIcons },
   ]
 
