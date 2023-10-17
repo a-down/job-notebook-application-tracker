@@ -30,8 +30,8 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <Toaster position='top-center'/>
         <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
+          <Toaster position='top-center'/>
           {children}
         </body>
       </html>
