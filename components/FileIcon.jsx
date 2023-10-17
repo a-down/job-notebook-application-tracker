@@ -2,12 +2,56 @@
 import { SiGoogledocs, SiGoogleslides, SiGooglesheets } from 'react-icons/si'
 import { useState, useEffect } from 'react'
 import { PiFolderSimpleFill, PiTrash, PiTrashFill } from 'react-icons/pi'
+import { toast } from 'sonner'
 
-export default function FileIcon({ file }) {
+export default function FileIcon({ file, applicationId, updateCard }) {
   const [ grayTrashState, setGrayTrashState ] = useState(false)
   const [ redTrashState, setRedTrashState ] = useState(false)
   let wrapperStyle = 'bg-gray-7 text-2xl rounded-md flex justify-center items-center p-2 duration-300'
   let icon
+
+  `/api/applications/${applicationId}/file`
+
+  async function deleteFile(e) {
+    e.preventDefault()
+    try {
+      const res = await fetch(`/api/applications/${applicationId}/file`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({fileId: file._id})
+      })
+      const data = await res.json()
+
+      if (res.status === 200 && res.res !== null) {
+        toast.success('File deleted', {
+          style: {
+            backgroundColor: 'var(--brand-primary)',
+            color: '#fff'
+          }
+        })
+        console.log(data)
+        updateCard()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+        console.log(data)
+      }
+    } catch {
+      toast.error('Error deleting file', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+      console.log('catch')
+    }
+  } 
 
   switch (file.file_type) {
     case 'Google Doc':
@@ -62,6 +106,7 @@ export default function FileIcon({ file }) {
         {redTrashState && (
           <PiTrashFill className='text-red-400 active:text-red-800 flex-shrink-0 hover:cursor-pointer'
             onMouseLeave={() => setRedTrashState(false)}
+            onClick={deleteFile}
              />
         )}
       </div>

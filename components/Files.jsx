@@ -56,7 +56,7 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
         <div className="file-wrapper h-[64px] flex flex-wrap gap-2 mt-1 overflow-y-scroll">
           {files && (
             files.map((file, index) => (
-              <FileIcon file={file} key={index}/>
+              <FileIcon file={file} key={index} updateCars={updateCard} applicationId={applicationId}/>
             ))
           )}
         </div>
