@@ -2,7 +2,7 @@
 import { SiGoogledocs, SiGoogleslides, SiGooglesheets } from 'react-icons/si'
 import { useState } from 'react'
 import { PiFolderSimpleFill } from 'react-icons/pi'
-import { BiSolidTrash } from 'react-icons/bi'
+import { BiSolidTrash, BiLinkExternal } from 'react-icons/bi'
 import { toast } from 'sonner'
 
 export default function FileIcon({ file, applicationId, updateCard }) {
@@ -80,6 +80,13 @@ export default function FileIcon({ file, applicationId, updateCard }) {
       icon = <>
           <div className={`hover:bg-[#5F6367] ${wrapperStyle} text-3xl p-[5px]`}>
             <PiFolderSimpleFill className='text-white'/>
+          </div>
+        </>
+      break;
+    case 'Other':
+      icon = <>
+          <div className={`hover:bg-brand-primary ${wrapperStyle} text-3xl p-[5px]`}>
+            <BiLinkExternal className='text-white'/>
           </div>
         </>
       break;

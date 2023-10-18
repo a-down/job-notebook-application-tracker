@@ -83,17 +83,20 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
               <option value="Google Slide">Google Slide</option>
               <option value="Google Sheet">Google Sheet</option>
               <option value="Folder">Folder</option>
+              <option value="Other">Other</option>
             </select>
-          <input className="text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full col-span-3" 
-            placeholder='File Link'
-            name='file_link'
-            value={newFileFormData.file_link}
-            onChange={handleNewFileFormChange}
-            />
-            <button className='w-full bg-brand-soft hover:bg-brand-primary duration-300 rounded-md text-white text-xs py-2 px-2 mx-auto'
+          <div className='col-span-4 flex gap-1'>
+            <input className="grow text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full" 
+              placeholder='File Link'
+              name='file_link'
+              value={newFileFormData.file_link}
+              onChange={handleNewFileFormChange}
+              />
+            <button className='shrink-0 bg-brand-primary hover:bg-brand-soft duration-300 rounded-md text-white text-xs py-2 px-2 mx-auto'
               onClick={createFile}>
               Add File
             </button>
+          </div>
         </form>
       )}
 
