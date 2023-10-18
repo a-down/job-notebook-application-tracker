@@ -54,15 +54,6 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
     getApplications()
   }
 
-  // const res = await fetch(`/api/applications/${applicationId}`, {
-  //   method: 'PUT',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({notes: notesState})
-  // })
-  // const data = await res.json()
-
   async function updateApplication(e) {
     e.preventDefault()
     try {
@@ -119,7 +110,7 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
 
   return (
     <> 
-      <form className="flex flex-col gap-4 w-[80vw] max-w-[600px] bg-white p-4 rounded-lg border drop-shadow-brand">
+      <form className="flex flex-col gap-4 w-[90vw] sm:w-[80vw] max-w-[600px] bg-white p-4 rounded-lg border drop-shadow-brand">
         <h3 className="text-lg text-display font-bold">Enter Job Info Below</h3>
 
         {formFieldsArr.map((field, index) => (
