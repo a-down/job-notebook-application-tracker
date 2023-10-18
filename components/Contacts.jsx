@@ -107,7 +107,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
       )}
 
       {!newContactVisibility && contactsState && (
-        <div className=' h-[calc(100%-24px)] mt-3 contact-wrapper grid grid-cols-2 gap-x-1 gap-y-2 overflow-y-scroll pb-1'>
+        <div className=' h-[calc(100%-24px)] mt-3 contact-wrapper grid grid-cols-2 gap-x-1 gap-y-2 auto-rows-min overflow-y-scroll pb-1'>
           {contactsState.map((contact, index) => (
             <IndividualContact contact={contact} key={index} applicationId={applicationId} updateCard={updateCard}/>
           ))}

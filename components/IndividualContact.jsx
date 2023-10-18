@@ -50,7 +50,7 @@ export default function IndividualContact({ contact, applicationId, updateCard})
   return (
     <>
     {contactVisibility && (
-      <div className="col-span-2 md:col-span-1 w-full min-h-12"
+      <div className="col-span-2 md:col-span-1 w-full mb-2 md:mb-0 min-h-12"
         onMouseEnter={() => setGrayTrashState(true)}
         onMouseLeave={() => setGrayTrashState(false)}>
         <div className='mb-0.5 flex justify-between w-full relative' >
