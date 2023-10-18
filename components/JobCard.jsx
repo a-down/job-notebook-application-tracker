@@ -99,7 +99,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
   // toggle dropdown menu
   // if the dropdown is false (hidden), set it to modal (true, visible)
   function toggleDropdownState() {
-    dropdownState.dropdown ? setDropdownState(modalDropdown) : setDropdownState(defaultDropdown)
+    !dropdownState.dropdown ? setDropdownState(modalDropdown) : setDropdownState(defaultDropdown)
   }
 
   return (
@@ -177,7 +177,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
               )}
             </div>  
 
-            {dropdownState && applicationState && (
+            {dropdownState.dropdown && applicationState && (
               <JobCardDropdown 
                 application={applicationState} 
                 setProgressPercentage={setProgressPercentage} 
