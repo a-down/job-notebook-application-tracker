@@ -41,8 +41,8 @@ export default function ToDoItem({ item, updateCard, applicationId }) {
       const data = await res.json()
 
       if (res.status === 200) {
-        setItemState(data)
-        setCompletedState(data.completed)
+        setItemState(data.toDo)
+        setCompletedState(data.toDo.completed)
         updateCard()
       } else {
         toast.error(data.message, {
