@@ -4,6 +4,9 @@ import ToDo from "@/models/ToDo";
 import Contact from "@/models/Contact";
 import { NextResponse } from "next/server";
 
+
+// /api/applications/[userId]
+// userId is user_id from Clerk Auth
 export async function GET (req, { params }) {
   try {
     await connectMongoDB();

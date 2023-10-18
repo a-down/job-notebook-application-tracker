@@ -4,17 +4,19 @@ import ToDo from "@/models/ToDo";
 import { NextResponse } from "next/server";
 
 
+// /api/applications/[applicationid]
 export async function GET (req, { params }) {
   try {
     await connectMongoDB();
     const applications = await Application.findById(params.applicationid).populate('to_do').populate('contacts')
     return NextResponse.json({status: 200, applications})
+
   } catch {
     return NextResponse.json({status: 500, message: 'Error getting applications'})
   }
-  
 }
 
+// /api/applications/[applicationid]
 export async function PUT (req, { params }) {
   try {
     const body = await req.json()
@@ -27,6 +29,7 @@ export async function PUT (req, { params }) {
   }
 }
 
+// /api/applications/[applicationid]
 export async function DELETE (req, { params }) {
   try {
     await connectMongoDB();

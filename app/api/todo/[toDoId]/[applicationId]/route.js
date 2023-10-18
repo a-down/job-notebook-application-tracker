@@ -4,6 +4,7 @@ import ToDo from "@/models/ToDo";
 import { NextResponse } from "next/server";
 
 
+// /api/toDo/[toDoId]/[applicationId]
 export async function DELETE (req, { params }) {
   try {
     await connectMongoDB();

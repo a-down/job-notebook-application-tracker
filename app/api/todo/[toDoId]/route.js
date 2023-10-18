@@ -3,6 +3,7 @@ import ToDo from "@/models/ToDo";
 import { NextResponse } from "next/server";
 
 
+// /api/toDo/[toDoId]
 export async function PUT (req, { params }) {
   try {
     const body = await req.json()

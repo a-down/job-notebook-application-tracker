@@ -4,6 +4,7 @@ import ToDo from "@/models/ToDo";
 import { NextResponse } from "next/server";
 
 
+// /api/applications
 export async function GET (req) {
   try {
     await connectMongoDB();
@@ -15,6 +16,7 @@ export async function GET (req) {
   }
 }
 
+// /api/applications
 export async function POST (req) {
   try {
     const {to_do, ...body} = await req.json()

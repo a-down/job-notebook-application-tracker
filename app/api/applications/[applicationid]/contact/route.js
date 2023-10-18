@@ -4,6 +4,7 @@ import Contact from "@/models/Contact";
 import { NextResponse } from "next/server";
 
 
+// /api/applications/[applicationid]/contact
 export async function POST (req, { params }) {
   try {
     const body = await req.json()
@@ -19,6 +20,7 @@ export async function POST (req, { params }) {
   }
 }
 
+// /api/applications/[applicationid]/contact
 export async function DELETE (req, { params }) {
   try {
     const body = await req.json()
