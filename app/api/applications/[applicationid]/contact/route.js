@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 
 // /api/applications/[applicationid]/contact
+// create a new contact for an application
 export async function POST (req, { params }) {
   try {
     const body = await req.json()
@@ -21,6 +22,7 @@ export async function POST (req, { params }) {
 }
 
 // /api/applications/[applicationid]/contact
+// delete a contact from an application
 export async function DELETE (req, { params }) {
   try {
     const body = await req.json()

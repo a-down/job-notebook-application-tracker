@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 
 // /api/contacts/[contactId]/[applicationId]
+// delete a contact and pull it from the application
 export async function DELETE (req, { params }) {
   try {
     await connectMongoDB();

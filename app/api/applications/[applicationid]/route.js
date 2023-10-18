@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 
 // /api/applications/[applicationid]
+// get an application by applicationid
 export async function GET (req, { params }) {
   try {
     await connectMongoDB();
@@ -17,6 +18,7 @@ export async function GET (req, { params }) {
 }
 
 // /api/applications/[applicationid]
+// update an application
 export async function PUT (req, { params }) {
   try {
     const body = await req.json()
@@ -30,6 +32,7 @@ export async function PUT (req, { params }) {
 }
 
 // /api/applications/[applicationid]
+// delete an application
 export async function DELETE (req, { params }) {
   try {
     await connectMongoDB();

@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 
 // /api/applications
+// get all applications
 export async function GET (req) {
   try {
     await connectMongoDB();
@@ -17,6 +18,7 @@ export async function GET (req) {
 }
 
 // /api/applications
+// create an application
 export async function POST (req) {
   try {
     const {to_do, ...body} = await req.json()

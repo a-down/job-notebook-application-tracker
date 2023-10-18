@@ -4,6 +4,8 @@ import { NextResponse } from "next/server";
 
 
 // /api/toDo/[toDoId]
+// update a to do item
+// used to mark an item as complete/not complete
 export async function PUT (req, { params }) {
   try {
     const body = await req.json()

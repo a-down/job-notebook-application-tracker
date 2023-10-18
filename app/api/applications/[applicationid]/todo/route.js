@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 
 // /api/applications/[applicationid]/todo
+// get all to do items for an application
 export async function POST (req, { params }) {
   try {
     const body = await req.json()

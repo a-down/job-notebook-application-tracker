@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 
 
 // /api/toDo/[toDoId]/[applicationId]
+// delete a to do item and remove it from the application
 export async function DELETE (req, { params }) {
   try {
     await connectMongoDB();

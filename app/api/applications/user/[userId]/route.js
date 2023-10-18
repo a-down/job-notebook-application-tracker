@@ -7,6 +7,7 @@ import { NextResponse } from "next/server";
 
 // /api/applications/[userId]
 // userId is user_id from Clerk Auth
+// get all applications for a user
 export async function GET (req, { params }) {
   try {
     await connectMongoDB();
