@@ -57,7 +57,7 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
   }
 
   return (
-    <div className={`${sharedStyle} col-span-5 md:col-span-3 h-[112px]`}>
+    <div className={`${sharedStyle} col-span-5 md:col-span-3 h-[112px] relative`}>
       <h6 className="text-lg font-regular mb-2">Files</h6>
 
       {!newFileFormVisibility && (
