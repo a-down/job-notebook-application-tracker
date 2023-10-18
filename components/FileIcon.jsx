@@ -108,7 +108,7 @@ export default function FileIcon({ file, applicationId, updateCard }) {
           </a>
 
           {/* delete icon that displays when the user hovers over the parent file icon */}
-          <div className='flex grow justify-end items-center absolute top-[22px] right-0 bg-gray-7 rounded-br-md rounded-tl-md p-px hover:bg-red-400'>
+          <div className='flex grow justify-end items-center absolute top-[22px] right-0 bg-gray-7 rounded-md rounded-tl-md p-px hover:bg-red-400'>
             {grayTrashState && (
               <BiSolidTrash className='text-gray-3 flex-shrink-0 hover:cursor-pointer'
                 onClick={deleteFile}/>
