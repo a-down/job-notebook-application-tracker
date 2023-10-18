@@ -45,15 +45,17 @@
 
 @keyframes slideInFromTop {
   0% {
-    transform: translateY(-16px);
+    transform: translateY(-2px);
+    opacity: 1;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 .mobile-nav {
-  animation: 0.3s slideInFromTop;
+  animation: 0.2s slideInFromTop;
 }
 
 /* Hiding scrollbar for Chrome, Safari and Opera */
