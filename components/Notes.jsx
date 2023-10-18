@@ -55,7 +55,8 @@ export default function Notes({ sharedStyle, notes, updateCard, applicationId })
 
       <textarea className="w-full h-[135px] rounded-sm border border-gray-6 py-1 px-2 overflow-y-scroll notes-wrapper text-xs leading-normal"
         value={notesState}
-        onChange={(e) => setNotesState(e.target.value)}>
+        onChange={(e) => setNotesState(e.target.value)}
+        onBlur={updateNotes}>
       </textarea>
 
       <button className='bg-brand-primary text-white hover:bg-brand-soft duraction-300 active:bg-brand-gray-5 p-2 rounded-md text-xs absolute top-[10px] right-4' onClick={updateNotes}>
