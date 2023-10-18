@@ -63,14 +63,22 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
             </button>
           )}
           
-          {/* <button className=' text-xs p-2 px-3 bg-transparent border border-gray-400 text-gray-400 rounded-full hover:bg-gray-400 hover:border-gray-400 hover:text-white duration-300'>
-            Edit Application
-          </button> */}
-          {updateModalState && (
-            <Modal button={{text: 'Edit Application', style: 'edit'}}>
-              <ApplicationForm isEdit={true} application={application} userId={application.user_id} setUpdateModalState={setUpdateModalState} updateCard={updateCard}/>
-            </Modal>
-          )}
+          <div className='hidden sm:inline'>
+            {updateModalState && (
+              <Modal button={{text: 'Edit Application', style: 'edit'}}>
+                <ApplicationForm isEdit={true} application={application} userId={application.user_id} setUpdateModalState={setUpdateModalState} updateCard={updateCard}/>
+              </Modal>
+            )}
+          </div>
+
+          <div className='inline sm:hidden'>
+            {updateModalState && (
+              <Modal button={{text: 'Edit', style: 'edit'}}>
+                <ApplicationForm isEdit={true} application={application} userId={application.user_id} setUpdateModalState={setUpdateModalState} updateCard={updateCard}/>
+              </Modal>
+            )}  
+          </div>
+          
         </div>
 
         <Modal button={{text: 'Delete', style: 'danger'}}>

@@ -28,7 +28,7 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
   }
 
   return (
-    <div className={`${sharedStyle} col-span-2 row-span-2 mb-1 h-full flex flex-col justify-between`}>
+    <div className={`${sharedStyle} col-span-3 md:col-span-2 md:row-span-2 mb-1 h-full flex flex-col justify-between`}>
       <div>
         <h6 className="text-lg font-regular mb-3">
           To Do

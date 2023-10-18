@@ -40,19 +40,33 @@ export default function Dashboard() {
       <Header isDark={false} activePage={'dashboard'}/>
 
       <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-4 md:px-8 lg:px-16 2xl:px-32 py-8 md:py-16">
-        <div className='flex justify-between items-start'>
-          <h2 className="font-display font-semibold text-4xl mb-8 md:mb-12">Dashboard</h2>
+        <div className='flex justify-between items-center gap-4 mb-8 md:mb-12'>
+          <h2 className="font-display font-semibold text-4xl">Dashboard</h2>
 
-          <div className='max-w-64'>
+          <div className='max-w-64 hidden md:block'>
             {user && newApplicationModalState && (
-              <Modal button={{text: 'New Application', style: 'primary'}}>
-                <ApplicationForm 
-                  userId={user.id} 
-                  getApplications={getApplications} 
-                  setNewApplicationModalState={setNewApplicationModalState}/>
-              </Modal>
+              <>
+                <Modal button={{text: 'New Application', style: 'primary'}}>
+                  <ApplicationForm 
+                    userId={user.id} 
+                    getApplications={getApplications} 
+                    setNewApplicationModalState={setNewApplicationModalState}/>
+                </Modal>
+              </>
             )}
-            
+          </div>
+
+          <div className='max-w-64 md:hidden'>
+            {user && newApplicationModalState && (
+              <>
+                <Modal button={{text: 'New', style: 'primary'}}>
+                  <ApplicationForm 
+                    userId={user.id} 
+                    getApplications={getApplications} 
+                    setNewApplicationModalState={setNewApplicationModalState}/>
+                </Modal>
+              </>
+            )}
           </div>
         </div>
         
