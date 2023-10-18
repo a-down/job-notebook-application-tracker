@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { ToDoItem } from '@/components'
 import { PiPlusBold } from 'react-icons/pi'
 import { BiSolidPlusSquare } from 'react-icons/bi'
+import { toast } from 'sonner'
 
 
 export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateCard, applicationId }) {
@@ -17,14 +18,35 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
     e.preventDefault()
     setToDoFormData('')
     setToDoState([...toDoState, {description: toDoFormData, completed: false}])
-    await fetch(`/api/applications/${applicationId}/todo`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({description: toDoFormData})
-    })
-    await updateCard()
+    try {
+      const res = await fetch(`/api/applications/${applicationId}/todo`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({description: toDoFormData})
+      })
+      const data = res.json()
+
+      if (res.status === 200) {
+        updateCard()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+      }
+
+    } catch {
+      toast.error('Error creating to do item', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+    }
   }
 
   return (

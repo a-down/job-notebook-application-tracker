@@ -2,7 +2,7 @@
 import { JobCard, Modal, ApplicationForm, Header, AsideWrapper } from '@/components'
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
-// import * as Toast from '@radix-ui/react-toast';
+import { toast } from 'sonner';
 
 export default function Dashboard() {
   const [ currentApplicationsState, setCurrentApplicationsState ] = useState([]) 
@@ -18,10 +18,32 @@ export default function Dashboard() {
   }, [isLoaded])
 
   async function getApplications() {
-    const res = await fetch(`/api/applications/user/${user.id}`)
-    const data = await res.json()
-    createApplicationsArrays(data)
-    setNewApplicationModalState(true)
+    try {
+      const res = await fetch(`/api/applications/user/${user.id}`)
+      const data = await res.json()
+
+      if (res.status = 200) {
+        createApplicationsArrays(data)
+        setNewApplicationModalState(true)
+      } else {
+        toast.error('Error getting applications. Please try again later.', {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+      }
+      
+    } catch {
+      toast.error('Error getting applications. Please try again later.', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+    }
+    
+
   }
 
   function createApplicationsArrays(data) {

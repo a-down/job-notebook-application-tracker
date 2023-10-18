@@ -30,28 +30,49 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
 
   async function createApplication(e) {
     e.preventDefault()
-    await fetch('api/applications', {
-      method: 'POST',
-      body: JSON.stringify({
-          user_id: userId,
-          role: {
-            role_name: formData.jobTitle,
-            company: {
-              company_name: formData.companyName,
-              company_website: formData.companyWebsite,
-              company_linkedin: formData.companyLinkedIn
-            },
-            application_link: formData.applicationLink,
-            job_description: formData.jobDescription,
-            due_date: formData.dueDate
+    try {
+      const res = await fetch('api/applications', {
+        method: 'POST',
+        body: JSON.stringify({
+            user_id: userId,
+            role: {
+              role_name: formData.jobTitle,
+              company: {
+                company_name: formData.companyName,
+                company_website: formData.companyWebsite,
+                company_linkedin: formData.companyLinkedIn
+              },
+              application_link: formData.applicationLink,
+              job_description: formData.jobDescription,
+              due_date: formData.dueDate
+            }
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      const data = await res.json()
+      
+      if(res.status === 200) {
+        setNewApplicationModalState(false)
+        getApplications()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
           }
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    setNewApplicationModalState(false)
-    getApplications()
+        })
+      }
+
+    } catch {
+      toast.error('Error creating application', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+    }
   }
 
   async function updateApplication(e) {

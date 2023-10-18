@@ -37,6 +37,7 @@ export default function Notes({ sharedStyle, notes, updateCard, applicationId })
           }
         })
       }
+      
     } catch {
       toast.error('Error saving notes', {
         style: {

@@ -33,6 +33,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
         body: JSON.stringify(newContactFormData)
       })
       const data = await res.json()
+
       if (data.status === 200) {
         setNewContactFormData(defaultFormData)
         updateCard()
@@ -45,6 +46,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
           }
         })
       }
+      
     } catch (err) {
       console.log('Error creating new contact')
     }

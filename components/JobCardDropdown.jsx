@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Contacts, Files, Notes, ToDo, Modal, ApplicationForm } from '@/components'
 import * as Dialog from '@radix-ui/react-dialog';
+import { toast } from 'sonner';
 
 
 export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility, isModal, setAsideModalState, asideModalState }) {
@@ -14,25 +15,66 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
   async function deleteApplication() {
     setCardVisibility(false)
     if(asideModalState) setAsideModalState(false)
-    const res = await fetch(`/api/applications/${application._id}`, {
-      method: 'DELETE'
-    })
-    const data = await res.json()
-    getApplications()
+    try {
+      const res = await fetch(`/api/applications/${application._id}`, {
+        method: 'DELETE'
+      })
+      const data = await res.json()
+
+      if (res.status === 200) {
+        getApplications()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+        }
+
+      } catch {
+        toast.error('Error deleting application', {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+      }
   }
 
   async function toggleApplicationCompleted(isCompleted) {
     // if it is not a modal application, set the card visibility to false
     // if the application is in a modal, the modal will be deleted, so we don't need to set the card visibility
     if (!isModal) setCardVisibility(false)
-    await fetch(`/api/applications/${application._id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({completed: isCompleted})
-    })
-    await getApplications()
+    try {
+      const res = await fetch(`/api/applications/${application._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({completed: isCompleted})
+      })
+      const data = await res.json()
+
+      if (res.status === 200) {
+        getApplications()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+      }
+
+    } catch {
+      toast.error('Error updating application', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+    }
   }
 
   const sharedStyle = 'bg-white p-4 rounded-md drop-shadow-brand'

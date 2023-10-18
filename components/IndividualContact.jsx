@@ -8,18 +8,6 @@ export default function IndividualContact({ contact, applicationId, updateCard})
   const [ contactVisibility, setContactVisibility ] = useState(true)
   const [ grayTrashState, setGrayTrashState ] = useState(false)
 
-  // async function deleteContact() {
-  //   try {
-  //     const res = await fetch(`/api/applications/${applicationId}/contact`, {
-  //       method: 'DELETE', 
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify({contactId: contact._id})
-  //     })
-  //   } catch (err) {
-  //     console.log('Error deleting contact')
-  //   }
-  // }
-
   async function deleteContact(e) {
     e.preventDefault()
     setContactVisibility(false)
@@ -31,6 +19,7 @@ export default function IndividualContact({ contact, applicationId, updateCard})
         }
       })
       const data = await res.json()
+
       if (data.status === 200) {
         updateCard()
       } else {
@@ -41,6 +30,7 @@ export default function IndividualContact({ contact, applicationId, updateCard})
           }
         })
       }
+      
     } catch (err) {
       toast.error('Error deleting contact', {
         style: {

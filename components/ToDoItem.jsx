@@ -43,7 +43,6 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
         setItemState(data)
         setCompletedState(data.completed)
         updateCard()
-
       } else {
         toast.error(data.message, {
           style: {
@@ -61,18 +60,40 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
         }
       })
     }
-    
   }
 
   async function deleteToDoItem() {
     setItemState({})
-    await fetch(`/api/todo/${item._id}/${applicationId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
+    try {
+      const res = await fetch(`/api/todo/${item._id}/${applicationId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const data = await res.json()
+
+      if (res.status === 200) {
+        updateCard()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+        setItemState(item)
       }
-    })
-    await updateCard()
+    
+    } catch {
+      toast.error('Error deleting to do item', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+      setItemState(item)
+    }
   }
 
   return (

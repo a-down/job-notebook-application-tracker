@@ -44,6 +44,7 @@ export default function FileIcon({ file, applicationId, updateCard }) {
         })
         setFileVisibility(true)
       }
+      
     } catch {
       toast.error('Error deleting file', {
         style: {
