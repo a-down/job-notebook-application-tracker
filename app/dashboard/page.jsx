@@ -39,7 +39,7 @@ export default function Dashboard() {
     <>
       <Header isDark={false} activePage={'dashboard'}/>
 
-      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-16 2xl:px-32 py-16">
+      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-8 lg:px-16 2xl:px-32 py-16">
         <div className='flex justify-between items-start'>
           <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
 
@@ -59,7 +59,7 @@ export default function Dashboard() {
 
         <div className=" grid grid-cols-12 gap-4">
 
-          <div className="grid-cols-2 grid grid-flow-row auto-rows-min gap-4 col-span-10">
+          <div className="grid-cols-2 grid grid-flow-row auto-rows-min gap-4 col-span-12 md:col-span-9 xl:col-span-10">
 
             {currentApplicationsState && (
               currentApplicationsState.map(application => (
@@ -102,21 +102,22 @@ export default function Dashboard() {
               </>
             )}
 
-  
           </div>
           
-          <aside className="col-span-2 bg-gray-2 rounded drop-shadow-brand h-full min-h-[calc(100vh-308px)] p-4">
+          <aside className="mt-16 md:mt-0 col-span-12 md:col-span-3 xl:col-span-2 bg-gray-2 rounded drop-shadow-brand h-full md:min-h-[calc(100vh-308px)] p-4">
             <div className='mb-4'>
               <h6 className='text-lg text-gray-7 font-regular mb-2'>
                 Current
                 <span className='font-thin text-gray-8'> ({ currentApplicationsState.length })</span>
               </h6>
 
-              {currentApplicationsState && (
-                currentApplicationsState.map(application => (
-                  <AsideWrapper button={{text: application.role.role_name, style: 'primary'}} key={`${application._id}-modal`} application={application} getApplications={getApplications}/>
-                ))
-              )}
+              <div className='grid grid-cols-2 gap-4 md:block'>
+                {currentApplicationsState && (
+                  currentApplicationsState.map(application => (
+                    <AsideWrapper button={{text: application.role.role_name, style: 'primary'}} key={`${application._id}-modal`} application={application} getApplications={getApplications}/>
+                  ))
+                )}
+              </div>
 
               {loadingState && (
                 <>
@@ -133,11 +134,13 @@ export default function Dashboard() {
                 <span className='font-thin text-gray-8'> ({ completedApplicationsState.length })</span>
               </h6>
 
-              {completedApplicationsState && (
-                completedApplicationsState.map(application => (
-                  <AsideWrapper button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`} application={application} getApplications={getApplications}/>
-                ))
-              )}
+              <div className='grid grid-cols-2 gap-4 md:block'>
+                {completedApplicationsState && (
+                  completedApplicationsState.map(application => (
+                    <AsideWrapper button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`} application={application} getApplications={getApplications}/>
+                  ))
+                )}
+              </div>
 
               {loadingState && (
                 <>

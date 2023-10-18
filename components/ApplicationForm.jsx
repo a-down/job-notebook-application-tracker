@@ -14,13 +14,13 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
     dueDate: ''
   }
   const editFormData = {
-    jobTitle: application.role.role_name,
-    applicationLink: application.role.application_link,
-    jobDescription: application.role.job_description,
-    companyName: application.role.company.company_name,
-    companyWebsite: application.role.company.company_website,
-    companyLinkedIn: application.role.company.company_linkedin,
-    dueDate: application.role.due_date
+    jobTitle: application?.role.role_name,
+    applicationLink: application?.role.application_link,
+    jobDescription: application?.role.job_description,
+    companyName: application?.role.company.company_name,
+    companyWebsite: application?.role.company.company_website,
+    companyLinkedIn: application?.role.company.company_linkedin,
+    dueDate: application?.role.due_date
   }
   const [ formData, setFormData ] = useState(isEdit ? editFormData : defaultFormData)
   function handleApplicationForm(event) {

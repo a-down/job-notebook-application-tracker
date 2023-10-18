@@ -2,7 +2,7 @@
 import JobCardDropdown from './JobCardDropdown'
 import { useEffect, useState } from 'react'
 import { PiCaretDoubleDown } from 'react-icons/pi'
-import { BiLogoLinkedinSquare, BiLink } from 'react-icons/bi'
+import { BiLogoLinkedinSquare, BiLinkExternal } from 'react-icons/bi'
 import { Modal } from '@/components'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -27,8 +27,6 @@ export default function JobCard({ application, isModal, getApplications, setAsid
         break
       }
     }
-
-    console.log(nextUncompletedStep)
     setNextStep(nextUncompletedStep)
   }
 
@@ -79,7 +77,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
     <>
       {cardVisibility && applicationState && (
         <>
-          <div className={`rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content', maxWidth: '80vw'}}>
+          <div className={`col-span-2 xl:col-span-1 rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content'}}>
             <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
               <div className="justify-between flex flex-col">
 
@@ -88,17 +86,21 @@ export default function JobCard({ application, isModal, getApplications, setAsid
 
                   <div className='flex gap-0.5'>
                     <h5 className=" font-regular ">{applicationState.role.company.company_name}</h5>
-                    <a href={applicationState.role.company.company_linkedin} target="_blank">
-                      <BiLogoLinkedinSquare className="text-brand-primary hover:text-gray-7 duration-300 cursor-pointer"/>
-                    </a>
-                    <a href={applicationState.role.company.company_website} target="_blank">
-                      <BiLink className="text-brand-primary hover:text-gray-7 duration-300 cursor-pointer"/>
-                    </a>
+                    {applicationState.role.company.company_linkedin && (
+                      <a href={applicationState.role.company.company_linkedin} target="_blank">
+                        <BiLogoLinkedinSquare className="text-brand-primary hover:text-gray-7 duration-300 cursor-pointer"/>
+                      </a>
+                    )}
+                    {applicationState.role.company.company_website && (
+                      <a href={applicationState.role.company.company_website} target="_blank">
+                        <BiLinkExternal className="text-brand-primary hover:text-gray-7 duration-300 cursor-pointer"/>
+                      </a>
+                    )}
                   </div>
 
-                  <a href={applicationState.role.application_link} target="_blank" className=' w-fit text-sm text-gray-7 hover:text-brand-primary hover:underline duration-200'>Application</a>
+                  <a href={applicationState.role.application_link} target="_blank" className=' w-fit text-sm text-gray-7 hover:text-brand-primary hover:underline duration-200'>{ applicationState.role.application_link ? 'Application' : ''}</a>
 
-                  {!isModal && (
+                  {!isModal && applicationState.role.job_description && (
                     <Modal button={{text: 'Job Description', style: 'gray-small'}}>
                       <p className='leading-normal bg-white p-4 rounded-md drop-shadow-brand'>
                         {applicationState.role.job_description}
@@ -108,17 +110,17 @@ export default function JobCard({ application, isModal, getApplications, setAsid
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <p className='text-sm text-gray-7'>
+                  <p className='text-sm text-gray-7 text-ellipsis'>
                     Next step:
                     <span className='text-gray-9'>
-                      {` ${nextStep}`}
+                      {` ${nextStep || ''}`}
                     </span>
                   </p>
 
                   <p className='text-sm text-gray-7'>
                     Due:
                     <span className='text-gray-9'>
-                      {` ${applicationState.role.due_date}`}
+                      {` ${applicationState.role.due_date || ''}`}
                     </span>
                   </p>
                 </div>
