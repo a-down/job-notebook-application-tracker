@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <>
       <div className='bg-brand-dark overflow-clip'>
-        <Header isDark={true} activePage={'landing'}/>
+        <Header isDark={true} activePage={'home'}/>
 
         <main className="bg-brand-dark min-h-screen">
         
@@ -64,13 +64,13 @@ export default function Home() {
             </div>
 
             <div className="col-span-12 lg:col-span-7 lg:col-start-6 2xl:col-start-8">
-              <div className='w-full flex justify-center lg:justify-end mb-12'>
+              {/* <div className='w-full flex justify-center lg:justify-end mb-12'>
                 <Link href='/tryit' className=' w-full md:w-5/12 lg:w-fit text-center py-3 px-4 text-brand-primary font-bold border-2 border-brand-primary rounded-full hover:bg-brand-primary hover:text-brand-dark' style={{transitionDuration: '.3s'}}>
                   Try it out
                 </Link>
-              </div>
+              </div> */}
 
-              <div className="ml-[64px] lg:ml-0 w-[904px] h-[638px] z-0">
+              <div className="ml-[64px] lg:ml-0 w-[904px] h-[638px] z-0 mt-24">
                 <Image src={mockup} alt='Job Notebook mockup' height={638} width={904} className='rounded-md'/>
               </div>
 
