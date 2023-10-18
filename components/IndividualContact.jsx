@@ -81,7 +81,7 @@ export default function IndividualContact({ contact, applicationId, updateCard})
         {contact.contact_email && (
           <a href={`mailto: ${contact.contact_email}`} className='flex gap-1 items-center mb-px text-gray-7 hover:text-brand-primary duration-300'>
             <BiSolidEnvelope className='text-brand-primary text-md flex-shrink-0'/>
-            <p className='text-xxs overflow-x-clip' style={{textOverflow: 'ellipsis'}}>{contact.contact_email}fhasodfjoiadjsgiasjgoi</p>
+            <p className='text-xxs overflow-x-clip' style={{textOverflow: 'ellipsis'}}>{contact.contact_email}</p>
           </a>
         )}
 
