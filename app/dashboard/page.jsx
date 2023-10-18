@@ -40,7 +40,7 @@ export default function Dashboard() {
       <Header isDark={false} activePage={'dashboard'}/>
 
       <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-4 md:px-8 lg:px-16 2xl:px-32 py-8 md:py-16">
-        <div className='flex justify-between items-center gap-4 mb-8 md:mb-12'>
+        <div className='flex justify-between items-center gap-4 mb-6 md:mb-12'>
           <h2 className="font-display font-semibold text-4xl">Dashboard</h2>
 
           <div className='max-w-64 hidden md:block'>
