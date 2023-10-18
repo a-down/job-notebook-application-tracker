@@ -5,9 +5,14 @@ import { NextResponse } from "next/server";
 
 
 export async function GET (req, { params }) {
-  await connectMongoDB();
-  const applications = await Application.findById(params.applicationid).populate('to_do').populate('contacts')
-  return NextResponse.json(applications)
+  try {
+    await connectMongoDB();
+    const applications = await Application.findById(params.applicationid).populate('to_do').populate('contacts')
+    return NextResponse.json({status: 200, applications})
+  } catch {
+    return NextResponse.json({status: 500, message: 'Error getting applications'})
+  }
+  
 }
 
 export async function PUT (req, { params }) {
@@ -20,27 +25,15 @@ export async function PUT (req, { params }) {
   } catch {
     return NextResponse.json({message: "Error updating application", status: 500})
   }
-  
 }
 
 export async function DELETE (req, { params }) {
-  await connectMongoDB();
-  await Application.findByIdAndDelete(params.applicationid)
-  return NextResponse.json({message: "Application Deleted", status: 200, params: params})
+  try {
+    await connectMongoDB();
+    await Application.findByIdAndDelete(params.applicationid)
+    return NextResponse.json({message: "Application Deleted", status: 200, params: params})
+
+  } catch {
+    return NextResponse.json({message: "Error deleting application", status: 500})
+  }
 }
-
-// export async function POST (req) {
-//   const {to_do, ...body} = await req.json()
-//   await connectMongoDB();
-//   const application = await Application.create(body)
-//   let toDoIdArr = []
-//   for (const item of to_do) {
-//     const res = await ToDo.create(item)
-//     await Application.findByIdAndUpdate(application._id, {
-//       $push: { to_do: res._id }
-//     }, { new: true })
-//   }
-
-//   // await Application.create(body)
-//   return NextResponse.json({message: "Application Created", status: 201})
-// }

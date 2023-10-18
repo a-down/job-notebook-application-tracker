@@ -5,10 +5,15 @@ import { NextResponse } from "next/server";
 
 
 export async function DELETE (req, { params }) {
-  await connectMongoDB();
-  const res = await Application.findByIdAndUpdate(params.applicationId, {
-    $pull: { to_do: params.toDoId }
-  }, { new: true })
-  const toDo = await ToDo.findByIdAndDelete(params.toDoId)
-  return NextResponse.json({message: 'To do item has been deleted', status: 200, res})
+  try {
+    await connectMongoDB();
+    const res = await Application.findByIdAndUpdate(params.applicationId, {
+      $pull: { to_do: params.toDoId }
+    }, { new: true })
+    const toDo = await ToDo.findByIdAndDelete(params.toDoId)
+    return NextResponse.json({message: 'To do item has been deleted', status: 200, toDo})
+
+  } catch {
+    return NextResponse.json({message: 'Error deleting to do item', status: 500})
+  }
 }

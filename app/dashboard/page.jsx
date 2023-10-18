@@ -22,8 +22,8 @@ export default function Dashboard() {
       const res = await fetch(`/api/applications/user/${user.id}`)
       const data = await res.json()
 
-      if (res.status = 200) {
-        createApplicationsArrays(data)
+      if (res.status === 200) {
+        createApplicationsArrays(data.applications)
         setNewApplicationModalState(true)
       } else {
         toast.error('Error getting applications. Please try again later.', {

@@ -5,24 +5,32 @@ import { NextResponse } from "next/server";
 
 
 export async function GET (req) {
-  await connectMongoDB();
-  const applications = await Application.find().populate('to_do').populate('contacts')
-  return NextResponse.json(applications)
+  try {
+    await connectMongoDB();
+    const applications = await Application.find().populate('to_do').populate('contacts')
+    return NextResponse.json({status: 200, applications})
+
+  } catch {
+    return NextResponse.json({status: 500, message: 'Error getting applications'})
+  }
 }
 
 export async function POST (req) {
-  const {to_do, ...body} = await req.json()
-  await connectMongoDB();
-  const application = await Application.create(body)
-  let toDoIdArr = []
-  if (to_do) {
-  for (const item of to_do) {
-    const res = await ToDo.create(item)
-    await Application.findByIdAndUpdate(application._id, {
-      $push: { to_do: res._id }
-    }, { new: true })
-  }}
-
-  // await Application.create(body)
-  return NextResponse.json({message: "Application Created", status: 201})
+  try {
+    const {to_do, ...body} = await req.json()
+    await connectMongoDB();
+    const application = await Application.create(body)
+    let toDoIdArr = []
+    if (to_do) {
+    for (const item of to_do) {
+      const res = await ToDo.create(item)
+      await Application.findByIdAndUpdate(application._id, {
+        $push: { to_do: res._id }
+      }, { new: true })
+    }}
+    return NextResponse.json({message: "Application created", status: 200})
+    
+  } catch {
+    return NextResponse.json({status: 500, message: 'Error creating application'})
+  }
 }

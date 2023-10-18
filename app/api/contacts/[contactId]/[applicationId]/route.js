@@ -12,8 +12,8 @@ export async function DELETE (req, { params }) {
     }, { new: true })
     const contact = await Contact.findByIdAndDelete(params.contactId)
     return NextResponse.json({message: `${contact.contact_name}'s contact has been deleted`, status: 200, res})
+
   } catch (err) {
     return NextResponse.json({message: 'Error deleting contact', status: 500})
   }
-  
 }
