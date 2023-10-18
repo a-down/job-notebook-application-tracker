@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link'
-import { UserButton, auth } from '@clerk/nextjs'
+import { UserButton } from '@clerk/nextjs'
 import { BiMenu } from 'react-icons/bi'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
@@ -16,8 +16,8 @@ export default function Header({ isDark, activePage }) {
           <h1 className={`${titleColor} font-display font-semibold text-4xl duration-300`}>Job Notebook</h1>
         </Link>
         
+        {/* if medium screen or bigger, display traditional nav */}
         <nav className='hidden md:flex gap-4 font-body items-center md:'>
-
           {activePage === 'about' ? (
             <Link href="/about" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>About</Link>
           ) : (
@@ -39,6 +39,7 @@ export default function Header({ isDark, activePage }) {
           <UserButton afterSignOutUrl='/'/>
         </nav>
 
+        {/* if small screen, display dropdown hamburger nav menu */}
         <div className='md:hidden'>
           <DropdownMenu.Root>
             <DropdownMenu.Trigger className='h-full flex justify-center'>

@@ -50,13 +50,13 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
     } catch (err) {
       console.log('Error creating new contact')
     }
-  
   }
 
   return (
     <div className={` ${sharedStyle} col-span-5 sm:col-span-2 md:col-span-3 md:h-[200px] relative`}>
       <h6 className="text-lg font-regular col-span-2 mb-1">Contacts</h6>
 
+      {/* new contact form that starts as hidden */}
       {newContactVisibility && (
         <form className="col-span-2 w-full mt-3 mb-1">
           <input className="font-regular mb-1 p-1 px-1.5 border border-gray-5 rounded-sm w-full" 
@@ -107,7 +107,6 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
       )}
 
       {!newContactVisibility && contactsState && (
-
         <div className=' h-[calc(100%-24px)] mt-3 contact-wrapper grid grid-cols-2 gap-x-1 gap-y-2 overflow-y-scroll pb-1'>
           {contactsState.map((contact, index) => (
             <IndividualContact contact={contact} key={index} applicationId={applicationId} updateCard={updateCard}/>
@@ -115,6 +114,7 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
         </div>
       )}
 
+      {/* toggles add contact form */}
       <BiSolidPlusSquare className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300 absolute top-4 right-4 cursor-pointer' onClick={() => setNewContactVisibility(prev => !prev)}/>
 
     </div>

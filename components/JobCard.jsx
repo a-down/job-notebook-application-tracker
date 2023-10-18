@@ -8,42 +8,39 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 export default function JobCard({ application, isModal, getApplications, setAsideModalState, asideModalState }) {
+  const defaultDropdown = {
+    dropdown: false,
+    cardBottomMargin: '',
+    wrapperShadow: '', 
+    wrapperHeight: '',
+    rowSpan: 'row-span-1',
+    arrowRotation: '0'
+  }
+  const modalDropdown = {
+    dropdown: true,
+    cardBottomMargin: 'mb-[6px]',
+    wrapperShadow: 'drop-shadow-brand',
+    wrapperHeight: 'fit-content',
+    rowSpan: 'row-span-4',
+    arrowRotation: '180'
+  }
+
   const [ cardVisibility, setCardVisibility ] = useState(true)
   const [ percentage, setPercentage ] = useState(0)
-  const [ dropdownState, setDropdownState ] = useState(false)
-  const [ cardBottomMargin, setCardBottomMargin ] = useState('')
-  const [ wrapperShadow, setWrapperShadow ] = useState('')
-  const [ wrapperHeight, setWrapperHeight ] = useState('')
-  const [ rowSpan, setRowSpan ] = useState('row-span-1')
-  const [ arrowRotation, setArrowRotation ] = useState('0')
+  const [ dropdownState, setDropdownState ] = useState(defaultDropdown)
   const [ applicationState, setApplicationState ] = useState(application)
   const [ nextStep, setNextStep ] = useState('')
 
-  function updateNextStep() {
-    let nextUncompletedStep 
-    for (let i = 0; i < applicationState.to_do.length; i++) {
-      if (!applicationState.to_do[i].completed) {
-        nextUncompletedStep = applicationState.to_do[i].description
-        break
-      }
-    }
-    setNextStep(nextUncompletedStep)
-  }
-
+  // useEffect for modal
   useEffect(() => {
     setProgressPercentage()
     updateNextStep()
     if (isModal) {
-      // updateCard()
-      setDropdownState(true)
-      setCardBottomMargin('mb-[6px]')
-      setWrapperShadow('drop-shadow-brand')
-      setWrapperHeight('fit-content')
-      setRowSpan('row-span-4')
-      setArrowRotation('180')
+      setDropdownState(modalDropdown)
     }
   }, [applicationState])
 
+  // update job card when the application is updated throught the dropdown
   async function updateCard() {
     const res = await fetch(`/api/applications/${applicationState._id}`)
     const data = await res.json()
@@ -52,6 +49,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
     updateNextStep()
   }
 
+  // set the progress percentage for the progress graph
   function setProgressPercentage() {
     if (applicationState.to_do?.length === 0) {
       setPercentage(0)
@@ -64,23 +62,33 @@ export default function JobCard({ application, isModal, getApplications, setAsid
     }
   }
 
+  // set the next step as the next uncompleted to do item
+  function updateNextStep() {
+    let nextUncompletedStep 
+    for (let i = 0; i < applicationState.to_do.length; i++) {
+      if (!applicationState.to_do[i].completed) {
+        nextUncompletedStep = applicationState.to_do[i].description
+        break
+      }
+    }
+    setNextStep(nextUncompletedStep)
+  }
+
+  // toggle dropdown menu
+  // if the dropdown is false (hidden), set it to modal (true, visible)
   function toggleDropdownState() {
-    dropdownState === true ? setDropdownState(false) : setDropdownState(true)
-    cardBottomMargin ? setCardBottomMargin('') : setCardBottomMargin('mb-[6px]')
-    wrapperShadow ? setWrapperShadow('') : setWrapperShadow('drop-shadow-brand')
-    wrapperHeight === '172px' ? setWrapperHeight('fit-content') : setWrapperHeight('172px')
-    rowSpan === 'row-span-1' ? setRowSpan('row-span-4') : setRowSpan('row-span-1')
-    arrowRotation === '0' ? setArrowRotation('180') : setArrowRotation('0')
+    dropdownState.dropdown ? setDropdownState(modalDropdown) : setDropdownState(defaultDropdown)
   }
 
   return (
     <>
       {cardVisibility && applicationState && (
         <>
-          <div className={`${isModal ? 'w-[96vw] max-w-[600px]' : ''} col-span-2 xl:col-span-1 rounded-md bg-gray-3 ${wrapperShadow} ${rowSpan}`} style={{height: 'fit-content'}}>
-            <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${cardBottomMargin}`}>
-              <div className="justify-between flex flex-col">
+          <div className={`${isModal ? 'w-[96vw] max-w-[600px]' : ''} col-span-2 xl:col-span-1 rounded-md bg-gray-3 ${dropdownState.wrapperShadow} ${dropdownState.rowSpan}`} style={{height: 'fit-content'}}>
 
+            {/* job card upper */}
+            <div className={`relative bg-white p-4 rounded-md flex justify-between col-span-1 drop-shadow-brand job-card-upper ${dropdownState.cardBottomMargin}`}>
+              <div className="justify-between flex flex-col">
                 <div className="flex flex-col gap-1 mb-4">
                   <h4 className="text-2xl font-regular">{applicationState.role.role_name}</h4>
 
@@ -141,12 +149,11 @@ export default function JobCard({ application, isModal, getApplications, setAsid
                 })}/>
               </div>
 
+              {/* toggle dropdown, not visible on modal */}
               {!isModal && (
-                <PiCaretDoubleDown className='cursor-pointer absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${arrowRotation}deg)`}} onClick={toggleDropdownState}/>
+                <PiCaretDoubleDown className='cursor-pointer absolute bottom-0 left-[50%] text-xl text-brand-primary hover:text-gray-8 duration-300' style={{transform: `translate(-50%, 0) rotate(${dropdownState.arrowRotation}deg)`}} onClick={toggleDropdownState}/>
               )}
-              
             </div>  
-            
 
             {dropdownState && applicationState && (
               <JobCardDropdown 
@@ -163,7 +170,8 @@ export default function JobCard({ application, isModal, getApplications, setAsid
 
           </div>
 
-          {isModal && (
+          {/* if it is a modal, display the job description below the job card */}
+          {isModal && applicationState.role.job_description && (
             <div className='bg-white my-4 mt-8 p-4 rounded-md drop-shadow-brand'>
               <h6 className="text-lg font-regular mb-3">Job Description</h6>
 
@@ -171,11 +179,9 @@ export default function JobCard({ application, isModal, getApplications, setAsid
                 {applicationState.role.job_description}
               </p>
             </div>
-
           )}
         </>
       )}
     </>
-    
   )
 }

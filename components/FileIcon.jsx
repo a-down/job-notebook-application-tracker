@@ -1,6 +1,6 @@
 "use client"
 import { SiGoogledocs, SiGoogleslides, SiGooglesheets } from 'react-icons/si'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { PiFolderSimpleFill } from 'react-icons/pi'
 import { BiSolidTrash } from 'react-icons/bi'
 import { toast } from 'sonner'
@@ -8,11 +8,6 @@ import { toast } from 'sonner'
 export default function FileIcon({ file, applicationId, updateCard }) {
   const [ fileVisibility, setFileVisibility ] = useState(true)
   const [ grayTrashState, setGrayTrashState ] = useState(false)
-  const [ redTrashState, setRedTrashState ] = useState(false)
-  let wrapperStyle = 'bg-gray-7 text-2xl rounded-md flex justify-center items-center p-2 duration-300'
-  let icon
-
-  `/api/applications/${applicationId}/file`
 
   async function deleteFile(e) {
     e.preventDefault()
@@ -56,6 +51,9 @@ export default function FileIcon({ file, applicationId, updateCard }) {
     }
   } 
 
+  // determine which icon to display
+  let wrapperStyle = 'bg-gray-7 text-2xl rounded-md flex justify-center items-center p-2 duration-300'
+  let icon
   switch (file.file_type) {
     case 'Google Doc':
       icon = <>
@@ -91,18 +89,18 @@ export default function FileIcon({ file, applicationId, updateCard }) {
     <>
       {fileVisibility && (
         <div className='relative' onMouseEnter={() => setGrayTrashState(true)} 
-          onMouseLeave={() => {
-              setGrayTrashState(false) 
-              setRedTrashState(false)
-            }}>
+          onMouseLeave={() => setGrayTrashState(false)}>
           <a href={file.file_link} target="_blank" className='flex flex-col gap-0.5' >
+
             {icon}
+
             <div className='min-h-[20px] flex items-center'>
               <p className='text-xxs text-gray-7 w-10 text-center'>{file.file_name}</p>
             </div>
-            
+
           </a>
 
+          {/* delete icon that displays when the user hovers over the parent file icon */}
           <div className='flex grow justify-end items-center absolute top-[22px] right-0 bg-gray-7 rounded-br-md rounded-tl-md p-px hover:bg-red-400'>
             {grayTrashState && (
               <BiSolidTrash className='text-gray-3 flex-shrink-0 hover:cursor-pointer'

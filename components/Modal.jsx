@@ -4,6 +4,10 @@ import { CgClose } from 'react-icons/cg'
 
 export default function Modal({ children, button }) {
 
+  // modal component is used to wrap children components
+  // appears on pages as <Modal><Form/></Modal>
+  // user passes in button text, button style, and the component as a child
+
   return (
     <>
       <Dialog.Root>

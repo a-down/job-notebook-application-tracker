@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { toast } from 'sonner'
 
 
@@ -13,6 +13,7 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
     companyLinkedIn: '',
     dueDate: ''
   }
+  // used if the form is being used as en EDIT form
   const editFormData = {
     jobTitle: application?.role.role_name,
     applicationLink: application?.role.application_link,

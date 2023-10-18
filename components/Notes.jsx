@@ -46,21 +46,12 @@ export default function Notes({ sharedStyle, notes, updateCard, applicationId })
         }
       })
     }
-
-
   }
   
-
 
   return (
     <div className={`${sharedStyle} col-span-5 relative`}>
       <h6 className="text-lg font-regular mb-3">Notes</h6>
-
-      {/* <div className="w-full h-[135px] rounded-sm border border-gray-6 py-1 px-2 overflow-y-scroll notes-wrapper">
-        <p className="text-xs leading-normal">
-          {notes}
-        </p>
-      </div> */}
 
       <textarea className="w-full h-[135px] rounded-sm border border-gray-6 py-1 px-2 overflow-y-scroll notes-wrapper text-xs leading-normal"
         value={notesState}

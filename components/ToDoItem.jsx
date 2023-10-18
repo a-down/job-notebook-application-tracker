@@ -4,12 +4,10 @@ import { PiCircle, PiCheckCircle, PiCheckCircleFill, PiCheckCircleDuotone, PiTra
 import { BiSolidTrash } from 'react-icons/bi'
 import { toast } from 'sonner';
 
-export default function ToDoItem({ item, setProgressPercentage, updateCard, applicationId }) {
-  const [ visibilityState, setVisibilityState ] = useState(true)
+export default function ToDoItem({ item, updateCard, applicationId }) {
   const [ iconHoverState, setIconHoverState ] = useState(false)
   const [ completedState, setCompletedState ] = useState(item.completed)
   const [ grayTrashState, setGrayTrashState ] = useState(false)
-  const [ redTrashState, setRedTrashState ] = useState(false)
   const [ itemStyle, setItemStyle ] = useState({})
   const [ itemState, setItemState ] = useState(item)
 
@@ -17,16 +15,19 @@ export default function ToDoItem({ item, setProgressPercentage, updateCard, appl
     setItemState(item)
   }, [item])
 
+  // apply correct style according to item completed state
   useEffect(() => {
     completedState
       ? setItemStyle({itemColor: 'var(--brand-primary)', itemDecoration: 'line-through'})
       : setItemStyle({itemColor: '#8C8C8C', itemDecoration: 'none'})
   }, [completedState])
 
+  // toggle style of to do item
   function toggleCompleted() {
     completedState ? setCompletedState(false) : setCompletedState(true)
   }
 
+  // update as completed (true) or not completed (false)
   async function updateToDoItem(completed) {
     toggleCompleted()
     try {

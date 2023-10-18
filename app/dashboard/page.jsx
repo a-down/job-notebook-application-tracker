@@ -11,6 +11,7 @@ export default function Dashboard() {
   const [ newApplicationModalState, setNewApplicationModalState ] = useState(true)
   const [ loadingState, setLoadingState ] = useState(true)
   
+  // get user applications when user data is loaded from Clerk
   useEffect(() => {
     if (user) {
       getApplications()
@@ -42,10 +43,9 @@ export default function Dashboard() {
         }
       })
     }
-    
-
   }
 
+  // filter applications into currentApplicationsState and completedApplicationsState
   function createApplicationsArrays(data) {
     let currentApps = []
     let completedApps = []
@@ -61,10 +61,11 @@ export default function Dashboard() {
     <>
       <Header isDark={false} activePage={'dashboard'}/>
 
-      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-4 md:px-8 lg:px-16 2xl:px-32 p-8 md:py-16">
+      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-4 md:px-8 lg:px-16 2xl:px-32 py-8 md:py-16">
         <div className='flex justify-between items-center gap-4 mb-6 md:mb-12'>
           <h2 className="font-display font-semibold text-4xl">Dashboard</h2>
 
+          {/* when user is loaded, display New Application Button IF medium screen */}
           <div className='max-w-64 hidden md:block'>
             {user && newApplicationModalState && (
               <>
@@ -78,6 +79,7 @@ export default function Dashboard() {
             )}
           </div>
 
+          {/* when user is loaded, display New Application Button IF small screen */}
           <div className='max-w-64 md:hidden'>
             {user && newApplicationModalState && (
               <>
@@ -92,10 +94,9 @@ export default function Dashboard() {
           </div>
         </div>
         
-
+        {/* wrapper for application grid and aside */}
         <div className=" grid grid-cols-12 gap-4">
-
-          <div className="grid-cols-2 grid grid-flow-row auto-rows-min gap-4 col-span-12 md:col-span-9 xl:col-span-10">
+          <div className="col-span-12 grid grid-cols-2 grid-flow-row auto-rows-min gap-4 md:col-span-9 xl:col-span-10">
 
             {currentApplicationsState && (
               currentApplicationsState.map(application => (
@@ -103,6 +104,7 @@ export default function Dashboard() {
               ))
             )}
 
+            {/* Welcome message if no current applications */}
             {currentApplicationsState.length === 0 && !loadingState && (
               <>
                 <div className='hidden md:block bg-white drop-shadow-brand rounded-md col-span-2 px-6 py-8'>
@@ -116,7 +118,6 @@ export default function Dashboard() {
                   {` button to add an application to your notebook!`}</h3>
                 </div>
               </>
-              
             )}
 
             {loadingState && (
@@ -153,9 +154,9 @@ export default function Dashboard() {
                 </div>
               </>
             )}
-
           </div>
           
+          {/* aside on medium screens and below applications on small screens */}
           <aside className="mt-4 md:mt-0 col-span-12 md:col-span-3 xl:col-span-2 bg-gray-2 rounded drop-shadow-brand h-full md:min-h-[calc(100vh-320px)] p-4">
             <div className='mb-4'>
               <h6 className='text-lg text-gray-7 font-regular mb-2'>
@@ -180,8 +181,8 @@ export default function Dashboard() {
                   </div>
                 </>
               )}
-
             </div>
+
             <div className='mb-4'>
               <h6 className='text-lg text-gray-7 font-regular mb-2'>
                 Completed
@@ -205,11 +206,8 @@ export default function Dashboard() {
                   </div>
                 </>
               )}
-
             </div>
-            
           </aside>
-
         </div>
       </main>
     </>

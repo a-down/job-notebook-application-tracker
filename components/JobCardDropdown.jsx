@@ -8,6 +8,8 @@ import { toast } from 'sonner';
 export default function JobCardDropdown({ application, setProgressPercentage, updateCard, getApplications, setCardVisibility, isModal, setAsideModalState, asideModalState }) {
   const [ updateModalState, setUpdateModalState ] = useState(true)
 
+  // the update modal (form) is set to false when the application is updated
+  // when the application is updated, the update modal button is set to visible again
   useEffect(() => {
     setUpdateModalState(true)
   }, [application])
@@ -32,14 +34,14 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
         })
         }
 
-      } catch {
-        toast.error('Error deleting application', {
-          style: {
-            backgroundColor: '#F87171',
-            color: '#fff'
-          }
-        })
-      }
+    } catch {
+      toast.error('Error deleting application', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+    }
   }
 
   async function toggleApplicationCompleted(isCompleted) {
@@ -77,6 +79,7 @@ export default function JobCardDropdown({ application, setProgressPercentage, up
     }
   }
 
+  // style shared by all sections
   const sharedStyle = 'bg-white p-4 rounded-md drop-shadow-brand'
 
   return (

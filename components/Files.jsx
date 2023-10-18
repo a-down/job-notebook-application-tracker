@@ -1,9 +1,8 @@
 "use client"
 import { FileIcon } from '@/components'
 import { BiSolidPlusSquare } from 'react-icons/bi'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { toast } from 'sonner';
-import { MdAddBox } from 'react-icons/md'
 
 
 export default function Files({ sharedStyle, files, applicationId, updateCard }) {
@@ -60,6 +59,7 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
     <div className={`${sharedStyle} col-span-5 md:col-span-3 h-[112px] relative`}>
       <h6 className="text-lg font-regular mb-2">Files</h6>
 
+      {/* if not displaying new file form, file icons are displayed */}
       {!newFileFormVisibility && (
         <div className="file-wrapper h-[64px] flex flex-wrap gap-2 mt-1 overflow-y-scroll">
           {files && (
@@ -70,6 +70,7 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
         </div>
       )}
 
+      {/* new file form */}
       {newFileFormVisibility && (
         <form className='grid grid-cols-4 grid-rows-2 gap-1'>
           <input className="text-xxs p-1 px-1.5 border border-gray-5 rounded-sm w-full col-span-2" 
@@ -102,6 +103,7 @@ export default function Files({ sharedStyle, files, applicationId, updateCard })
         </form>
       )}
 
+      {/* toggles new file form state */}
       <BiSolidPlusSquare className='text-brand-primary text-2xl rounded-sm hover:text-gray-7 active:text-gray-9 duration-300 absolute top-4 right-4 cursor-pointer' onClick={() => setNewFileFormVisibility(prev => !prev)}/>
 
     </div>
