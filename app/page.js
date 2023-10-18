@@ -17,10 +17,10 @@ import boxIcons from '../public/boxicons.png'
 
 export default function Home() {
   const featureDetails = [
-    { title: 'Job Details', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: career },
-    { title: 'Contacts', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: contacts },
-    { title: 'To Do List', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: todo },
-    { title: 'Documents', description: 'You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.', image: file },
+    { title: 'Job Details', description: "Too many sites and links. Store the job's title, description, application link, and due date, as well as the company's name, website, and LinkedIn.", image: career },
+    { title: 'Contacts', description: "Hopefully, you talk to multiple employees at a company during the process. Job Notebook holds the contact info for as many people as needed. Easy to access and reach out to.", image: contacts },
+    { title: 'To Do List', description: 'Not every job has an "Easy Apply." Break down your process into tasks and keep them in a neat list. Job Notebook will tell you the next step and how close you are to completing your tasks! ', image: todo },
+    { title: 'Documents', description: 'Lots of resumes. Lots of cover letters. Definitely lots of folders. Use Job Notebook for quick access to the files and folders for each application.', image: file },
   ]
 
   const footerLinks1 = [
@@ -98,7 +98,7 @@ export default function Home() {
                     <p className='text-black leading-normal lg:mb-8'>
                       {feature.description}
                     </p>
-                    <Link href='/howitworks' className='hidden lg:inline py-2 px-4 rounded-md text-black bg-brand-soft hover:opacity-60 duration-300'>Learn more</Link>
+                    {/* <Link href='/howitworks' className='hidden lg:inline py-2 px-4 rounded-md text-black bg-brand-soft hover:opacity-60 duration-300'>Learn more</Link> */}
                   </div>
                 ))}
 
