@@ -11,7 +11,7 @@ export default function Header({ isDark, activePage }) {
 
   return (
     <>
-      <header className={`${backgroundColor} flex justify-between items-center h-24 w-full px-8 lg:px-16 2xl:px-32 py-6 drop-shadow-brand`}>
+      <header className={`${backgroundColor} flex justify-between items-center h-24 w-full px-4 md:px-8 lg:px-16 2xl:px-32 py-6 drop-shadow-brand`}>
         <Link href="/" className=''>
           <h1 className={`${titleColor} font-display font-semibold text-4xl duration-300`}>Job Notebook</h1>
         </Link>
@@ -24,10 +24,10 @@ export default function Header({ isDark, activePage }) {
             <Link href="/about" className={linkColor} style={{transitionDuration: '.3s'}}>About</Link>
           )}
 
-          {activePage === 'howitworks' ? (
-            <Link href="/howitworks" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>How It Works</Link>
+          {activePage === 'tryit' ? (
+            <Link href="/tryit" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>Try It</Link>
           ) : (
-            <Link href="/howitworks" className={linkColor} style={{transitionDuration: '.3s'}}>How It Works</Link>
+            <Link href="/tryit" className={linkColor} style={{transitionDuration: '.3s'}}>Try It</Link>
           )}
 
           {activePage === 'dashboard' ? (
@@ -45,7 +45,7 @@ export default function Header({ isDark, activePage }) {
               <BiMenu className={`${linkColor} text-3xl`} />
             </DropdownMenu.Trigger>
 
-              <DropdownMenu.Content className={`${backgroundColor} ${isDark ? 'px-12' : 'px-8'} w-screen mt-4 py-4 pb-8 drop-shadow-brand rounded-md text-right flex items-center justify-end gap-6 mobile-nav`}>
+              <DropdownMenu.Content className={`${backgroundColor} ${isDark ? 'px-4 md:px-8' : 'px-4'} w-screen mt-4 py-4 pb-8 drop-shadow-brand rounded-md text-right flex items-center justify-end gap-6 mobile-nav`}>
 
                   {activePage === 'about' ? (
                     <Link href="/about" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>About</Link>
@@ -53,10 +53,10 @@ export default function Header({ isDark, activePage }) {
                     <Link href="/about" className={linkColor} style={{transitionDuration: '.3s'}}>About</Link>
                   )}
 
-                  {activePage === 'howitworks' ? (
-                    <Link href="/howitworks" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>How It Works</Link>
+                  {activePage === 'tryit' ? (
+                    <Link href="/tryit" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>Try It</Link>
                   ) : (
-                    <Link href="/howitworks" className={linkColor} style={{transitionDuration: '.3s'}}>How It Works</Link>
+                    <Link href="/tryit" className={linkColor} style={{transitionDuration: '.3s'}}>Try It</Link>
                   )}
 
                   {activePage === 'dashboard' ? (

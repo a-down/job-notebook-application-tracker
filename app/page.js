@@ -44,7 +44,7 @@ export default function Home() {
         <main className="bg-brand-dark min-h-screen">
         
           {/* hero section */}
-          <div className='grid grid-cols-12 gap-4 pt-12 lg:pt-24 h-[636px] px-8 lg:px-16 2xl:px-32'>
+          <div className='grid grid-cols-12 gap-4 pt-8 md:pt-12 lg:pt-24 h-[636px] px-4 md:px-8 lg:px-16 2xl:px-32'>
             <div className='col-span-12 lg:col-span-4'>
               <div className='mb-8 lg:mb-16'>
                 <p className='text-xl text-white leading-normal mb-4'>
@@ -65,7 +65,7 @@ export default function Home() {
 
             <div className="col-span-12 lg:col-span-7 lg:col-start-6 2xl:col-start-8">
               <div className='w-full flex justify-center lg:justify-end mb-12'>
-                <Link href='/howitworks' className=' w-full md:w-5/12 lg:w-fit text-center py-3 px-4 text-brand-primary font-bold border-2 border-brand-primary rounded-full hover:bg-brand-primary hover:text-brand-dark' style={{transitionDuration: '.3s'}}>
+                <Link href='/tryit' className=' w-full md:w-5/12 lg:w-fit text-center py-3 px-4 text-brand-primary font-bold border-2 border-brand-primary rounded-full hover:bg-brand-primary hover:text-brand-dark' style={{transitionDuration: '.3s'}}>
                   Try it out
                 </Link>
               </div>
@@ -83,7 +83,7 @@ export default function Home() {
               <path d="M0 576V0C866.393 26.8364 1153.26 47.687 1440 98.8432V576H0Z" fill="#9DD4C7"/>
             </svg>
 
-            <div className='relative z-10 px-8 lg:px-16 2xl:px-32 pt-24 pb-12 lg:pb-24'>
+            <div className='relative z-10 px-4 md:px-8 lg:px-16 2xl:px-32 pt-24 pb-12 lg:pb-24'>
               <h3 className='w-3/4 md:w-full text-black font-bold text-2xl mb-8 lg:mb-16'>Job information available at a glance</h3>
 
               <div className='grid grid-cols-4 gap-8 lg:gap-4'>
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='w-full h-[664px] grid grid-cols-12 px-8 lg:px-16 lg:pt-12 relative'>
+          <div className='w-full h-[664px] grid grid-cols-12 px-4 md:px-8 lg:px-16 lg:pt-12 relative'>
             <Image src={dropdownCard} alt='Job Card Dropdown Example' height={834} width={680} className='hidden lg:block col-span-6 rounded-xl relative -left-20 top-24'/>
 
             <div className='mx-auto w-fit mt-12 lg:mt-28 col-span-12 lg:col-span-6 lg:col-start-7 flex flex-col items-center'>
@@ -132,7 +132,7 @@ export default function Home() {
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#253330"/>
           </svg>
           
-          <div className='flex justify-between gap-6 lg:flex-row items-end h-full relative px-8 lg:p-16 py-20 2xl:px-32 text-gray-5'>
+          <div className='flex justify-between gap-6 lg:flex-row items-end h-full relative px-4 md:px-8 lg:px-16 xl:px-32  pt-24 2xl:px-32 text-gray-5'>
             <div className=' flex flex-col justify-end gap-6 pb-0.5'>
               <div className=' flex flex-col gap-6 flex-wrap '>
                 {footerLinks1.map((link, index) => (
