@@ -39,9 +39,9 @@ export default function Dashboard() {
     <>
       <Header isDark={false} activePage={'dashboard'}/>
 
-      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-8 lg:px-16 2xl:px-32 py-16">
+      <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-4 md:px-8 lg:px-16 2xl:px-32 py-8 md:py-16">
         <div className='flex justify-between items-start'>
-          <h2 className="font-display font-semibold text-4xl mb-12">Dashboard</h2>
+          <h2 className="font-display font-semibold text-4xl mb-8 md:mb-12">Dashboard</h2>
 
           <div className='max-w-64'>
             {user && newApplicationModalState && (
@@ -69,7 +69,7 @@ export default function Dashboard() {
 
             {loadingState && (
               <>
-                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
+                <div className='flex justify-between col-span-2 lg:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
@@ -79,7 +79,7 @@ export default function Dashboard() {
                   </div>
                   <div className='bg-gray-5 rounded-full animate-pulse h-full aspect-square'></div>
                 </div>
-                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
+                <div className='flex justify-between col-span-2 lg:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
@@ -89,7 +89,7 @@ export default function Dashboard() {
                   </div>
                   <div className='bg-gray-5 rounded-full animate-pulse h-full aspect-square'></div>
                 </div>
-                <div className='flex justify-between col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
+                <div className='flex justify-between col-span-2 lg:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
@@ -104,7 +104,7 @@ export default function Dashboard() {
 
           </div>
           
-          <aside className="mt-16 md:mt-0 col-span-12 md:col-span-3 xl:col-span-2 bg-gray-2 rounded drop-shadow-brand h-full md:min-h-[calc(100vh-308px)] p-4">
+          <aside className="mt-4 md:mt-0 col-span-12 md:col-span-3 xl:col-span-2 bg-gray-2 rounded drop-shadow-brand h-full md:min-h-[calc(100vh-308px)] p-4">
             <div className='mb-4'>
               <h6 className='text-lg text-gray-7 font-regular mb-2'>
                 Current
@@ -121,9 +121,11 @@ export default function Dashboard() {
 
               {loadingState && (
                 <>
-                  <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1'></div>
-                  <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1'></div>
-                  <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1'></div>
+                  <div className='grid grid-cols-2 gap-4 md:block'>
+                    <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1 md:col-span-2'></div>
+                    <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1 md:col-span-2'></div>
+                    <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1 md:col-span-2'></div>
+                  </div>
                 </>
               )}
 
@@ -144,8 +146,11 @@ export default function Dashboard() {
 
               {loadingState && (
                 <>
-                  <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1'></div>
-                  <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1'></div>
+                  <div className='grid grid-cols-2 gap-4 md:block'>
+                    <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1 md:col-span-2'></div>
+                    <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1 md:col-span-2'></div>
+                    <div className='bg-gray-5 rounded-md h-11 w-full animate-pulse mb-1 md:col-span-2'></div>
+                  </div>
                 </>
               )}
 
