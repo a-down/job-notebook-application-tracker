@@ -20,6 +20,12 @@ export default function IndividualContact({ contact, applicationId, updateCard})
       const data = await res.json()
 
       if (data.status === 200) {
+        toast.success('Contact deleted', {
+          style: {
+            backgroundColor: 'var(--brand-primary)',
+            color: '#fff'
+          }
+        })
         updateCard()
       } else {
         toast.error(data.message, {

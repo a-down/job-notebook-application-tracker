@@ -6,6 +6,7 @@ import { BiLogoLinkedinSquare, BiLinkExternal } from 'react-icons/bi'
 import { Modal } from '@/components'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { toast } from 'sonner';
 
 export default function JobCard({ application, isModal, getApplications, setAsideModalState, asideModalState }) {
   const defaultDropdown = {
@@ -42,11 +43,32 @@ export default function JobCard({ application, isModal, getApplications, setAsid
 
   // update job card when the application is updated throught the dropdown
   async function updateCard() {
-    const res = await fetch(`/api/applications/${applicationState._id}`)
-    const data = await res.json()
-    setApplicationState(data)
-    setProgressPercentage()
-    updateNextStep()
+    try {
+      const res = await fetch(`/api/applications/${applicationState._id}`)
+      const data = await res.json()
+      console.log(data)
+
+      if (res.status === 200) {
+        setApplicationState(data.application)
+        setProgressPercentage()
+        updateNextStep()
+      } else {
+        toast.error(data.message, {
+          style: {
+            backgroundColor: '#F87171',
+            color: '#fff'
+          }
+        })
+      }
+    
+    } catch { 
+      toast.error('Error updating job card', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+    }
   }
 
   // set the progress percentage for the progress graph

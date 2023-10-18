@@ -9,11 +9,11 @@ import { NextResponse } from "next/server";
 export async function GET (req, { params }) {
   try {
     await connectMongoDB();
-    const applications = await Application.findById(params.applicationid).populate('to_do').populate('contacts')
-    return NextResponse.json({status: 200, applications})
+    const application = await Application.findById(params.applicationid).populate('to_do').populate('contacts')
+    return NextResponse.json({status: 200, application})
 
   } catch {
-    return NextResponse.json({status: 500, message: 'Error getting applications'})
+    return NextResponse.json({status: 500, message: 'Error getting application'})
   }
 }
 

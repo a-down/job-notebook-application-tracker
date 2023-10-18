@@ -75,6 +75,12 @@ export default function ToDoItem({ item, updateCard, applicationId }) {
       const data = await res.json()
 
       if (res.status === 200) {
+        toast.success('Task deleted', {
+          style: {
+            backgroundColor: 'var(--brand-primary)',
+            color: '#fff'
+          }
+        })
         updateCard()
       } else {
         toast.error(data.message, {
