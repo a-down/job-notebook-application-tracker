@@ -47,7 +47,7 @@ export default function About() {
             <li>On the Dashboard, use "New Application" to create an application.</li>
             <li>Click the down arrows at the bottom of the application to show more details.</li>
             <li>Add details with "Edit Application" or the plus icons.</li>
-            <li>As you check off tasks, the percentage bar will update and display your next step.</li>
+            <li>The percentage bar will update as you complete tasks.</li>
             <li>When you finish an application, mark it complete.</li>
             <li>You can delete an application, but it is permanent after confirming.</li>
           </ol>
