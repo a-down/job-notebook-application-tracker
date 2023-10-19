@@ -45,7 +45,7 @@ export default function About() {
             <li>
               <a href="/dashboard" className=' underline hover:text-brand-primary'>Create an account</a> 
               {` `}with Google, LinkedIn, GitHub, or an email and password.</li>
-            <li>On the Dashboard, use "New Application" to create an application</li>
+            <li>On the Dashboard, use "New Application" to create an application.</li>
             <li>Use the double caret to show more details about your application.</li>
             <li>Add details with "Edit Applicatoin" or the plus icons.</li>
             <li>As you check off tasks, the percentage bar will update and display your next step.</li>
