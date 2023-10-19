@@ -42,7 +42,7 @@ I needed a better place to track applications, and I could turn that need into a
 
 ## Tech Stack
 
-### React.js (Next.js) (JavaScript)
+### React.js (Next.js 13) (JavaScript)
   - interactive site that needs to update individual components with updated information
   - Next.js provided the architecture for Mongoose routes
 
@@ -80,7 +80,7 @@ The Dashboard is the focal point of the site. I went through the design process 
 
 For issues, please create an issue on the [project repo](https://github.com/a-down/job-notebook-application-tracker/issues).
 
-For questions or conversations, reach out [LinkedIn](https://linkedin.com/in/alec-downing/)
+For questions or conversations, reach out on [LinkedIn](https://linkedin.com/in/alec-downing/)
 
 ## Resources
 
