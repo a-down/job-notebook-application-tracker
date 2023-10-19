@@ -159,7 +159,7 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
 
             {field.type === 'textarea' && (
               <textarea 
-                className=" text-sm bg-white border border-gray-6 text-black p-2 rounded-md"
+                className=" text-sm bg-white border border-gray-6 text-black p-2 rounded-md leading-normal"
                 type="text" 
                 name={field.name} 
                 value={field.value} 
