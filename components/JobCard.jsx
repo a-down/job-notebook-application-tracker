@@ -72,7 +72,8 @@ export default function JobCard({ application, isModal, getApplications, setAsid
 
   // set the progress percentage for the progress graph
   function setProgressPercentage() {
-    if (applicationState.to_do?.length === 0) {
+    console.log(applicationState.to_do)
+    if (!applicationState.to_do?.length) {
       setPercentage(0)
     } else {
       let numberCompleted = 0
