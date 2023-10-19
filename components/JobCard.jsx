@@ -46,7 +46,6 @@ export default function JobCard({ application, isModal, getApplications, setAsid
     try {
       const res = await fetch(`/api/applications/${applicationState._id}`)
       const data = await res.json()
-      console.log(data)
 
       if (res.status === 200) {
         setApplicationState(data.application)

@@ -116,7 +116,6 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
           color: '#fff'
         }
       })
-      console.log('catch')
     }
   }
 

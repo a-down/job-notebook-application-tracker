@@ -48,7 +48,12 @@ export default function Contacts({ sharedStyle, contacts, updateCard, applicatio
       }
       
     } catch (err) {
-      console.log('Error creating new contact')
+      toast.error('Error creating contact', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
     }
   }
 
