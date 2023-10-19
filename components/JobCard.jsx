@@ -48,7 +48,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
       const data = await res.json()
 
       if (res.status === 200) {
-        setApplicationState(data.application)
+        await setApplicationState(data.application)
         setProgressPercentage()
         updateNextStep()
       } else {

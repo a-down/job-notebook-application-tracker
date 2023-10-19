@@ -23,7 +23,9 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
     companyLinkedIn: application?.role.company.company_linkedin,
     dueDate: application?.role.due_date
   }
+  
   const [ formData, setFormData ] = useState(isEdit ? editFormData : defaultFormData)
+
   function handleApplicationForm(event) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
