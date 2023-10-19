@@ -24,8 +24,8 @@ export default function Home() {
   ]
 
   const footerLinks1 = [
-    { title: '/in/alec-downing', link: 'https://linkedin.com/in/alec-downing', icon: linkedIn },
     { title: 'GitHub', link: 'https://github.com/a-down/job-notebook-application-tracker', icon: github },
+    { title: '/in/alec-downing', link: 'https://linkedin.com/in/alec-downing', icon: linkedIn }
   ]
 
   const footerLinks2 = [
@@ -109,7 +109,7 @@ export default function Home() {
             <Image src={dropdownCard} alt='Job Card Dropdown Example' height={834} width={680} className='hidden lg:block col-span-6 rounded-xl relative -left-20 top-24'/>
 
             <div className='mx-auto w-fit mt-12 lg:mt-28 col-span-12 lg:col-span-6 lg:col-start-7 flex flex-col items-center'>
-              <h3 className='lg:max-w-[478px] text-white text-4xl font-bold leading-normal mb-8 md:mb-16'>
+              <h3 className='lg:max-w-[478px] text-white text-4xl font-bold leading-normal mb-8 lg:mb-16'>
                 Don't find any more postings until you have a 
                 <span className='text-brand-primary'> Notebook </span>
                 to keep them in!
