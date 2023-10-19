@@ -16,6 +16,15 @@ export default function ToDo({ sharedStyle, toDo, setProgressPercentage, updateC
 
   async function createToDoItem(e) {
     e.preventDefault()
+    if (!toDoFormData) {
+      toast.error('Task cannot be blank', {
+        style: {
+          backgroundColor: '#F87171',
+          color: '#fff'
+        }
+      })
+      return
+    } 
     setToDoFormData('')
     setToDoState([...toDoState, {description: toDoFormData, completed: false}])
     try {

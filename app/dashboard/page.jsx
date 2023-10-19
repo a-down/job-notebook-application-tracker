@@ -109,12 +109,12 @@ export default function Dashboard() {
               <>
                 <div className='hidden md:block bg-white drop-shadow-brand rounded-md col-span-2 px-6 py-8'>
                   <h3 className='text-xl text-gray-800 leading-loose'>{`Use the `}
-                    <span className=' cursor-pointer text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary mb-1'>New Application</span> 
+                    <span className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary mb-1'>New Application</span> 
                   {` button to add an application to your notebook!`}</h3>
                 </div>
                 <div className='md:hidden bg-white drop-shadow-brand rounded-md col-span-2 px-6 py-8'>
                   <h3 className='text-xl text-gray-800 leading-loose'>{`Use the `}
-                    <span className=' cursor-pointer text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary mb-1'>New</span>
+                    <span className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary mb-1'>New</span>
                   {` button to add an application to your notebook!`}</h3>
                 </div>
               </>

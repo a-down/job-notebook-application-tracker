@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Header } from '@/components'
-import mockup from '../public/mockup.png'
+import dashboard from '../public/dashboard.png'
 import career from '../public/career.png'
 import contacts from '../public/contacts.png'
 import todo from '../public/todo.png'
@@ -71,7 +71,7 @@ export default function Home() {
               </div> */}
 
               <div className="ml-[64px] lg:ml-0 w-[904px] h-[638px] z-0 mt-24">
-                <Image src={mockup} alt='Job Notebook mockup' height={638} width={904} className='rounded-md'/>
+                <Image src={dashboard} alt='Job Notebook Mockup' height={638} width={904} className='rounded-md'/>
               </div>
 
             </div>
@@ -132,7 +132,7 @@ export default function Home() {
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#253330"/>
           </svg>
           
-          <div className='flex justify-between gap-6 lg:flex-row items-end h-full relative px-4 md:px-8 lg:px-16 xl:px-32  pt-24 2xl:px-32 text-gray-5'>
+          <div className='flex justify-between gap-6 lg:flex-row items-end h-full relative px-4 md:px-8 lg:px-16 2xl:px-32 pt-24 text-gray-5'>
             <div className=' flex flex-col justify-end gap-6 pb-0.5'>
               <div className=' flex flex-col gap-6 flex-wrap '>
                 {footerLinks1.map((link, index) => (

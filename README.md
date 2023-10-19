@@ -1,35 +1,93 @@
 # [Job Notebook](https://jobnotebook.vercel.app)
 
-[Job Notebook](https://jobnotebook.vercel.app) is a tool for job seekers to keep track of their current applications. In today's job market, there are many steps for potential candidates. The one's that are taking their time can struggle to keep each one straight. Unlike other job trackers, [Job Notebook](https://jobnotebook.vercel.app) focuses on what the user needs to do BEFORE submitting their application.
+[Job Notebook](https://jobnotebook.vercel.app) is a tool for job seekers to keep track of their current applications. In today's job market, there are many steps for potential candidates. Applications that take their time can struggle to keep each one straight. Unlike other job trackers, [Job Notebook](https://jobnotebook.vercel.app) focuses on what the user needs to do BEFORE submitting their application.
 
-## Project Journal
+## Why I Created [Job Notebook](https://jobnotebook.vercel.app)
 
-### October 6, 2023
+I created [Job Notebook](https://jobnotebook.vercel.app) in the first month after I graduated from my Full Stack Bootcamp. I was searching lots of job boards and trying to track it all in a spreadsheet. This spreadsheet got pretty long, pretty quick. I found that on top of a running to do list, I was consistently tracking:
 
-  Today I built the modal component that will wrap various nested children on the site (individual applications, add application form, login/signup forms). When that was built, I added the elements that need to render dynamically on the dashboard aside.
+  ### Job Details
+  - Job Title and Description
+  - Company Details
+  - Application Link
 
-### October 5, 2023
+  ### Contacts
+  - Networking Contacts
+  - Hiring Managers
+  - Various Contact Methods
 
-  I decided to use [Clerk](https://clerk.com) for my authentication/user needs. I will store user models in Clerk and use Clerk's user data to call information from MongoDB. It was a long day of studying, researching, and tutorials, but I am proud of where the page is at today!
+  ### Files
+  - Resume and Cover Letter for Each Job
+  - File for Each Job
+  - Answers to Prompts on the Application
 
-### October 4, 2023
+  ### Notes
+  - Notable details I found while researching companies
 
-  The base functionality of the `Dashboard` page is done. User applications are fetched from `MongoDB` and rendered as cards. The user can click on the job dropdown to view detailed information. The next steps are setting up authentication to fetch applications that belong to the logged in user and adding features to allow the user to create applications.
+I needed a better place to track applications, and I could turn that need into a tool for job seekers!
+
+## Usage
+  1. Use either `Start your notebook` buttons, the `Dashboard` link, or the `Sign In` link to create an account.
+  2. Create an account with Google, LinkedIn, GitHub, or an email and password.
+  3. Confirm your email.
+  4. On the `Dashboard` page, use `New Application`/`New` to open the New Applicaiton Form.
+  5. Fill out the fields you wish and submit the form.
+  6. You will now see your application under `Current` on the sidebar.
+  7. Use the double caret to show more details about your application.
+  8. You can add details to your application with the `Edit Application` button (part of dropdown)
+  9. Use the `plus icons` to add tasks, contacts, files, and notes
+  10. As you check off tasks, the percentage bar will update and the next task will appear after `Next step:`
+  11. When you finish an application, use the `Mark Complete` button (you can always change it back if needed)
+  12. If needed, use the `Delete` button. After confirming, this is permanant.
 
 ## Tech Stack
-- React.js (Next.js)
-- Tailwind CSS
-- CSS/OOCSS
-- JavaScript
-- MongoDB/Mongoose
-- Clerk
-- React-Icons
-- Vercel
+
+### React.js (Next.js) (JavaScript)
+  - interactive site that needs to update individual components with updated information
+  - Next.js provided the architecture for Mongoose routes
+
+### Tailwind CSS/CSS/OOCSS
+
+### Radix UI
+  - modals and forms
+
+### Clerk 
+  - authentication service that stores users and allows third-party signup
+
+### MongoDB/Mongoose
+
+### Sonner Toast
+
+### React-Icons
+
+### Vercel
+
+## Visuals
+
+### Homepage
+![Homepage](./public/homepage.png)
+
+### Dashboard
+![Dashboard](./public/dashboard.png)
 
 ## Initial Figma Mockup
 
+The Dashboard is the focal point of the site. I went through the design process from wireframes to mockups to code. Below is the initial mockup of the Dashboard page.
+
 ![Initial Mockup](./public/mockup.png)
+
+## Contact
+
+For issues, please create an issue on the [project repo](https://github.com/a-down/job-notebook-application-tracker/issues).
+
+For questions or conversations, reach out [LinkedIn](https://linkedin.com/in/alec-downing/)
 
 ## Resources
 
-<a target="_blank" href="https://icons8.com/icon/95088/spiral-bound-booklet">Notebook</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+[Phosphor Icons](https://phosphoricons.com/)
+
+[Icons8](https://https://icons8.com/)
+
+[Box Icons](https://boxicons.com/)
+
+[Simple Icons](https://simpleicons.org/)
