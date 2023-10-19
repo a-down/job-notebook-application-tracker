@@ -18,8 +18,8 @@ import boxIcons from '../public/boxicons.png'
 export default function Home() {
   const featureDetails = [
     { title: 'Job Details', description: "Too many sites and links. Store the job's title, description, application link, and due date, as well as the company's name, website, and LinkedIn.", image: career },
-    { title: 'Contacts', description: "Hopefully, you talk to multiple employees at a company during the process. Job Notebook holds the contact info for as many people as needed. Easy to access and reach out to.", image: contacts },
-    { title: 'To Do List', description: 'Not every job has an "Easy Apply." Break down your process into tasks and keep them in a neat list. Job Notebook will tell you the next step and how close you are to completing your tasks! ', image: todo },
+    { title: 'Contacts', description: "Hopefully you will talk to multiple employees at a company during the process. Job Notebook holds the contact info for as many people as needed. Easy to access and reach out to.", image: contacts },
+    { title: 'To Do List', description: 'Not every job has an "Easy Apply." Break down your process into tasks, and keep them in a neat list. Job Notebook will tell you the next step and how close you are to completing your tasks! ', image: todo },
     { title: 'Documents', description: 'Lots of resumes. Lots of cover letters. Definitely lots of folders. Use Job Notebook for quick access to the files and folders for each application.', image: file },
   ]
 
@@ -31,7 +31,6 @@ export default function Home() {
   const footerLinks2 = [
     { title: 'Clerk', link: 'https://clerk.com', icon: clerk },
     { title: 'Phosphor Icons', link: 'https://phosphoricons.com/', icon: phosphor },
-    { title: 'Icons8', link: 'https://https://icons8.com/', icon: icons8 },
     { title: 'Box Icons', link: 'https://boxicons.com/', icon: boxIcons },
     { title: 'Simple Icons', link: 'https://simpleicons.org/', icon: simpleIcons },
   ]
@@ -48,7 +47,7 @@ export default function Home() {
             <div className='col-span-12 lg:col-span-4'>
               <div className='mb-8 lg:mb-16'>
                 <p className='text-xl text-white leading-normal mb-4'>
-                  You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 and 1/2 different versions of your resume.
+                  You’re trying to find the perfect job. You’re working to keep your skills sharp. You’re searching for roles on way too many sites. You have 254 different versions of your resume.
                 </p>
                 <p className='text-xl text-white leading-normal'>
                   Sound familiar? Keep track of your applications in one Job Notebook.
@@ -132,7 +131,7 @@ export default function Home() {
             <path d="M1438 259V84.137C843.203 27.1788 527.661 8.24314 0 0V259H1438Z" fill="#253330"/>
           </svg>
           
-          <div className='flex justify-between gap-6 lg:flex-row items-end h-full relative px-4 md:px-8 lg:px-16 2xl:px-32 pt-24 text-gray-5'>
+          <div className='flex justify-between gap-6 lg:flex-row items-end h-full relative px-4 md:px-8 lg:px-16 2xl:px-32 py-12 text-gray-5'>
             <div className=' flex flex-col justify-end gap-6 pb-0.5'>
               <div className=' flex flex-col gap-6 flex-wrap '>
                 {footerLinks1.map((link, index) => (
@@ -144,7 +143,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className=' flex flex-col gap-6 flex-wrap mb-10'>
+              <div className=' flex flex-col gap-6 flex-wrap'>
                 {footerLinks2.map((link, index) => (
                   <div className='hover:text-brand-primary duration-300 flex' key={index}>
                     <a href={link.link} target="_blank" className='flex gap-4 items-center'>

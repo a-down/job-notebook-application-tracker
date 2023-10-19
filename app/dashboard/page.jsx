@@ -107,15 +107,29 @@ export default function Dashboard() {
             {/* Welcome message if no current applications */}
             {currentApplicationsState.length === 0 && !loadingState && (
               <>
-                <div className='hidden md:block bg-white drop-shadow-brand rounded-md col-span-2 px-6 py-8'>
-                  <h3 className='text-xl text-gray-800 leading-loose'>{`Use the `}
-                    <span className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary mb-1'>New Application</span> 
-                  {` button to add an application to your notebook!`}</h3>
+                <div className='hidden md:flex gap-1 flex-wrap bg-white drop-shadow-brand rounded-md col-span-2 px-6 py-8'>
+                  <h3 className='shrink-0 text-xl text-gray-800 leading-loose'>Use the </h3>
+                  <div className='w-fit inline shrink-0'>
+                    <Modal button={{text: 'New Application', style: 'primary'}}>
+                      <ApplicationForm 
+                        userId={user.id} 
+                        getApplications={getApplications} 
+                        setNewApplicationModalState={setNewApplicationModalState}/>
+                    </Modal>
+                  </div>
+                  <h3 className='text-xl text-gray-800 leading-loose'>button to create an application!</h3>
                 </div>
-                <div className='md:hidden bg-white drop-shadow-brand rounded-md col-span-2 px-6 py-8'>
-                  <h3 className='text-xl text-gray-800 leading-loose'>{`Use the `}
-                    <span className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary mb-1'>New</span>
-                  {` button to add an application to your notebook!`}</h3>
+                <div className='flex gap-1 flex-wrap md:hidden bg-white drop-shadow-brand rounded-md col-span-2 px-6 py-8'>
+                  <h3 className='shrink-0 text-xl text-gray-800 leading-loose'>Use the </h3>
+                    <div className='w-fit inline shrink-0'>
+                      <Modal button={{text: 'New', style: 'primary'}}>
+                        <ApplicationForm 
+                          userId={user.id} 
+                          getApplications={getApplications} 
+                          setNewApplicationModalState={setNewApplicationModalState}/>
+                      </Modal>
+                    </div>
+                    <h3 className='text-xl text-gray-800 leading-loose'>button to create an application!</h3>
                 </div>
               </>
             )}

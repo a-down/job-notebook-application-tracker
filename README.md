@@ -4,7 +4,7 @@
 
 ## Why I Created [Job Notebook](https://jobnotebook.vercel.app)
 
-I created [Job Notebook](https://jobnotebook.vercel.app) in the first month after I graduated from my Full Stack Bootcamp. I was searching lots of job boards and trying to track it all in a spreadsheet. This spreadsheet got pretty long, pretty quick. I found that on top of a running to do list, I was consistently tracking:
+I created [Job Notebook](https://jobnotebook.vercel.app) in the first month after I graduated from my Full Stack Bootcamp. I was searching several job boards and trying to track it all in a spreadsheet. This spreadsheet got pretty long pretty quickly. I found that on top of a running to do list, I was consistently tracking:
 
   ### Job Details
   - Job Title and Description
@@ -31,7 +31,7 @@ I needed a better place to track applications, and I could turn that need into a
   2. Create an account with Google, LinkedIn, GitHub, or an email and password.
   3. Confirm your email.
   4. On the `Dashboard` page, use `New Application`/`New` to open the New Applicaiton Form.
-  5. Fill out the fields you wish and submit the form.
+  5. Fill out the fields you wish, and submit the form.
   6. You will now see your application under `Current` on the sidebar.
   7. Use the double caret to show more details about your application.
   8. You can add details to your application with the `Edit Application` button (part of dropdown)

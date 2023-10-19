@@ -24,7 +24,7 @@ export default function About() {
         <div className=' flex flex-col gap-4'>
           <h3 className='font-display font-semibold text-2xl'>Why</h3>
 
-          <p className='leading-relaxed'>I created Job Notebook in the first month after I graduated from my Full Stack Bootcamp. I was searching lots of job boards and trying to track it all in a spreadsheet. This spreadsheet got pretty long, pretty quick. I found that on top of a running to do list, I was consistently tracking:</p>
+          <p className='leading-relaxed'>I created Job Notebook in the first month after I graduated from my Full Stack Bootcamp. I was searching several job boards and trying to track it all in a spreadsheet. This spreadsheet got pretty long pretty quickly. I found that on top of a running to do list, I was consistently tracking:</p>
 
           <ul className='list-disc list-inside leading-relaxed'>
             <li>Job Details</li>
@@ -45,7 +45,7 @@ export default function About() {
               <a href="/dashboard" className=' underline hover:text-brand-primary'>Create an account</a> 
               {` `}with Google, LinkedIn, GitHub, or an email and password.</li>
             <li>On the Dashboard, use "New Application" to create an application.</li>
-            <li>Click the double caret to show more details about your application.</li>
+            <li>Click the down arrows at the bottom of the application to show more details.</li>
             <li>Add details with "Edit Application" or the plus icons.</li>
             <li>As you check off tasks, the percentage bar will update and display your next step.</li>
             <li>When you finish an application, mark it complete.</li>
