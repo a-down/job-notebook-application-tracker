@@ -43,16 +43,16 @@ I needed a better place to track applications, and I could turn that need into a
 ## Tech Stack
 
 ### React.js (Next.js 13) (JavaScript)
-  - interactive site that needs to update individual components with updated information
+  - Interactive site that needs to update individual components with updated information
   - Next.js provided the architecture for Mongoose routes
 
 ### Tailwind CSS/CSS/OOCSS
 
 ### Radix UI
-  - modals and forms
+  - Modals and forms
 
 ### Clerk 
-  - authentication service that stores users and allows third-party signup
+  - Authentication service that stores users and allows third-party signup
 
 ### MongoDB/Mongoose
 
