@@ -66,7 +66,8 @@
   background-color: transparent;
 }
 
-.modal-content::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar,
+.job-description::-webkit-scrollbar {
   display: none;
 }
 
