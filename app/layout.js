@@ -2,6 +2,7 @@ import './globals.css'
 import { Lexend, Lexend_Deca, Kadwa  } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Toaster, toast } from 'sonner'
+import { Analytics } from '@vercel/analytics/react';
 
 const lexend = Lexend({ 
   weight: ['300', '400', '500', '600', '700'],
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
         <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
           <Toaster position='top-center'/>
           {children}
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
