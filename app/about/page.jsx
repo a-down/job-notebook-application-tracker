@@ -40,9 +40,9 @@ export default function About() {
 
           <ol className='list-decimal list-inside leading-relaxed'>
             <li>Navigate to the{` `} 
-              <a href="/dashboard" className=' underline hover:text-brand-primary duration-300'>Dashboard</a>.</li>
+              <a href="/dashboard" className=' text-gray-8 hover:text-brand-primary duration-300'>Dashboard</a>.</li>
             <li>
-              <a href="/dashboard" className=' underline hover:text-brand-primary duration-300'>Create an account</a> 
+              <a href="/dashboard" className=' text-gray-8 hover:text-brand-primary duration-300'>Create an account</a> 
               {` `}with Google, LinkedIn, GitHub, or an email and password.</li>
             <li>On the Dashboard, use "New Application" to create an application.</li>
             <li>Click the down arrows at the bottom of the application to show more details.</li>
@@ -57,15 +57,15 @@ export default function About() {
           <h3 className='font-display font-semibold text-2xl'>Contact</h3>
 
           <p className='leading-relaxed'>{`If you have any issues with your Job Notebook, please create an issue at `} 
-            <a href="https://github.com/a-down/job-notebook-application-tracker/issues" className=' underline hover:text-brand-primary duration-300'>github.com/a-down/job-notebook-application-tracker/issues</a>.
+            <a href="https://github.com/a-down/job-notebook-application-tracker/issues" target="_blank" className=' text-gray-8 hover:text-brand-primary duration-300'>github.com/a-down/job-notebook-application-tracker/issues</a>.
           </p>
           
           <p className='leading-relaxed'>{`For questions or conversations, reach out on LinkedIn at `} 
-            <a href="https://linkedin.com/in/alec-downing/" className=' underline hover:text-brand-primary duration-300'>/in/alec-downing/</a>.
+            <a href="https://linkedin.com/in/alec-downing/" target="_blank" className=' text-gray-8 hover:text-brand-primary duration-300'>/in/alec-downing/</a>.
           </p>
 
           <p className='leading-relaxed'>{`You can find more details about the project at `} 
-            <a href="https://github.com/a-down/job-notebook-application-tracker" className=' underline hover:text-brand-primary duration-300'>https://github.com/a-down/job-notebook-application-tracker</a>.
+            <a href="https://github.com/a-down/job-notebook-application-tracker" target="_blank" className=' text-gray-8 hover:text-brand-primary duration-300'>https://github.com/a-down/job-notebook-application-tracker</a>.
           </p>
         </div>
 
