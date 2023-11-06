@@ -136,7 +136,7 @@ export default function Dashboard() {
 
             {loadingState && (
               <>
-                <div className='flex justify-between col-span-2 lg:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
+                <div className='flex justify-between col-span-2 xl:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
@@ -146,7 +146,7 @@ export default function Dashboard() {
                   </div>
                   <div className='bg-gray-5 rounded-full animate-pulse h-full aspect-square'></div>
                 </div>
-                <div className='flex justify-between col-span-2 lg:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
+                <div className='flex justify-between col-span-2 xl:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
@@ -156,7 +156,7 @@ export default function Dashboard() {
                   </div>
                   <div className='bg-gray-5 rounded-full animate-pulse h-full aspect-square'></div>
                 </div>
-                <div className='flex justify-between col-span-2 lg:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
+                <div className='flex justify-between col-span-2 xl:col-span-1 bg-white rounded-md drop-shadow-brand h-[180px] p-4'>
                   <div className=' h-full animate-pulse flex flex-col gap-1 w-full job-card-upper mb-6'>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[20px] w-1/2'></div>
                     <div className='bg-gray-5 rounded-sm animate-pulse h-[16px] w-1/4'></div>
