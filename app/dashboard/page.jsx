@@ -3,8 +3,21 @@ import { JobCard, Modal, ApplicationForm, Header, AsideWrapper } from '@/compone
 import { useEffect, useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 import { toast } from 'sonner';
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 
-export default function Dashboard() {
+export default function DashboardWrapper() {
+  const queryClient = new QueryClient()
+  const { isSignedIn, user, isLoaded } = useUser();
+
+  return (
+    // Provide the client to your App
+    <QueryClientProvider client={queryClient}>
+      {user ? <Dashboard /> : <p>Loading...</p>}
+    </QueryClientProvider>
+  )
+}
+
+function Dashboard() {
   const [ currentApplicationsState, setCurrentApplicationsState ] = useState([]) 
   const [ completedApplicationsState, setCompletedApplicationsState ] = useState([]) 
   const { isSignedIn, user, isLoaded } = useUser();
@@ -12,38 +25,54 @@ export default function Dashboard() {
   const [ loadingState, setLoadingState ] = useState(true)
   
   // get user applications when user data is loaded from Clerk
-  useEffect(() => {
-    if (user) {
-      getApplications()
-    }
-  }, [isLoaded])
+  // useEffect(() => {
+  //   if (user) {
+  //     getApplications()
+  //   }
+  // }, [isLoaded])
 
-  async function getApplications() {
-    try {
-      const res = await fetch(`/api/applications/user/${user.id}`)
-      const data = await res.json()
+  const { isPending, error, data, isFetching } = useQuery({
+    queryKey: ['applications'],
+    queryFn: () => user ? fetch(`/api/applications/user/${user.id}`).then(res => res.json()) : null,
+  })
 
-      if (res.status === 200) {
-        createApplicationsArrays(data.applications)
-        setNewApplicationModalState(true)
-      } else {
-        toast.error('Error getting applications. Please try again later.', {
-          style: {
-            backgroundColor: '#F87171',
-            color: '#fff'
-          }
-        })
-      }
-      
-    } catch {
-      toast.error('Error getting applications. Please try again later.', {
-        style: {
-          backgroundColor: '#F87171',
-          color: '#fff'
-        }
-      })
-    }
+  if (!isFetching && !isPending && !error) {
+    createApplicationsArrays(data.applications)
   }
+
+  if (error) {
+    toast.error('Error getting applications. Please try again later.', {
+      style: { backgroundColor: '#F87171', color: '#fff' }
+    })
+    console.log(error)
+  }
+
+  // async function getApplications() {
+  //   try {
+  //     const res = await fetch(`/api/applications/user/${user.id}`)
+  //     const data = await res.json()
+
+  //     if (res.status === 200) {
+  //       createApplicationsArrays(data.applications)
+  //       setNewApplicationModalState(true)
+  //     } else {
+  //       toast.error('Error getting applications. Please try again later.', {
+  //         style: {
+  //           backgroundColor: '#F87171',
+  //           color: '#fff'
+  //         }
+  //       })
+  //     }
+      
+  //   } catch {
+  //     toast.error('Error getting applications. Please try again later.', {
+  //       style: {
+  //         backgroundColor: '#F87171',
+  //         color: '#fff'
+  //       }
+  //     })
+  //   }
+  // }
 
   // filter applications into currentApplicationsState and completedApplicationsState
   function createApplicationsArrays(data) {
@@ -57,8 +86,11 @@ export default function Dashboard() {
     setLoadingState(false)
   }
 
+
+
   return (
     <>
+    {/* <QueryClientProvider client={queryClient}> */}
       <Header isDark={false} activePage={'dashboard'}/>
 
       <main className=" bg-gray-1 min-h-[calc(100vh-96px)] px-4 md:px-8 lg:px-16 2xl:px-32 py-8 md:py-16">
@@ -72,7 +104,7 @@ export default function Dashboard() {
                 <Modal button={{text: 'New Application', style: 'primary'}}>
                   <ApplicationForm 
                     userId={user.id} 
-                    getApplications={getApplications} 
+                    // getApplications={getApplications} 
                     setNewApplicationModalState={setNewApplicationModalState}/>
                 </Modal>
               </>
@@ -86,7 +118,7 @@ export default function Dashboard() {
                 <Modal button={{text: 'New', style: 'primary'}}>
                   <ApplicationForm 
                     userId={user.id} 
-                    getApplications={getApplications} 
+                    // getApplications={getApplications} 
                     setNewApplicationModalState={setNewApplicationModalState}/>
                 </Modal>
               </>
@@ -100,7 +132,9 @@ export default function Dashboard() {
 
             {currentApplicationsState && (
               currentApplicationsState.map(application => (
-                <JobCard application={application} getApplications={getApplications} isModal={false} key={application._id}/>
+                <JobCard application={application} 
+                // getApplications={getApplications} 
+                isModal={false} key={application._id}/>
               ))
             )}
 
@@ -113,7 +147,7 @@ export default function Dashboard() {
                     <Modal button={{text: 'New Application', style: 'primary'}}>
                       <ApplicationForm 
                         userId={user.id} 
-                        getApplications={getApplications} 
+                        // getApplications={getApplications} 
                         setNewApplicationModalState={setNewApplicationModalState}/>
                     </Modal>
                   </div>
@@ -125,7 +159,7 @@ export default function Dashboard() {
                       <Modal button={{text: 'New', style: 'primary'}}>
                         <ApplicationForm 
                           userId={user.id} 
-                          getApplications={getApplications} 
+                          // getApplications={getApplications} 
                           setNewApplicationModalState={setNewApplicationModalState}/>
                       </Modal>
                     </div>
@@ -181,7 +215,9 @@ export default function Dashboard() {
               <div className='grid grid-cols-2 gap-4 md:block'>
                 {currentApplicationsState && (
                   currentApplicationsState.map(application => (
-                    <AsideWrapper button={{text: application.role.role_name, style: 'primary'}} key={`${application._id}-modal`} application={application} getApplications={getApplications}/>
+                    <AsideWrapper button={{text: application.role.role_name, style: 'primary'}} key={`${application._id}-modal`} application={application} 
+                    // getApplications={getApplications}
+                    />
                   ))
                 )}
               </div>
@@ -206,7 +242,9 @@ export default function Dashboard() {
               <div className='grid grid-cols-2 gap-4 md:block'>
                 {completedApplicationsState && (
                   completedApplicationsState.map(application => (
-                    <AsideWrapper button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`} application={application} getApplications={getApplications}/>
+                    <AsideWrapper button={{text: application.role.role_name, style: 'gray-outline'}} key={`${application._id}-modal`} application={application} 
+                    // getApplications={getApplications}
+                    />
                   ))
                 )}
               </div>
@@ -224,6 +262,8 @@ export default function Dashboard() {
           </aside>
         </div>
       </main>
+                
+    {/* </QueryClientProvider> */}
     </>
   )
 }

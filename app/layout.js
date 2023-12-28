@@ -1,5 +1,6 @@
 import './globals.css'
 import { Lexend, Lexend_Deca, Kadwa  } from 'next/font/google'
+// import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Toaster, toast } from 'sonner'
 import { Analytics } from '@vercel/analytics/react';
@@ -27,16 +28,20 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  // const queryClient = new QueryClient()
 
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
-          <Toaster position='top-center'/>
-          {children}
-          <Analytics />
-        </body>
-      </html>
-    </ClerkProvider>
+      <ClerkProvider>
+            {/* <QueryClientProvider client={queryClient}> */}
+        <html lang="en">
+          <body className={`${lexend.variable} ${kadwa.variable} ${lexendDeca.variable} font-normal` }>
+            <Toaster position='top-center'/>
+            {children}
+            <Analytics />
+          </body>
+        </html>
+        {/* </QueryClientProvider> */}
+      </ClerkProvider>
+
   )
 }
