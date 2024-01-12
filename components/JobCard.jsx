@@ -193,7 +193,7 @@ export default function JobCard({ application, isModal, getApplications, setAsid
 
           {/* if it is a modal, display the job description below the job card */}
           {isModal && applicationState.role.job_description && (
-            <div className='bg-white my-4 mt-8 p-4 rounded-md drop-shadow-brand'>
+            <div className='bg-white my-4 mt-8 p-4 rounded-md drop-shadow-brand w-[96vw] max-w-[600px]'>
               <h6 className="text-lg font-regular mb-3">Job Description</h6>
 
               <p className='leading-normal text-sm'>
