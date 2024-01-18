@@ -18,15 +18,15 @@ export default function About() {
         <div className=' flex flex-col gap-4'>
           <h3 className='font-display font-semibold text-2xl'>What</h3>
 
-          <p className='leading-relaxed'>Job Notebook is a tool for job seekers to keep track of their current applications. In today's job market, there are many steps for potential candidates. Applications that take their time can struggle to keep each one straight. Unlike other job trackers, Job Notebook focuses on what the user needs to do BEFORE submitting their application.</p>
+          <p className='leading-loose'>Job Notebook is a tool for job seekers to keep track of their current applications. In today's job market, there are many steps for potential candidates. Applications that take their time can struggle to keep each one straight. Unlike other job trackers, Job Notebook focuses on what the user needs to do BEFORE submitting their application.</p>
         </div>
 
         <div className=' flex flex-col gap-4'>
           <h3 className='font-display font-semibold text-2xl'>Why</h3>
 
-          <p className='leading-relaxed'>I created Job Notebook in the first month after I graduated from my Full Stack Bootcamp. I was searching several job boards and trying to track it all in a spreadsheet. This spreadsheet got pretty long pretty quickly. I found that on top of a running to do list, I was consistently tracking:</p>
+          <p className='leading-loose'>I created Job Notebook in the first month after I graduated from my Full Stack Bootcamp. I was searching several job boards and trying to track it all in a spreadsheet. This spreadsheet got pretty long pretty quickly. I found that on top of a running to do list, I was consistently tracking:</p>
 
-          <ul className='list-disc list-inside leading-relaxed'>
+          <ul className='list-disc list-inside leading-loose'>
             <li>Job Details</li>
             <li>Contacts</li>
             <li>Files</li>
@@ -38,7 +38,7 @@ export default function About() {
         <div className=' flex flex-col gap-4'>
           <h3 className='font-display font-semibold text-2xl'>How to Use</h3>
 
-          <ol className='list-decimal list-inside leading-relaxed'>
+          <ol className='list-decimal list-inside leading-loose'>
             <li>Navigate to the{` `} 
               <a href="/dashboard" className=' text-gray-8 hover:text-brand-primary duration-300'>Dashboard</a>.</li>
             <li>
@@ -56,15 +56,15 @@ export default function About() {
         <div className=' flex flex-col gap-4'>
           <h3 className='font-display font-semibold text-2xl'>Contact</h3>
 
-          <p className='leading-relaxed'>{`If you have any issues with your Job Notebook, please create an issue at `} 
+          <p className='leading-loose'>{`If you have any issues with your Job Notebook, please create an issue at `} 
             <a href="https://github.com/a-down/job-notebook-application-tracker/issues" target="_blank" className=' text-gray-8 hover:text-brand-primary duration-300'>github.com/a-down/job-notebook-application-tracker/issues</a>.
           </p>
           
-          <p className='leading-relaxed'>{`For questions or conversations, reach out on LinkedIn at `} 
+          <p className='leading-loose'>{`For questions or conversations, reach out on LinkedIn at `} 
             <a href="https://linkedin.com/in/alec-downing/" target="_blank" className=' text-gray-8 hover:text-brand-primary duration-300'>/in/alec-downing/</a>.
           </p>
 
-          <p className='leading-relaxed'>{`You can find more details about the project at `} 
+          <p className='leading-loose'>{`You can find more details about the project at `} 
             <a href="https://github.com/a-down/job-notebook-application-tracker" target="_blank" className=' text-gray-8 hover:text-brand-primary duration-300'>https://github.com/a-down/job-notebook-application-tracker</a>.
           </p>
         </div>
