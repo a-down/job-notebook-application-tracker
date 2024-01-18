@@ -104,6 +104,10 @@ export default function Dashboard() {
     console.log('here')
   }
 
+  const addDemoApplication = (newApplication) => {
+    setCurrentApplicationsState([...currentApplicationsState, newApplication])
+  }
+
   return (
     <>
       <Header isDark={false} activePage={'try-it'}/>
@@ -119,7 +123,9 @@ export default function Dashboard() {
                 <ApplicationForm 
                   userId={user.id} 
                   getApplications={getApplications} 
-                  setNewApplicationModalState={setNewApplicationModalState}/>
+                  setNewApplicationModalState={setNewApplicationModalState}
+                  isDemo={true}
+                  addDemoApplication={addDemoApplication}/>
               </Modal>
             )}
           </div>
@@ -132,7 +138,9 @@ export default function Dashboard() {
                   <ApplicationForm 
                     userId={user.id} 
                     getApplications={getApplications} 
-                    setNewApplicationModalState={setNewApplicationModalState}/>
+                    setNewApplicationModalState={setNewApplicationModalState}
+                    isDemo={true}
+                    addDemoApplication={addDemoApplication}/>
                 </Modal>
               </>
             )}
@@ -159,7 +167,9 @@ export default function Dashboard() {
                       <ApplicationForm 
                         userId={user.id} 
                         getApplications={getApplications} 
-                        setNewApplicationModalState={setNewApplicationModalState}/>
+                        setNewApplicationModalState={setNewApplicationModalState}
+                        isDemo={true}
+                        addDemoApplication={addDemoApplication}/>
                     </Modal>
                   </div>
                   <h3 className='text-xl text-gray-800 leading-loose'>button to create an application!</h3>
@@ -171,7 +181,9 @@ export default function Dashboard() {
                         <ApplicationForm 
                           userId={user.id} 
                           getApplications={getApplications} 
-                          setNewApplicationModalState={setNewApplicationModalState}/>
+                          setNewApplicationModalState={setNewApplicationModalState}
+                          isDemo={true}
+                          addDemoApplication={addDemoApplication}/>
                       </Modal>
                     </div>
                     <h3 className='text-xl text-gray-800 leading-loose'>button to create an application!</h3>

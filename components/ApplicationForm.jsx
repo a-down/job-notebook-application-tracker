@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { toast } from 'sonner'
 
 
-export default function ApplicationForm({ userId, getApplications, setNewApplicationModalState, isEdit, application, setUpdateModalState, updateCard }) {
+export default function ApplicationForm({ userId, getApplications, setNewApplicationModalState, isEdit, application, setUpdateModalState, updateCard, isDemo, addDemoApplication }) {
   const defaultFormData = {
     jobTitle: '',
     applicationLink: '',
@@ -121,6 +121,27 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
     }
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (isDemo) {
+      addDemoApplication({
+        role: {
+          role_name: formData.jobTitle,
+          company: {
+            company_name: formData.companyName,
+            company_website: formData.companyWebsite,
+            company_linkedin: formData.companyLinkedIn
+          },
+          application_link: formData.applicationLink,
+          job_description: formData.jobDescription,
+          due_date: formData.dueDate
+        }
+      })
+      return
+    }
+    isEdit ? updateApplication : createApplication
+  }
+
   const formFieldsArr = [
     {type: 'input', label: 'Job Title', name: 'jobTitle', placeholder: 'Graphic Designer', value: formData.jobTitle},
     {type: 'link', label: 'Link to Application', name: 'applicationLink', guideline: '(include https://)', placeholder: 'https://example.com', value: formData.applicationLink},
@@ -188,7 +209,7 @@ export default function ApplicationForm({ userId, getApplications, setNewApplica
           tabIndex='0'
           className=' text-white text-sm leading-tight bg-brand-primary w-full px-4 py-[12px] rounded-md border border-brand-primary hover:bg-gray-7 hover:border-gray-7 hover:text-white duration-300 active:border-black mb-1 font-bold max-w-[300px] mx-auto'
           type='submit'
-          onClick={isEdit ? updateApplication : createApplication}>
+          onClick={handleSubmit}>
           {isEdit ? 'Edit Application' : 'Create Application'}
         </button>
         
