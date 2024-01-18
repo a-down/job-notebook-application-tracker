@@ -34,11 +34,11 @@ export default function Header({ isDark, activePage }) {
             <Link href="/about" className={linkColor} style={{transitionDuration: '.3s'}}>About</Link>
           )}
 
-          {/* {activePage === 'tryit' ? (
-            <Link href="/tryit" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>Try It</Link>
+          {activePage === 'try-it' ? (
+            <Link href="/try-it" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>Try It</Link>
           ) : (
-            <Link href="/tryit" className={linkColor} style={{transitionDuration: '.3s'}}>Try It</Link>
-          )} */}
+            <Link href="/try-it" className={linkColor} style={{transitionDuration: '.3s'}}>Try It</Link>
+          )}
 
           {activePage === 'dashboard' ? (
             <Link href="/dashboard" className='text-brand-primary hover:text-brand-soft' style={{transitionDuration: '.3s'}}>Dashboard</Link>
